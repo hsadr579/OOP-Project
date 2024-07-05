@@ -22,8 +22,8 @@ public class Board {
     public Board(String player1, String player2) {
         this.player1 = player1;
         this.player2 = player2;
-        this.player1_gap = Useful.getRandomNumber(1,21);
-        this.player2_gap = Useful.getRandomNumber(1,21);
+        this.player1_gap = Utils.getRandomNumber(1,21);
+        this.player2_gap = Utils.getRandomNumber(1,21);
     }
 
     public void placeCard(String card_id ,int place, int player){
