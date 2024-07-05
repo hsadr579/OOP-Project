@@ -19,9 +19,9 @@ public class DB {
     //                          USERS
     // ===========================================================
 
-    public static void createUser(String username, String password, String password_question, String email) {
-        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `password_question`, `email`, `nickname`, `xp`, `coins`, `clan_id`) VALUES";
-        sql += "(NULL, '" + username + "', '" + password + "' , '" + password_question + "', '" + email + "', '0', '0', '0', NULL)";
+    public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
+        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`) VALUES";
+        sql += "(NULL, '" + username + "', '" + password + "' , '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '0', '0', '0', NULL)";
         command(sql);
     }
 
