@@ -15,8 +15,8 @@ public class Board {
     private int player2_gap;
     private ArrayList<String> player1_cards;
     private ArrayList<String> player2_cards;
-    private ArrayList<String> player1_board;
-    private ArrayList<String> player2_board;
+    private Cell[] player1_board;
+    private Cell[] player2_board;
 
 
     public Board(String player1, String player2) {
@@ -27,11 +27,31 @@ public class Board {
     }
 
     public void placeCard(String card_id ,int place, int player){
+        int duration = 1;
+        int damage = 1;
+        int defence = 1;
         if (player==1){
-
+            for (int i=place-1;i<place+duration-1;i++){
+                if (i==player1_gap-1){
+                    System.out.println("You cannot do this because of the gap!");
+                    return;
+                }
+                player1_board[i] = new Cell((int)damage/duration,defence,card_id);
+            }
         }
         else {
-
+            for (int i=place-1;i<place+duration-1;i++){
+                if (i==player2_gap-1){
+                    System.out.println("You cannot do this because of the gap!");
+                    return;
+                }
+                player2_board[i] = new Cell((int)damage/duration,defence,card_id);
+            }
         }
+    }
+
+    public void showBoard(){
+        for
+        System.out.print();
     }
 }
