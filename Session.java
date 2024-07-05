@@ -2,7 +2,7 @@ public class Session {
     private static Session instance;
 
     private String current_menu;
-    private int logged_user_id;
+    private int logged_user_id = -1;
 
     private Session() {}
 
