@@ -1,7 +1,6 @@
 import java.util.regex.Matcher;
 
-import core.Menus;
-import core.Session;
+import core.*;
 
 class RegexManager {
     static String input;
@@ -97,6 +96,10 @@ public class MenuController {
     }
 
     private void profileMenu() {
+        if (RegexManager.matches(Regex.BACK)) {
+            back();
+            return;
+        }
         if (RegexManager.matches(Regex.SHOW_INFORMATION)) {
             showInfo();
             return;
@@ -201,9 +204,17 @@ public class MenuController {
             showAllUsers();
             return;
         }
+        if (RegexManager.matches(Regex.LOGOUT)) {
+            logout();
+            return;
+        }
     }
 
     private void historyMenu() {
+        if (RegexManager.matches(Regex.BACK)) {
+            back();
+            return;
+        }
         if (RegexManager.matches(Regex.SORT)) {
             sort();
             return;
@@ -325,6 +336,7 @@ public class MenuController {
         email = RegexManager.get("email");
         nickname = RegexManager.get("nickname");
         // call...
+
     }
 
     private void pickQuestion() {
@@ -342,16 +354,19 @@ public class MenuController {
         password = RegexManager.get("password");
 
         // call...
+        Auth.login(userName, password);
     }
 
     private void forgetPassword() {
         String userName;
         userName = RegexManager.get("username");
         // call...
+        Auth.forgotPassword(userName);
     }
 
     private void logout() {
         // call...
+        Auth.logout();
     }
 
     private void showInfo() {
