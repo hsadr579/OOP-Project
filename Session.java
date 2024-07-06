@@ -3,7 +3,7 @@ public class Session {
 
     private Menus current_menu;
     private Menus previous_menu;
-    private int logged_user_id;
+    private int logged_user_id = -1;
     private boolean killed = false;
 
     private Session() {
