@@ -47,8 +47,11 @@ public class MenuController {
             case Menus.ADMIN -> adminMenu();
             case Menus.HISTORY -> historyMenu();
             case Menus.MODE -> modeMenu();
-            case Menus.MULTI_PLAYER_MODE -> multiplayerModeMenu();
-            case Menus.SINGLE_PLAYER_MODE -> singlePlayerModeMenu();
+            case Menus.MULTI_PLAYER_MODE_LOGIN -> multiplayerModeMenuLoginLevel();
+            case Menus.MULTI_PLAYER_MODE_CHARACTER -> multiplayerModeMenuCharacterLevel();
+            case Menus.MULTI_PLAYER_MODE_GAME -> multiplayerModeMenuGameLevel();
+            case Menus.SINGLE_PLAYER_MODE_CHARACTER -> singlePlayerModeMenuCharacterLevel();
+            case Menus.SINGLE_PLAYER_MODE_GAME -> singlePlayerModeMenuGameLevel();
             case Menus.MY_CLAN -> myClanMenu();
             case Menus.JOIN_CLAN -> joinClanModeMenu();
             case Menus.CREATE_CLAN -> createClanModeMenu();
@@ -64,57 +67,57 @@ public class MenuController {
 
     private void signUpMenu() {
         if (RegexManager.matches(Regex.CREATE_NEW_USER)) {
-
+            createNewUser();
             return;
         }
         if (RegexManager.matches(Regex.CREATE_NEW_USER_WITH_RANDOM_PASSWORD)) {
-
+            createNewUserWithRandomPassword();
             return;
         }
         if (RegexManager.matches(Regex.LOGIN)) {
-
+            login();
             return;
         }
         if (RegexManager.matches(Regex.FORGOT_PASSWORD)) {
-
+            forgetPassword();
             return;
         }
         if (RegexManager.matches(Regex.LOGOUT)) {
-
+            logout();
             return;
         }
         if (RegexManager.matches(Regex.LOGIN_ADMIN)) {
-
+            loginAdmin();
             return;
         }
     }
 
     private void securityQuestion() {
         if (RegexManager.matches(Regex.PICK_QUESTION)) {
-
+            pickQuestion();
             return;
         }
     }
 
     private void profileMenu() {
         if (RegexManager.matches(Regex.SHOW_INFORMATION)) {
-
+            showInfo();
             return;
         }
         if (RegexManager.matches(Regex.CHANGE_USERNAME)) {
-
+            changeUsername();
             return;
         }
         if (RegexManager.matches(Regex.CHANGE_NICKNAME)) {
-
+            changeNickname();
             return;
         }
         if (RegexManager.matches(Regex.CHANGE_EMAIL)) {
-
+            changeEmail();
             return;
         }
         if (RegexManager.matches(Regex.CHANGE_PASSWORD)) {
-
+            changePassword();
             return;
         }
 
@@ -126,31 +129,31 @@ public class MenuController {
             return;
         }
         if (RegexManager.matches(Regex.SHOW_MY_CARDS)) {
-
+            showMyCards();
             return;
         }
         if (RegexManager.matches(Regex.SHOW_HISTORY)) {
-
+            showHistory();
             return;
         }
         if (RegexManager.matches(Regex.GO_TO_SHOP)) {
-
+            goShopMenu();
             return;
         }
         if (RegexManager.matches(Regex.GO_TO_PROFILE)) {
-
+            goProfileMenu();
             return;
         }
         if (RegexManager.matches(Regex.MY_CLAN_MENU)) {
-
+            myClanMenu();
             return;
         }
         if (RegexManager.matches(Regex.JOIN_CLAN_MENU)) {
-
+            joinClanModeMenu();
             return;
         }
         if (RegexManager.matches(Regex.CREATE_CLAN_MENU)) {
-
+            createClanModeMenu();
             return;
         }
 
@@ -158,22 +161,22 @@ public class MenuController {
 
     private void shopMenu() {
         if (RegexManager.matches(Regex.BACK)) {
-
+            back();
             return;
         }
         if (RegexManager.matches(Regex.BUY_CARD)) {
-
+            buyCard();
             return;
         }
         if (RegexManager.matches(Regex.UPGRADE_CARD)) {
-
+            upgradeCard();
             return;
         }
     }
 
     private void modeMenu() {
         if (RegexManager.matches(Regex.SELECT_MODE)) {
-
+            modeSelect();
             return;
         }
 
@@ -182,77 +185,92 @@ public class MenuController {
     private void adminMenu() {
 
         if (RegexManager.matches(Regex.ADD_CARD)) {
-
+            addNewCard();
             return;
         }
         if (RegexManager.matches(Regex.EDIT_CARD)) {
-
+            editCard();
             return;
         }
         if (RegexManager.matches(Regex.EDIT_CARD_FIELD)) {
-
+            editCardField();
             return;
         }
         if (RegexManager.matches(Regex.REMOVE_CARD)) {
-
+            removeCard();
             return;
         }
         if (RegexManager.matches(Regex.SHOW_ALL_USERS)) {
-
+            showAllUsers();
             return;
         }
     }
 
     private void historyMenu() {
         if (RegexManager.matches(Regex.SORT)) {
-
+            sort();
             return;
         }
         if (RegexManager.matches(Regex.GO_TO_NEXT_PAGE)) {
-
+            nextPage();
             return;
         }
         if (RegexManager.matches(Regex.GO_TO_PREVIOUS_PAGE)) {
-
+            previousPage();
             return;
         }
         if (RegexManager.matches(Regex.GO_TO_PAGE_NUMBER)) {
-
+            goPageNumber();
             return;
         }
     }
 
-    private void multiplayerModeMenu() {
+    private void multiplayerModeMenuLoginLevel() {
         if (RegexManager.matches(Regex.LOGIN_PLAYER_TWO)) {
-
+            loginPlayerTwo();
             return;
         }
+
+    }
+
+    private void multiplayerModeMenuCharacterLevel() {
+
         if (RegexManager.matches(Regex.SELECT_CHARACTER_M)) {
-
+            selectCharacterMultiplayer();
             return;
         }
-        if (RegexManager.matches(Regex.SELECT_CARD_M)) {
 
+    }
+
+    private void multiplayerModeMenuGameLevel() {
+
+        if (RegexManager.matches(Regex.SELECT_CARD_M)) {
+            selectCardMultiplayer();
             return;
         }
         if (RegexManager.matches(Regex.PLACE_CARD_M)) {
-
+            placeCardMultiplayer();
             return;
         }
     }
 
-    private void singlePlayerModeMenu() {
+    private void singlePlayerModeMenuCharacterLevel() {
 
         if (RegexManager.matches(Regex.SELECT_CHARACTER)) {
-
+            selectCharacterSinglePlayer();
             return;
         }
-        if (RegexManager.matches(Regex.SELECT_CARD)) {
 
+    }
+
+    private void singlePlayerModeMenuGameLevel() {
+
+        if (RegexManager.matches(Regex.SELECT_CARD)) {
+            selectCardSinglePlayer();
             return;
         }
         if (RegexManager.matches(Regex.PLACE_CARD)) {
-
+            placeCardSinglePlayer();
             return;
         }
     }
@@ -398,6 +416,12 @@ public class MenuController {
         // call...
     }
 
+    private void upgradeCard() {
+        int ID;
+        ID = Integer.valueOf(RegexManager.get("id"));
+        // call...
+    }
+
     private void sort() {
         // call...
     }
@@ -478,7 +502,7 @@ public class MenuController {
         // call...
     }
 
-    private void selectChracterMultiplayer() {
+    private void selectCharacterMultiplayer() {
         String player;
         player = RegexManager.get("player");
         int number;
@@ -502,21 +526,21 @@ public class MenuController {
         // call...
     }
 
-    private void selectChractersiglePlayer() {
+    private void selectCharacterSinglePlayer() {
 
         int number;
         number = Integer.valueOf(RegexManager.get("number"));
         // call...
     }
 
-    private void selectCardSingleplayer() {
+    private void selectCardSinglePlayer() {
         int id;
         id = Integer.valueOf(RegexManager.get("id"));
 
         // call...
     }
 
-    private void placeCardSingleplayer() {
+    private void placeCardSinglePlayer() {
         int id;
         id = Integer.valueOf(RegexManager.get("id"));
         int block;
