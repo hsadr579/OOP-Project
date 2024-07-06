@@ -400,6 +400,7 @@ public class MenuController {
 
     private void goShopMenu() {
         // call...
+
     }
 
     private void goProfileMenu() {

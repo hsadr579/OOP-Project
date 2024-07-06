@@ -1,8 +1,9 @@
 public class Auth {
 
     // register
-    public static void register(String username, String password, int security_question_id, String security_question_answer, String email) {
-        
+    public static void register(String username, String password, int security_question_id,
+            String security_question_answer, String email) {
+
         if (Session.getInstance().getLoggedUser() != -1) {
             System.out.println("You are already logged in!");
             return;
@@ -28,7 +29,8 @@ public class Auth {
         int lastFailedLogin = failedLoginData[1];
         int current_timestamp = (int) (System.currentTimeMillis() / 1000);
         if (current_timestamp < lastFailedLogin + 5 * loginFailNumber) {
-            System.out.println("Try again in " + (lastFailedLogin + 5 * loginFailNumber - current_timestamp) + " seconds!");
+            System.out.println(
+                    "Try again in " + (lastFailedLogin + 5 * loginFailNumber - current_timestamp) + " seconds!");
             return;
         }
 
@@ -46,7 +48,7 @@ public class Auth {
             current_timestamp = (int) (System.currentTimeMillis() / 1000);
             DB.updateLastFailedLogin(username, current_timestamp);
         }
-    }   
+    }
 
     // logout
 
@@ -59,7 +61,8 @@ public class Auth {
         Session.getInstance().setCurrentMenu("login menu");
     }
 
-    // forgot password (asks security question and if the answer matches, resets the password)
+    // forgot password (asks security question and if the answer matches, resets the
+    // password)
     public static void forgotPassword(String username) {
         if (Session.getInstance().getLoggedUser() != -1) {
             System.out.println("You are already logged in!");
@@ -80,13 +83,12 @@ public class Auth {
         // String answer = new Scanner(System.in).nextLine();
 
         // if (answer.equals(securityQuestionAnswer)) {
-        //     System.out.print("Enter new password: ");
-        //     String newPassword = new Scanner(System.in).nextLine();
-        //     DB.updatePassword(username, newPassword);
+        // System.out.print("Enter new password: ");
+        // String newPassword = new Scanner(System.in).nextLine();
+        // DB.updatePassword(username, newPassword);
         // } else {
-        //     System.out.println("Answer is incorrect!");
+        // System.out.println("Answer is incorrect!");
         // }
-    } 
+    }
 
-    
 }
