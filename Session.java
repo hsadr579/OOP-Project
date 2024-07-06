@@ -1,10 +1,15 @@
 public class Session {
     private static Session instance;
 
-    private String current_menu;
+    private Menus current_menu;
+    private Menus previous_menu;
     private int logged_user_id;
+    private boolean killed = false;
 
-    private Session() {}
+    private Session() {
+        current_menu = Menus.SIGN_UP;
+        previous_menu = null;
+    }
 
     public static synchronized Session getInstance() {
         if (instance == null) {
@@ -13,11 +18,20 @@ public class Session {
         return instance;
     }
 
-    public String getCurrentMenu() {
+    public boolean isKilled() {
+        return killed;
+    }
+
+    public Menus getCurrentMenu() {
         return current_menu;
     }
 
-    public void setCurrentMenu(String current_menu) {
+    public Menus getPreviousMenu() {
+        return current_menu;
+    }
+
+    public void setCurrentMenu(Menus current_menu) {
+        previous_menu = current_menu;
         this.current_menu = current_menu;
     }
 
