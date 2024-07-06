@@ -1,3 +1,5 @@
+package core;
+
 public enum Outputs {
     // ##################### user creating #####################
     SUCCESS_CREATE_USER("""
@@ -57,6 +59,10 @@ public enum Outputs {
 
     Outputs(String pattern) {
         this.pattern = pattern;
+    }
+
+    public String get() {
+        return pattern;
     }
 
 }

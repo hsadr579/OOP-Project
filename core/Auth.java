@@ -1,3 +1,6 @@
+
+package core;
+
 public class Auth {
 
     // register
@@ -5,14 +8,14 @@ public class Auth {
             String security_question_answer, String email) {
 
         if (Session.getInstance().getLoggedUser() != -1) {
-            System.out.println("You are already logged in!");
+            Session.getInstance().setOutput("You are already logged in!");
             return;
         }
 
         if (!DB.usernameExists(username)) {
             DB.createUser(username, password, security_question_id, security_question_answer, email);
         } else {
-            System.out.println("Username already exists");
+            Session.getInstance().setOutput("Username already exists");
         }
     }
 
@@ -20,7 +23,7 @@ public class Auth {
     public static void login(String username, String password) {
 
         if (Session.getInstance().getLoggedUser() != -1) {
-            System.out.println("You are already logged in!");
+            Session.getInstance().setOutput("You are already logged in!");
             return;
         }
 
@@ -29,22 +32,22 @@ public class Auth {
         int lastFailedLogin = failedLoginData[1];
         int current_timestamp = (int) (System.currentTimeMillis() / 1000);
         if (current_timestamp < lastFailedLogin + 5 * loginFailNumber) {
-            System.out.println(
+            Session.getInstance().setOutput(
                     "Try again in " + (lastFailedLogin + 5 * loginFailNumber - current_timestamp) + " seconds!");
             return;
         }
 
         if (!DB.usernameExists(username)) {
-            System.out.println("Username doesn't exist!");
+            Session.getInstance().setOutput("Username doesn't exist!");
             return;
         }
 
         if (DB.login(username, password)) {
             Session.getInstance().setLoggedUser(DB.getUserId(username));
-            Session.getInstance().setCurrentMenu("main menu");
+            Session.getInstance().setCurrentMenu(Menus.MAIN);
             DB.resetFailedLoginNumber(username);
         } else {
-            System.out.println("Password and Username don't match!");
+            Session.getInstance().setOutput("Password and Username don't match!");
             current_timestamp = (int) (System.currentTimeMillis() / 1000);
             DB.updateLastFailedLogin(username, current_timestamp);
         }
@@ -54,23 +57,23 @@ public class Auth {
 
     public static void logout() {
         if (Session.getInstance().getLoggedUser() == -1) {
-            System.out.println("You are not logged in!");
+            Session.getInstance().setOutput("You are not logged in!");
             return;
         }
         Session.getInstance().setLoggedUser(-1);
-        Session.getInstance().setCurrentMenu("login menu");
+
     }
 
     // forgot password (asks security question and if the answer matches, resets the
     // password)
     public static void forgotPassword(String username) {
         if (Session.getInstance().getLoggedUser() != -1) {
-            System.out.println("You are already logged in!");
+            Session.getInstance().setOutput("You are already logged in!");
             return;
         }
 
         if (!DB.usernameExists(username)) {
-            System.out.println("Username doesn't exist!");
+            Session.getInstance().setOutput("Username doesn't exist!");
             return;
         }
 
@@ -78,7 +81,7 @@ public class Auth {
         String securityQuestion = securityQuestionData[0];
         String securityQuestionAnswer = securityQuestionData[1];
 
-        // System.out.println("Security Question: " + securityQuestion);
+        // Session.getInstance().setOutput("Security Question: " + securityQuestion);
         // System.out.print("Answer: ");
         // String answer = new Scanner(System.in).nextLine();
 
@@ -87,7 +90,7 @@ public class Auth {
         // String newPassword = new Scanner(System.in).nextLine();
         // DB.updatePassword(username, newPassword);
         // } else {
-        // System.out.println("Answer is incorrect!");
+        // Session.getInstance().setOutput("Answer is incorrect!");
         // }
     }
 

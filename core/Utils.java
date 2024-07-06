@@ -1,3 +1,5 @@
+package core;
+
 import java.util.Random;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -60,5 +62,4 @@ public class Utils {
         return sb.toString();
     }
 
-    
 }

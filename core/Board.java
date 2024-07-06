@@ -1,3 +1,5 @@
+package core;
+
 import java.util.ArrayList;
 
 public class Board {
@@ -18,7 +20,8 @@ public class Board {
     private Cell[] player1_board;
     private Cell[] player2_board;
 
-    public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp, int player2_hp, ArrayList<String> player1_cards, ArrayList<String> player2_cards) {
+    public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
+            int player2_hp, ArrayList<String> player1_cards, ArrayList<String> player2_cards) {
         this.player1 = player1;
         this.player2 = player2;
         this.player1_char = player1_char;
@@ -27,131 +30,142 @@ public class Board {
         this.player2_hp = player2_hp;
         this.player1_cards = player1_cards;
         this.player2_cards = player2_cards;
-        this.player1_gap = Utils.getRandomNumber(1,21);
-        this.player2_gap = Utils.getRandomNumber(1,21);
+        this.player1_gap = Utils.getRandomNumber(1, 21);
+        this.player2_gap = Utils.getRandomNumber(1, 21);
     }
 
-//    public Board(String player1, String player2) {
-//        this.player1 = player1;
-//        this.player2 = player2;
-//        this.player1_gap = Utils.getRandomNumber(1,21);
-//        this.player2_gap = Utils.getRandomNumber(1,21);
-//    }
-    public void newTurn(){
+    // public Board(String player1, String player2) {
+    // this.player1 = player1;
+    // this.player2 = player2;
+    // this.player1_gap = Utils.getRandomNumber(1,21);
+    // this.player2_gap = Utils.getRandomNumber(1,21);
+    // }
+    public void newTurn() {
         setPlayer1_turn(4);
         setPlayer2_turn(4);
     }
-    public void placeCard(String card_id ,int place, int player){
+
+    public void placeCard(String card_id, int place, int player) {
         int duration = 1;////////////////////////////////////////////////////////
         int damage = 1;////////////////////////////////////////////////////////
         int defence = 1;////////////////////////////////////////////////////////
-        if (player==1){
-            for (int i=place-1;i<place+duration-1;i++){
-                if (i==player1_gap-1){
+        if (player == 1) {
+            for (int i = place - 1; i < place + duration - 1; i++) {
+                if (i == player1_gap - 1) {
                     System.out.println("You cannot do this because of the gap!");
                     return;
                 }
-                player1_board[i] = new Cell((int)damage/duration,defence,card_id,true);
+                player1_board[i] = new Cell((int) damage / duration, defence, card_id, true);
             }
-        }
-        else {
-            for (int i=place-1;i<place+duration-1;i++){
-                if (i==player2_gap-1){
+        } else {
+            for (int i = place - 1; i < place + duration - 1; i++) {
+                if (i == player2_gap - 1) {
                     System.out.println("You cannot do this because of the gap!");
                     return;
                 }
-                player2_board[i] = new Cell((int)damage/duration,defence,card_id,true);
+                player2_board[i] = new Cell((int) damage / duration, defence, card_id, true);
             }
         }
     }
-    public void checkActivation(){
-        for (int i=0;i<21;i++){
-            if (player1_board[i].getDefence()>player2_board[i].getDefence()){
+
+    public void checkActivation() {
+        for (int i = 0; i < 21; i++) {
+            if (player1_board[i].getDefence() > player2_board[i].getDefence()) {
                 player2_board[i].setActive(false);
             }
-            if (player1_board[i].getDefence()<player2_board[i].getDefence()){
+            if (player1_board[i].getDefence() < player2_board[i].getDefence()) {
                 player1_board[i].setActive(false);
-            }
-            else {
+            } else {
                 player1_board[i].setActive(false);
                 player2_board[i].setActive(false);
             }
         }
     }
 
-    public void calculateDamage(){
-        for (Cell cell : player1_board){
-            if (cell!=null && cell.isActive()) player1_dmg+=cell.getDamage();
+    public void calculateDamage() {
+        for (Cell cell : player1_board) {
+            if (cell != null && cell.isActive())
+                player1_dmg += cell.getDamage();
         }
-        for (Cell cell : player2_board){
-            if (cell!=null && cell.isActive()) player2_dmg+=cell.getDamage();
+        for (Cell cell : player2_board) {
+            if (cell != null && cell.isActive())
+                player2_dmg += cell.getDamage();
         }
     }
 
-    public void timeLine(){
-        player1_hp-=player2_dmg;
-        player2_hp-=player1_dmg;
+    public void timeLine() {
+        player1_hp -= player2_dmg;
+        player2_hp -= player1_dmg;
         setPlayer1_dmg(0);
         setPlayer2_dmg(0);
-        if (player1_hp<=0){
+        if (player1_hp <= 0) {
 
-        }
-        else if (player2_hp<=0) {
+        } else if (player2_hp <= 0) {
 
         }
         newTurn();
     }
-    public void showBoard(){
+
+    public void showBoard() {
         checkActivation();
         calculateDamage();
-    //####### player1 information #######\\
-        System.out.println("Player 1: "+player1+" "+player1_char+" HP :"+player1_hp+" DMG :"+player1_dmg+" Turn: "+player1_turn);
-    //####### player1 cards #######\\
+        // ####### player1 information #######\\
+        System.out.println("Player 1: " + player1 + " " + player1_char + " HP :" + player1_hp + " DMG :" + player1_dmg
+                + " Turn: " + player1_turn);
+        // ####### player1 cards #######\\
         ////////////////////////////////////////////////////////
-    //####### cells #######\\
-        for (int i=0;i<21*6+1;i++){
+        // ####### cells #######\\
+        for (int i = 0; i < 21 * 6 + 1; i++) {
             System.out.print("_");
         }
         System.out.println();
 
-        for (Cell cell : player1_board){
-            if (cell.isActive()) System.out.print("|"+cell.getDamage()+"|"+cell.getDefence());
-            else System.out.print("|##|##");
+        for (Cell cell : player1_board) {
+            if (cell.isActive())
+                System.out.print("|" + cell.getDamage() + "|" + cell.getDefence());
+            else
+                System.out.print("|##|##");
         }
         System.out.println("|");
-        for (Cell cell : player1_board){
-            if (cell.isActive()) System.out.print("|  "+cell.getId()+"  ");
-            else System.out.print("|  ##  ");
+        for (Cell cell : player1_board) {
+            if (cell.isActive())
+                System.out.print("|  " + cell.getId() + "  ");
+            else
+                System.out.print("|  ##  ");
         }
         System.out.println("|");
 
-        for (int i=0;i<21*6+1;i++){
+        for (int i = 0; i < 21 * 6 + 1; i++) {
             System.out.print("=");
         }
         System.out.println();
 
-        for (Cell cell : player2_board){
-            if (cell.isActive()) System.out.print("|"+cell.getDamage()+"|"+cell.getDefence());
-            else System.out.print("|##|##");
+        for (Cell cell : player2_board) {
+            if (cell.isActive())
+                System.out.print("|" + cell.getDamage() + "|" + cell.getDefence());
+            else
+                System.out.print("|##|##");
         }
         System.out.println("|");
-        for (Cell cell : player2_board){
-            if (cell.isActive()) System.out.print("|  "+cell.getId()+"  ");
-            else System.out.print("|  ##  ");
+        for (Cell cell : player2_board) {
+            if (cell.isActive())
+                System.out.print("|  " + cell.getId() + "  ");
+            else
+                System.out.print("|  ##  ");
         }
         System.out.println("|");
 
-        for (int i=0;i<21*6+1;i++){
+        for (int i = 0; i < 21 * 6 + 1; i++) {
             System.out.print("_");
         }
         System.out.println();
 
-    //####### player2 cards #######\\
+        // ####### player2 cards #######\\
         ////////////////////////////////////////////////////////
-    //####### player2 information #######\\
-        System.out.println("Player 2: "+player2+" "+player2_char+" HP :"+player2_hp+" DMG :"+player2_dmg+" Turn: "+player2_turn);
+        // ####### player2 information #######\\
+        System.out.println("Player 2: " + player2 + " " + player2_char + " HP :" + player2_hp + " DMG :" + player2_dmg
+                + " Turn: " + player2_turn);
     }
-
 
     public String getPlayer1_char() {
         return player1_char;

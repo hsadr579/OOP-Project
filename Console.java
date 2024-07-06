@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import core.Session;
+
 public class Console {
     Scanner scanner;
     String command;
@@ -20,7 +22,8 @@ public class Console {
         while (!Session.getInstance().isKilled()) {
             command = scanner.nextLine();
             menus.input(command);
-            output = menus.output();
+            output = Session.getInstance().getOutput();
+            Session.getInstance().setOutput("");
             printOutput();
         }
     }

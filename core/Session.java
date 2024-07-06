@@ -1,3 +1,5 @@
+package core;
+
 public class Session {
     private static Session instance;
 
@@ -5,6 +7,19 @@ public class Session {
     private Menus previous_menu;
     private int logged_user_id = -1;
     private boolean killed = false;
+    private String output = "";
+
+    public void setOutput(Outputs o) {
+        output = o.get();
+    }
+
+    public void setOutput(String s) {
+        output = s;
+    }
+
+    public String getOutput() {
+        return output;
+    }
 
     private Session() {
         current_menu = Menus.SIGN_UP;

@@ -1,5 +1,8 @@
 import java.util.regex.Matcher;
 
+import core.Menus;
+import core.Session;
+
 class RegexManager {
     static String input;
     static Matcher matcher;
@@ -27,19 +30,17 @@ class RegexManager {
 }
 
 public class MenuController {
-    private Menus currentMenu;
+
     private String command;
-    private String output;
 
     public MenuController() {
 
-        currentMenu = Menus.SIGN_UP;
     }
 
     public void input(String command) {
         this.command = command;
         RegexManager.setInput(command);
-        switch (currentMenu) {
+        switch (core.Session.getInstance().getCurrentMenu()) {
             case Menus.SIGN_UP -> signUpMenu();
             case Menus.PROFILE -> profileMenu();
             case Menus.MAIN -> mainMenu();
@@ -58,10 +59,6 @@ public class MenuController {
             case Menus.SECURITY_QUESTION -> securityQuestion();
 
         }
-    }
-
-    public String output() {
-        return output;
 
     }
 
