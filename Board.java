@@ -18,14 +18,29 @@ public class Board {
     private Cell[] player1_board;
     private Cell[] player2_board;
 
-
-    public Board(String player1, String player2) {
+    public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp, int player2_hp, ArrayList<String> player1_cards, ArrayList<String> player2_cards) {
         this.player1 = player1;
         this.player2 = player2;
+        this.player1_char = player1_char;
+        this.player2_char = player2_char;
+        this.player1_hp = player1_hp;
+        this.player2_hp = player2_hp;
+        this.player1_cards = player1_cards;
+        this.player2_cards = player2_cards;
         this.player1_gap = Utils.getRandomNumber(1,21);
         this.player2_gap = Utils.getRandomNumber(1,21);
     }
 
+//    public Board(String player1, String player2) {
+//        this.player1 = player1;
+//        this.player2 = player2;
+//        this.player1_gap = Utils.getRandomNumber(1,21);
+//        this.player2_gap = Utils.getRandomNumber(1,21);
+//    }
+    public void newTurn(){
+        setPlayer1_turn(4);
+        setPlayer2_turn(4);
+    }
     public void placeCard(String card_id ,int place, int player){
         int duration = 1;////////////////////////////////////////////////////////
         int damage = 1;////////////////////////////////////////////////////////
@@ -36,7 +51,7 @@ public class Board {
                     System.out.println("You cannot do this because of the gap!");
                     return;
                 }
-                player1_board[i] = new Cell((int)damage/duration,defence,card_id);
+                player1_board[i] = new Cell((int)damage/duration,defence,card_id,true);
             }
         }
         else {
@@ -45,12 +60,50 @@ public class Board {
                     System.out.println("You cannot do this because of the gap!");
                     return;
                 }
-                player2_board[i] = new Cell((int)damage/duration,defence,card_id);
+                player2_board[i] = new Cell((int)damage/duration,defence,card_id,true);
+            }
+        }
+    }
+    public void checkActivation(){
+        for (int i=0;i<21;i++){
+            if (player1_board[i].getDefence()>player2_board[i].getDefence()){
+                player2_board[i].setActive(false);
+            }
+            if (player1_board[i].getDefence()<player2_board[i].getDefence()){
+                player1_board[i].setActive(false);
+            }
+            else {
+                player1_board[i].setActive(false);
+                player2_board[i].setActive(false);
             }
         }
     }
 
+    public void calculateDamage(){
+        for (Cell cell : player1_board){
+            if (cell!=null && cell.isActive()) player1_dmg+=cell.getDamage();
+        }
+        for (Cell cell : player2_board){
+            if (cell!=null && cell.isActive()) player2_dmg+=cell.getDamage();
+        }
+    }
+
+    public void timeLine(){
+        player1_hp-=player2_dmg;
+        player2_hp-=player1_dmg;
+        setPlayer1_dmg(0);
+        setPlayer2_dmg(0);
+        if (player1_hp<=0){
+
+        }
+        else if (player2_hp<=0) {
+
+        }
+        newTurn();
+    }
     public void showBoard(){
+        checkActivation();
+        calculateDamage();
     //####### player1 information #######\\
         System.out.println("Player 1: "+player1+" "+player1_char+" HP :"+player1_hp+" DMG :"+player1_dmg+" Turn: "+player1_turn);
     //####### player1 cards #######\\
@@ -62,11 +115,13 @@ public class Board {
         System.out.println();
 
         for (Cell cell : player1_board){
-            System.out.print("|"+cell.getDamage()+"|"+cell.getDefence());
+            if (cell.isActive()) System.out.print("|"+cell.getDamage()+"|"+cell.getDefence());
+            else System.out.print("|##|##");
         }
         System.out.println("|");
         for (Cell cell : player1_board){
-            System.out.print("|  "+cell.getId()+"  ");
+            if (cell.isActive()) System.out.print("|  "+cell.getId()+"  ");
+            else System.out.print("|  ##  ");
         }
         System.out.println("|");
 
@@ -76,11 +131,13 @@ public class Board {
         System.out.println();
 
         for (Cell cell : player2_board){
-            System.out.print("|"+cell.getDamage()+"|"+cell.getDefence());
+            if (cell.isActive()) System.out.print("|"+cell.getDamage()+"|"+cell.getDefence());
+            else System.out.print("|##|##");
         }
         System.out.println("|");
         for (Cell cell : player2_board){
-            System.out.print("|  "+cell.getId()+"  ");
+            if (cell.isActive()) System.out.print("|  "+cell.getId()+"  ");
+            else System.out.print("|  ##  ");
         }
         System.out.println("|");
 
