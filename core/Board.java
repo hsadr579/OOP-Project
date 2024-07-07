@@ -61,6 +61,8 @@ public class Board {
                 }
                 player1_board[i] = new Cell((int) damage / duration, defence, card_id, true);
             }
+            player1_hand.remove(card_id);
+            addToHand(1);
         } else {
             for (int i = place - 1; i < place + duration - 1; i++) {
                 if (i == player2_gap - 1) {
@@ -69,6 +71,8 @@ public class Board {
                 }
                 player2_board[i] = new Cell((int) damage / duration, defence, card_id, true);
             }
+            player1_hand.remove(card_id);
+            addToHand(2);
         }
     }
 
@@ -108,14 +112,38 @@ public class Board {
     public int DefeatXPCalculate(int hp,int level){
         return (level)*10-hp;
     }
-    public static void shuffleCards(String[] arr) {
+    public void shuffleCards(ArrayList<String> arr) {
         Random rand = new Random();
-        int n = arr.length;
+        int n = arr.size();
         for (int i = n - 1; i > 0; i--) {
             int j = rand.nextInt(i + 1);
-            String temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
+            String temp = arr.get(i);
+            arr.set(i, arr.get(j));
+            arr.set(j, temp);
+        }
+    }
+    public void firstHand(){
+        shuffleCards(player1_cards);
+        shuffleCards(player2_cards);
+        for (int i=0;i<5;i++){
+            player1_hand.add(player1_cards.get(i));
+            player2_hand.add(player2_cards.get(i));
+        }
+        for (int i=0;i<5;i++){
+            player1_cards.removeFirst();
+            player1_cards.removeFirst();
+        }
+    }
+    public void addToHand(int player){
+        shuffleCards(player1_cards);
+        shuffleCards(player2_cards);
+        if (player == 1){
+            player1_hand.add(player1_cards.getFirst());
+            player1_cards.removeFirst();
+        }
+        else {
+            player2_hand.add(player2_cards.getFirst());
+            player2_cards.removeFirst();
         }
     }
     public void timeLine() {
