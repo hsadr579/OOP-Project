@@ -17,6 +17,12 @@ public class Session {
         output = s;
     }
 
+    public void back() {
+        Session.getInstance().setOutput("Back to " + previous_menu.get());
+        current_menu = previous_menu;
+        previous_menu = null;
+    }
+
     public String getOutput() {
         return output;
     }

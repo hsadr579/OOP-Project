@@ -1,5 +1,6 @@
 package core;
 
+import java.security.PublicKey;
 import java.sql.*;
 
 public class DB {
@@ -18,19 +19,54 @@ public class DB {
         }
     }
 
-    public static String[] getUserCardsIDs(String username) {
+    public static int getUserLevel(int userId)
+    {
+
+    }
+
+    public static int getCardUpgradeLevel(int cardId)
+    {
+        //it gets the required level to upgrade a particular card
+    }
+    public static int[] getUserCardsIDs(int id) {
         // getting the ID of all user's cards
     }
 
-    public static Card getCardByID(String ID) {
+    public static Card getCardByID(int ID) {
 
     }
 
-    public static String[] getAllCards() {
+    public static int[] getAllCards() {
 
     }
 
-    public static
+    public static int getUserCoins(int id) {
+
+    }
+
+    public static String getUsernameById(int id) {
+
+    }
+
+    public static int getCardCost(int ID) {
+
+    }
+
+    public static int getLevelUpCardCost(int ID) {
+
+    }
+
+    public static void setUsersCoins(int id, int newCoin) {
+
+    }
+
+    public static void buyCardForUser(int userId, int cardId) {
+
+    }
+
+    public static void upgradeCardForUser(int userId, int cardId) {
+
+    }
     // ===========================================================
     // USERS
     // ===========================================================

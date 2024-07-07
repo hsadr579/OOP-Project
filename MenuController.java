@@ -412,27 +412,31 @@ public class MenuController {
 
     private void goShopMenu() {
         // call...
-
+        Shop.configShop();
     }
 
     private void goProfileMenu() {
         // call...
+
     }
 
     private void back() {
         // call...
+        Session.getInstance().back();
     }
 
     private void buyCard() {
         int ID;
         ID = Integer.valueOf(RegexManager.get("id"));
         // call...
+        Shop.buyCard(ID);
     }
 
     private void upgradeCard() {
         int ID;
         ID = Integer.valueOf(RegexManager.get("id"));
         // call...
+        Shop.upgradeCard(ID);
     }
 
     private void sort() {

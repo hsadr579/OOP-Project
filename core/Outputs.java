@@ -42,13 +42,16 @@ public enum Outputs {
     SUCCESS_GO_TO_SHOP("You are in shop menu!"),
     SUCCESS_GO_TO_PROFILE("You are in profile menu!"),
     // ##################### shop menu #####################
-    SHOP_MENU("You are on shop menu."),
+
     SUCCESS_BUY_CARD("Card buy successfully!"),
     SUCCESS_UPGRADE_CARD("Card upgrade successfully!"),
+    LEVEL_NOT_ENOUGH("Your level is not enough to upgrade this card."),
+    NOT_ENOUGH_COIN_BUY("You don't have enough coin to buy this card"),
+    NOT_ENOUGH_COIN_UPGRADE("You don't have enough coin to upgrade this card"),
     // ##################### history #####################
 
     // ##################### admin menu #####################
-    ADMIN_MENU("You are on admin menu."),
+
     SUCCESS_LOGIN_ADMIN("Admin logged in!"),
     SUCCESS_ADD_CARD("Card added successfully!"),
     SUCCESS_EDIT_CARD_FIELD("Card edited successfully!"),
