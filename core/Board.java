@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Board {
     private String player1;
@@ -17,6 +18,8 @@ public class Board {
     private int player2_gap;
     private ArrayList<String> player1_cards;
     private ArrayList<String> player2_cards;
+    private ArrayList<String> player1_hand;
+    private ArrayList<String> player2_hand;
     private Cell[] player1_board;
     private Cell[] player2_board;
 
@@ -104,6 +107,16 @@ public class Board {
     }
     public int DefeatXPCalculate(int hp,int level){
         return (level)*10-hp;
+    }
+    public static void shuffleCards(String[] arr) {
+        Random rand = new Random();
+        int n = arr.length;
+        for (int i = n - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1);
+            String temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
     }
     public void timeLine() {
         for (int i=0;i<21;i++){
