@@ -9,6 +9,9 @@ public class Card {
     private String explanation;
     private String type;
     private int level;
+    private int cost_buy;
+    private int cost_upg;
+    private int enough_level;
     private String group;
     //private String img;
 
@@ -26,7 +29,16 @@ public class Card {
         this.group = group;
     }
     
-    public String toString() {
-        return "";
+    public String toStringBuy() {
+        if (group.equals("attacker")){
+            return "ID:"+id+" | "+name+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | Price"+cost_buy;
+        }
+        else return "ID:"+id+" | "+name+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | "+explanation+" | Price"+cost_buy;
+    }
+    public String toStringUpgrade() {
+        if (group.equals("attacker")){
+            return "ID:"+id+" | "+name+"+"+level+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | Upgrade for"+cost_upg+" (Just for level+"+enough_level+" players!)";
+        }
+        else return "ID:"+id+" | "+name+"+"+level+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | "+explanation+" | Upgrade for"+cost_upg+" (Just for level+"+enough_level+" players!)";
     }
 }

@@ -18,7 +18,7 @@ public class Shop {
         for (int i : allCards) {
             if (!isIdIn(i)) {
                 j++;
-                output += j + DB.getCardByID(i).toString() + "\n";
+                output += j + DB.getCardByID(i).toStringBuy() + "\n";
             }
 
         }
@@ -27,7 +27,7 @@ public class Shop {
         for (int i : usersCards) {
 
             j++;
-            output += j + DB.getCardByID(i).toString() + "\n";
+            output += j + DB.getCardByID(i).toStringUpgrade() + "\n";
 
         }
         return output;
