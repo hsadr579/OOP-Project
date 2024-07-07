@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Board {
     private String player1;
@@ -17,6 +18,8 @@ public class Board {
     private int player2_gap;
     private ArrayList<String> player1_cards;
     private ArrayList<String> player2_cards;
+    private ArrayList<String> player1_hand;
+    private ArrayList<String> player2_hand;
     private Cell[] player1_board;
     private Cell[] player2_board;
 
@@ -32,6 +35,7 @@ public class Board {
         this.player2_cards = player2_cards;
         this.player1_gap = Utils.getRandomNumber(1, 21);
         this.player2_gap = Utils.getRandomNumber(1, 21);
+        newTurn();
     }
 
     // public Board(String player1, String player2) {
@@ -57,6 +61,8 @@ public class Board {
                 }
                 player1_board[i] = new Cell((int) damage / duration, defence, card_id, true);
             }
+            player1_hand.remove(card_id);
+            addToHand(1);
         } else {
             for (int i = place - 1; i < place + duration - 1; i++) {
                 if (i == player2_gap - 1) {
@@ -65,6 +71,8 @@ public class Board {
                 }
                 player2_board[i] = new Cell((int) damage / duration, defence, card_id, true);
             }
+            player1_hand.remove(card_id);
+            addToHand(2);
         }
     }
 
@@ -92,16 +100,80 @@ public class Board {
                 player2_dmg += cell.getDamage();
         }
     }
-
+    public int victoryCoinCalculate(int hp,int level){
+        return hp*(level/3);
+    }
+    public int victoryXPCalculate(int hp,int level){
+        return hp*(level/2);
+    }
+    public int DefeatCoinCalculate(int hp,int level){
+        return hp*(level/5);
+    }
+    public int DefeatXPCalculate(int hp,int level){
+        return (level)*10-hp;
+    }
+    public void shuffleCards(ArrayList<String> arr) {
+        Random rand = new Random();
+        int n = arr.size();
+        for (int i = n - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1);
+            String temp = arr.get(i);
+            arr.set(i, arr.get(j));
+            arr.set(j, temp);
+        }
+    }
+    public void firstHand(){
+        shuffleCards(player1_cards);
+        shuffleCards(player2_cards);
+        for (int i=0;i<5;i++){
+            player1_hand.add(player1_cards.get(i));
+            player2_hand.add(player2_cards.get(i));
+        }
+        for (int i=0;i<5;i++){
+            player1_cards.removeFirst();
+            player1_cards.removeFirst();
+        }
+    }
+    public void addToHand(int player){
+        shuffleCards(player1_cards);
+        shuffleCards(player2_cards);
+        if (player == 1){
+            player1_hand.add(player1_cards.getFirst());
+            player1_cards.removeFirst();
+        }
+        else {
+            player2_hand.add(player2_cards.getFirst());
+            player2_cards.removeFirst();
+        }
+    }
     public void timeLine() {
-        player1_hp -= player2_dmg;
-        player2_hp -= player1_dmg;
+        for (int i=0;i<21;i++){
+            if (player1_board[i] != null && player1_board[i].isActive()){
+                player2_hp-=player1_board[i].getDamage();
+            }
+            else if (player2_board[i] != null && player2_board[i].isActive()) {
+                player1_hp-=player2_board[i].getDamage();
+            }
+
+            if (player1_hp <= 0) {
+                System.out.println("Game is over! The winner is"+player2+"!");
+                System.out.println(player2+": +"+victoryCoinCalculate(player2_hp,level)+"coin | +"+victoryXPCalculate(player2_hp,level)+"XP");
+                System.out.println(player1+": -"+DefeatCoinCalculate(player2_hp,level)+"coin | +"+DefeatXPCalculate(player2_hp,level)+"XP");
+                /////DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+                return;
+            } else if (player2_hp <= 0) {
+                System.out.println("Game is over! The winner is"+player1+"!");
+                System.out.println(player1+": +"+victoryCoinCalculate(player1_hp,level)+"coin | +"+victoryXPCalculate(player1_hp,level)+"XP");
+                System.out.println(player2+": -"+DefeatCoinCalculate(player1_hp,level)+"coin | +"+DefeatXPCalculate(player1_hp,level)+"XP");
+                /////DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+                return;
+            }
+        }
         setPlayer1_dmg(0);
         setPlayer2_dmg(0);
-        if (player1_hp <= 0) {
-
-        } else if (player2_hp <= 0) {
-
+        for (int i=0;i<21;i++){
+            player1_board[i]=null;
+            player2_board[i]=null;
         }
         newTurn();
     }
