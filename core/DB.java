@@ -18,6 +18,19 @@ public class DB {
         }
     }
 
+    public static String[] getUserCardsIDs(String username) {
+        // getting the ID of all user's cards
+    }
+
+    public static Card getCardByID(String ID) {
+
+    }
+
+    public static String[] getAllCards() {
+
+    }
+
+    public static
     // ===========================================================
     // USERS
     // ===========================================================
