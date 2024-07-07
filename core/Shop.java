@@ -27,7 +27,7 @@ public class Shop {
         for (int i : usersCards) {
 
             j++;
-            output += j + DB.getCardByID(i).toString() + "\n";
+            output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toString() + "\n";
 
         }
         return output;
@@ -68,6 +68,18 @@ public class Shop {
         DB.setUsersCoins(id, ourCoins - cost);
         DB.upgradeCardForUser(id, ID);
         Session.getInstance().setOutput(Outputs.SUCCESS_UPGRADE_CARD);
+    }
+
+    public static void showMyCards() {
+        int j = 0;
+        String output = "";
+        for (int i : usersCards) {
+
+            j++;
+            output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toString() + "\n";
+
+        }
+        Session.getInstance().setOutput(output);
     }
 
     public static int[] getAllCards() {

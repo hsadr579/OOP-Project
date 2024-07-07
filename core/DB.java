@@ -33,9 +33,12 @@ public class DB {
     }
 
     public static Card getCardByID(int ID) {
-
+        
     }
 
+    public static Card getUserCardByID(int userId,int cardId) {
+
+    }
     public static int[] getAllCards() {
 
     }
