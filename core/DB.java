@@ -19,26 +19,30 @@ public class DB {
         }
     }
 
-    public static int getUserLevel(int userId)
-    {
+    public static User getUserById(int id) {
+        // it returns a User object that contains all of properties of an user.
+    }
+
+    public static int getUserLevel(int userId) {
 
     }
 
-    public static int getCardUpgradeLevel(int cardId)
-    {
-        //it gets the required level to upgrade a particular card
+    public static int getCardUpgradeLevel(int cardId) {
+        // it gets the required level to upgrade a particular card
     }
+
     public static int[] getUserCardsIDs(int id) {
         // getting the ID of all user's cards
     }
 
     public static Card getCardByID(int ID) {
-        
-    }
-
-    public static Card getUserCardByID(int userId,int cardId) {
 
     }
+
+    public static Card getUserCardByID(int userId, int cardId) {
+
+    }
+
     public static int[] getAllCards() {
 
     }
@@ -68,6 +72,22 @@ public class DB {
     }
 
     public static void upgradeCardForUser(int userId, int cardId) {
+
+    }
+
+    public static void changeUsername(int userId, String newUsername) {
+
+    }
+
+    public static void changePassword(int userId, String newPassword) {
+
+    }
+
+    public static void changeEmail(int userId, String newEmail) {
+
+    }
+
+    public static void changeNickname(int userId, String newNickname) {
 
     }
     // ===========================================================

@@ -172,6 +172,9 @@ public class MenuController {
             upgradeCard();
             return;
         }
+        if (RegexManager.matches(Regex.SHOW_MY_CARDS)) {
+            showMyCardsShop();
+        }
     }
 
     private void modeMenu() {
@@ -371,12 +374,14 @@ public class MenuController {
 
     private void showInfo() {
         // call...
+        Profile.showInfo();
     }
 
     private void changeUsername() {
         String userName;
         userName = RegexManager.get("username");
         // call...
+        Profile.changeUsername(userName);
     }
 
     private void changePassword() {
@@ -384,18 +389,21 @@ public class MenuController {
         oldPass = RegexManager.get("oldPassword");
         newPass = RegexManager.get("newPassword");
         // call...
+        Profile.changePassword(oldPass, newPass);
     }
 
     private void changeNickname() {
         String nickName;
         nickName = RegexManager.get("nickname");
         // call...
+        Profile.changeNickname(nickName);
     }
 
     private void changeEmail() {
         String email;
         email = RegexManager.get("email");
         // call...
+        Profile.changeEmail(email);
     }
 
     private void startGame() {
@@ -437,6 +445,10 @@ public class MenuController {
         ID = Integer.valueOf(RegexManager.get("id"));
         // call...
         Shop.upgradeCard(ID);
+    }
+
+    private void showMyCardsShop() {
+        Shop.showMyCards();
     }
 
     private void sort() {

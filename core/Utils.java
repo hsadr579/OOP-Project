@@ -29,6 +29,20 @@ public class Utils {
         return randomString.toString();
     }
 
+    public static boolean passwordIsValid(String password)
+    {
+        String pass = "(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}";
+        return password.matches(pass);
+    }
+
+    public static boolean usernameIsValid(String username)
+    {
+        return username.matches("[A-Za-z0-9]+");
+    }
+    
+    public static boolean emailIsValid(String email) {
+        return email.matches("\\w+@\\w+\\.com");
+    }
     public static String convertStringToAsciiArt(String text) {
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();

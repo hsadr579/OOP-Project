@@ -11,7 +11,7 @@ public enum Outputs {
     ERROR_DUPLICATE_USERNAME("This username has already been chosen!"),
     ERROR_INVALID_USERNAME("Your username is invalid!"),
     ERROR_PASSWORDS_NOT_SAME("The passwords are not the same!"),
-    ERROR_INVALID_PASSWORD_1("Your password is weak!(Does not have at least 8 characters)"),
+    ERROR_INVALID_PASSWORD_1("Your password is weak!(it should have at least 8 characters and it should have at least one lowercase and one uppercase letter and one character other than numbers and letters)"),
     ERROR_INVALID_PASSWORD_2(
             "Your password is weak!(It should have at least one lowercase and one uppercase letter and one character other than numbers and letters)"),
     ERROR_INVALID_EMAIL("Please enter the correct email!"),
