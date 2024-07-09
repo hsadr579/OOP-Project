@@ -77,7 +77,8 @@ public class Board {
                 doClone();
             } else if (temp.getId().equals(Spells.HIDDEN.get())) {
                 doHide();
-            } else {
+            }
+            else {
 
                 if (temp.getId().equals(Spells.STAR_DESTROYER.get())) {
                     tempType = Spells.STAR_DESTROYER;
@@ -343,15 +344,35 @@ public class Board {
                 if (player2_board[i] != null && player2_board[i].isSpell()) {
                     continue;
                 } else if (player2_board[i] != null && player2_board[i].isActive()) {
-                    
+                    if (player1_board[i].spellType()==Spells.STAR_DESTROYER) {
+                        player2_hp-=player2_board[i].getDamage()*2;
+                    } else if (player1_board[i].spellType()==Spells.SHIELD) {
+
+                    } else if (player1_board[i].spellType()==Spells.HEAL) {
+                        player1_hp+=40;
+                    } else if (player1_board[i].spellType()==Spells.CLOVER) {
+                        player1_hp-=player2_board[i].getDamage()/2;
+                    } else if (player1_board[i].spellType()==Spells.POISON) {
+                        player2_hp-=30;
+                    }
                 }
 
             }else if(player2_board[i] != null && player2_board[i].isSpell())
             {
-                if (player2_board[i] != null && player2_board[i].isSpell()) {
+                if (player1_board[i] != null && player1_board[i].isSpell()) {
                     continue;
-                } else if (player2_board[i] != null && player2_board[i].isActive()) {
+                } else if (player1_board[i] != null && player1_board[i].isActive()) {
+                    if (player2_board[i].spellType()==Spells.STAR_DESTROYER) {
+                        player1_hp-=player1_board[i].getDamage()*2;
+                    } else if (player2_board[i].spellType()==Spells.SHIELD) {
 
+                    } else if (player2_board[i].spellType()==Spells.HEAL) {
+                        player2_hp+=40;
+                    } else if (player2_board[i].spellType()==Spells.CLOVER) {
+                        player2_hp-=player1_board[i].getDamage()/2;
+                    } else if (player2_board[i].spellType()==Spells.POISON) {
+                        player1_hp-=30;
+                    }
                 }
             }
             else{
