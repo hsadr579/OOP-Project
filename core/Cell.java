@@ -10,6 +10,7 @@ public class Cell {
 
     public Cell(Spells type) {
         this.type = type;
+        isSpell = true;
     }
 
     public Cell(int damage, int defence, String id, boolean active) {

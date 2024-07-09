@@ -1,5 +1,7 @@
 package core;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -29,20 +31,19 @@ public class Utils {
         return randomString.toString();
     }
 
-    public static boolean passwordIsValid(String password)
-    {
+    public static boolean passwordIsValid(String password) {
         String pass = "(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}";
         return password.matches(pass);
     }
 
-    public static boolean usernameIsValid(String username)
-    {
+    public static boolean usernameIsValid(String username) {
         return username.matches("[A-Za-z0-9]+");
     }
-    
+
     public static boolean emailIsValid(String email) {
         return email.matches("\\w+@\\w+\\.com");
     }
+
     public static String convertStringToAsciiArt(String text) {
         BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = img.createGraphics();
@@ -76,4 +77,22 @@ public class Utils {
         return sb.toString();
     }
 
+    public static Integer getRandomNullIndex(Object[] array) {
+        List<Integer> nullIndices = new ArrayList<>();
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == null) {
+                nullIndices.add(i);
+            }
+        }
+
+        if (nullIndices.isEmpty()) {
+            return null;
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(nullIndices.size());
+
+        return nullIndices.get(randomIndex);
+    }
 }

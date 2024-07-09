@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Board {
@@ -55,27 +56,58 @@ public class Board {
     public void placeCard(String card_id, int place) {
         int player = current_player;
         Card temp = DB.getCardByID(card_id);
+        Spells tempType = null;
         if (temp.getGroup().equals("spell")) {
-            if (temp.getId().equals(Spells.SHIELD.get())) {
+            if (temp.getId().equals(Spells.FIXER.get())) {
+                doFixer();
+            } else if (temp.getId().equals(Spells.ALARM.get())) {
+                doAlarm();
+            } else if (temp.getId().equals(Spells.HOLE.get())) {
+                doHole();
+            } else if (temp.getId().equals(Spells.THIEF.get())) {
+                doThief();
+            } else if (temp.getId().equals(Spells.SWAMP.get())) {
 
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+            } else if (temp.getId().equals(Spells.CLONE.get())) {
 
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+            } else if (temp.getId().equals(Spells.HIDDEN.get())) {
 
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+            } else {
 
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
-
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
-
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
-
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
-
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
-
-            } else if (temp.getId().equals(Spells.SHIELD.get())) {
-
+                if (temp.getId().equals(Spells.STAR_DESTROYER.get())) {
+                    tempType = Spells.STAR_DESTROYER;
+                } else if (temp.getId().equals(Spells.SHIELD.get())) {
+                    tempType = Spells.SHIELD;
+                } else if (temp.getId().equals(Spells.HEAL.get())) {
+                    tempType = Spells.HEAL;
+                } else if (temp.getId().equals(Spells.CLOVER.get())) {
+                    tempType = Spells.CLOVER;
+                } else if (temp.getId().equals(Spells.POISON.get())) {
+                    tempType = Spells.POISON;
+                }
+                if (player == 1) {
+                    for (int i = place - 1; i < place + 1 - 1; i++) {
+                        if (i == player1_gap - 1) {
+                            Session.getInstance().setOutput(Outputs.ERROR_GAP);
+                            return;
+                        }
+                        player1_board[i] = new Cell(tempType);
+                    }
+                    player1_hand.remove(card_id);
+                    addToHand(1);
+                    switchPlayer();
+                } else {
+                    for (int i = place - 1; i < place + 1 - 1; i++) {
+                        if (i == player2_gap - 1) {
+                            Session.getInstance().setOutput(Outputs.ERROR_GAP);
+                            return;
+                        }
+                        player2_board[i] = new Cell(tempType);
+                    }
+                    player1_hand.remove(card_id);
+                    addToHand(2);
+                    switchPlayer();
+                }
             }
         } else {
             int duration = temp.getDuration();
@@ -107,6 +139,42 @@ public class Board {
         }
     }
 
+    // ######################################################################
+    // ######################################################################
+    private void doAlarm() {
+        player1_turn--;
+        player2_turn--;
+
+    }
+
+    private void doFixer() {
+        if (current_player == 1) {
+            player1_gap = -1;
+        } else {
+            player2_gap = -1;
+        }
+    }
+
+    private void doHole() {
+        if (current_player == 1) {
+            player1_gap = Utils.getRandomNullIndex(player1_board);
+        } else {
+            player2_gap = Utils.getRandomNullIndex(player2_board);
+        }
+    }
+
+    private void doThief() {
+        if (current_player == 1) {
+            player1_hand.add(player2_hand.getFirst());
+            player2_hand.removeFirst();
+        } else {
+            player2_hand.add(player1_hand.getFirst());
+            player1_hand.removeFirst();
+        }
+    }
+
+    // ######################################################################
+    // ######################################################################
     public void switchPlayer() {
         if (current_player == 1)
             current_player = 2;
