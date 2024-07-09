@@ -355,6 +355,9 @@ public class Board {
         System.out.println("Player 2: " + player2 + " " + player2_char + " HP :" + player2_hp + " DMG :" + player2_dmg
                 + " Turn: " + player2_turn);
     }
+    public int returnType(){
+
+    }
 
     public String getPlayer1_char() {
         return player1_char;
