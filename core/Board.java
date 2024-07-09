@@ -68,7 +68,7 @@ public class Board {
             } else if (temp.getId().equals(Spells.THIEF.get())) {
                 doThief();
             } else if (temp.getId().equals(Spells.SWAMP.get())) {
-
+                doSwamp();
             } else if (temp.getId().equals(Spells.CLONE.get())) {
 
             } else if (temp.getId().equals(Spells.HIDDEN.get())) {
@@ -161,6 +161,16 @@ public class Board {
             player1_gap = Utils.getRandomNullIndex(player1_board);
         } else {
             player2_gap = Utils.getRandomNullIndex(player2_board);
+        }
+    }
+
+    private void doSwamp() {
+        if (current_player == 1) {
+            Cell c1 = player2_board[Utils.getRandomNotNullIndex(player2_board)];
+            Cell c2 = player2_board[Utils.getRandomNotNullIndex(player2_board)];
+        } else {
+            Cell c1 = player1_board[Utils.getRandomNotNullIndex(player1_board)];
+            Cell c2 = player1_board[Utils.getRandomNotNullIndex(player1_board)];
         }
     }
 
@@ -356,33 +366,36 @@ public class Board {
         System.out.println("Player 2: " + player2 + " " + player2_char + " HP :" + player2_hp + " DMG :" + player2_dmg
                 + " Turn: " + player2_turn);
     }
-    public void buffType(){
-         for (Card card : player1_cards){
-             if (player1_char.equals("Darth")) {
-                 if(card.getType().equals("imperial")) card.setDamage(card.getDamage()+10);
-             }
-             else if (player1_char.equals("Luke")) {
-                 if(card.getType().equals("jedi")) card.setDamage(card.getDamage()+10);
-             }
-             else if (player1_char.equals("Fett")) {
-                 if(card.getType().equals("mandalorian")) card.setDamage(card.getDamage()+10);
-             }
-             else if (player1_char.equals("Count")){
-                 if(card.getType().equals("separatist")) card.setDamage(card.getDamage()+10);
-             }
-        }
-        for (Card card : player2_cards){
+
+    public void buffType() {
+        for (Card card : player1_cards) {
             if (player1_char.equals("Darth")) {
-                if(card.getType().equals("imperial")) card.setDamage(card.getDamage()+10);
+                if (card.getType().equals("imperial"))
+                    card.setDamage(card.getDamage() + 10);
+            } else if (player1_char.equals("Luke")) {
+                if (card.getType().equals("jedi"))
+                    card.setDamage(card.getDamage() + 10);
+            } else if (player1_char.equals("Fett")) {
+                if (card.getType().equals("mandalorian"))
+                    card.setDamage(card.getDamage() + 10);
+            } else if (player1_char.equals("Count")) {
+                if (card.getType().equals("separatist"))
+                    card.setDamage(card.getDamage() + 10);
             }
-            else if (player1_char.equals("Luke")) {
-                if(card.getType().equals("jedi")) card.setDamage(card.getDamage()+10);
-            }
-            else if (player1_char.equals("Fett")) {
-                if(card.getType().equals("mandalorian")) card.setDamage(card.getDamage()+10);
-            }
-            else if (player1_char.equals("Count")){
-                if(card.getType().equals("separatist")) card.setDamage(card.getDamage()+10);
+        }
+        for (Card card : player2_cards) {
+            if (player1_char.equals("Darth")) {
+                if (card.getType().equals("imperial"))
+                    card.setDamage(card.getDamage() + 10);
+            } else if (player1_char.equals("Luke")) {
+                if (card.getType().equals("jedi"))
+                    card.setDamage(card.getDamage() + 10);
+            } else if (player1_char.equals("Fett")) {
+                if (card.getType().equals("mandalorian"))
+                    card.setDamage(card.getDamage() + 10);
+            } else if (player1_char.equals("Count")) {
+                if (card.getType().equals("separatist"))
+                    card.setDamage(card.getDamage() + 10);
             }
         }
     }
