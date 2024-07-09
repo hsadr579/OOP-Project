@@ -17,16 +17,16 @@ public class Board {
     private int player2_turn;
     private int player1_gap;
     private int player2_gap;
-    private ArrayList<String> player1_cards;
-    private ArrayList<String> player2_cards;
-    private ArrayList<String> player1_hand;
-    private ArrayList<String> player2_hand;
+    private ArrayList<Card> player1_cards;
+    private ArrayList<Card> player2_cards;
+    private ArrayList<Card> player1_hand;
+    private ArrayList<Card> player2_hand;
     private Cell[] player1_board;
     private Cell[] player2_board;
     private int current_player;
 
     public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
-            int player2_hp, ArrayList<String> player1_cards, ArrayList<String> player2_cards, int current_player) {
+            int player2_hp, ArrayList<Card> player1_cards, ArrayList<Card> player2_cards, int current_player) {
         this.player1 = player1;
         this.player2 = player2;
         this.player1_char = player1_char;
@@ -223,12 +223,12 @@ public class Board {
         return (level) * 10 - hp;
     }
 
-    public void shuffleCards(ArrayList<String> arr) {
+    public void shuffleCards(ArrayList<Card> arr) {
         Random rand = new Random();
         int n = arr.size();
         for (int i = n - 1; i > 0; i--) {
             int j = rand.nextInt(i + 1);
-            String temp = arr.get(i);
+            Card temp = arr.get(i);
             arr.set(i, arr.get(j));
             arr.set(j, temp);
         }
