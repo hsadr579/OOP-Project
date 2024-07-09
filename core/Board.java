@@ -38,6 +38,7 @@ public class Board {
         this.current_player = current_player;
         this.player1_gap = Utils.getRandomNumber(1, 21);
         this.player2_gap = Utils.getRandomNumber(1, 21);
+        buffType();
         firstHand();
         newTurn();
     }
@@ -355,8 +356,35 @@ public class Board {
         System.out.println("Player 2: " + player2 + " " + player2_char + " HP :" + player2_hp + " DMG :" + player2_dmg
                 + " Turn: " + player2_turn);
     }
-    public int returnType(){
-
+    public void buffType(){
+         for (Card card : player1_cards){
+             if (player1_char.equals("Darth")) {
+                 if(card.getType().equals("imperial")) card.setDamage(card.getDamage()+10);
+             }
+             else if (player1_char.equals("Luke")) {
+                 if(card.getType().equals("jedi")) card.setDamage(card.getDamage()+10);
+             }
+             else if (player1_char.equals("Fett")) {
+                 if(card.getType().equals("mandalorian")) card.setDamage(card.getDamage()+10);
+             }
+             else if (player1_char.equals("Count")){
+                 if(card.getType().equals("separatist")) card.setDamage(card.getDamage()+10);
+             }
+        }
+        for (Card card : player2_cards){
+            if (player1_char.equals("Darth")) {
+                if(card.getType().equals("imperial")) card.setDamage(card.getDamage()+10);
+            }
+            else if (player1_char.equals("Luke")) {
+                if(card.getType().equals("jedi")) card.setDamage(card.getDamage()+10);
+            }
+            else if (player1_char.equals("Fett")) {
+                if(card.getType().equals("mandalorian")) card.setDamage(card.getDamage()+10);
+            }
+            else if (player1_char.equals("Count")){
+                if(card.getType().equals("separatist")) card.setDamage(card.getDamage()+10);
+            }
+        }
     }
 
     public String getPlayer1_char() {
