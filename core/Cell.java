@@ -5,6 +5,12 @@ public class Cell {
     private int defence;
     private String id;
     private boolean active;
+    private boolean isSpell = false;
+    private Spells type = null;
+
+    public Cell(Spells type) {
+        this.type = type;
+    }
 
     public Cell(int damage, int defence, String id, boolean active) {
         this.damage = damage;
@@ -31,5 +37,13 @@ public class Cell {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public boolean isSpell() {
+        return isSpell;
+    }
+
+    public Spells spellType() {
+        return type;
     }
 }

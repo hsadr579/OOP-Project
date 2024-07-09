@@ -22,9 +22,10 @@ public class Board {
     private ArrayList<String> player2_hand;
     private Cell[] player1_board;
     private Cell[] player2_board;
+    private int current_player;
 
     public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
-            int player2_hp, ArrayList<String> player1_cards, ArrayList<String> player2_cards) {
+            int player2_hp, ArrayList<String> player1_cards, ArrayList<String> player2_cards, int current_player) {
         this.player1 = player1;
         this.player2 = player2;
         this.player1_char = player1_char;
@@ -33,6 +34,7 @@ public class Board {
         this.player2_hp = player2_hp;
         this.player1_cards = player1_cards;
         this.player2_cards = player2_cards;
+        this.current_player = current_player;
         this.player1_gap = Utils.getRandomNumber(1, 21);
         this.player2_gap = Utils.getRandomNumber(1, 21);
         firstHand();
@@ -50,32 +52,66 @@ public class Board {
         setPlayer2_turn(4);
     }
 
-    public void placeCard(String card_id, int place, int player) {
+    public void placeCard(String card_id, int place) {
+        int player = current_player;
         Card temp = DB.getCardByID(card_id);
-        int duration = 1;////////////////////////////////////////////////////////
-        int damage = 1;/////////////////////////////////////////////////////////
-        int defence = 1;////////////////////////////////////////////////////////
-        if (player == 1) {
-            for (int i = place - 1; i < place + duration - 1; i++) {
-                if (i == player1_gap - 1) {
-                    System.out.println("You cannot do this because of the gap!");
-                    return;
-                }
-                player1_board[i] = new Cell((int) damage / duration, defence, card_id, true);
+        if (temp.getGroup().equals("spell")) {
+            if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
+            } else if (temp.getId().equals(Spells.SHIELD.get())) {
+
             }
-            player1_hand.remove(card_id);
-            addToHand(1);
         } else {
-            for (int i = place - 1; i < place + duration - 1; i++) {
-                if (i == player2_gap - 1) {
-                    System.out.println("You cannot do this because of the gap!");
-                    return;
+            int duration = temp.getDuration();
+            int damage = temp.getDamage();
+            int defence = temp.getDefence();
+            if (player == 1) {
+                for (int i = place - 1; i < place + duration - 1; i++) {
+                    if (i == player1_gap - 1) {
+                        Session.getInstance().setOutput(Outputs.ERROR_GAP);
+                        return;
+                    }
+                    player1_board[i] = new Cell((int) damage / duration, defence, card_id, true);
                 }
-                player2_board[i] = new Cell((int) damage / duration, defence, card_id, true);
+                player1_hand.remove(card_id);
+                addToHand(1);
+                switchPlayer();
+            } else {
+                for (int i = place - 1; i < place + duration - 1; i++) {
+                    if (i == player2_gap - 1) {
+                        Session.getInstance().setOutput(Outputs.ERROR_GAP);
+                        return;
+                    }
+                    player2_board[i] = new Cell((int) damage / duration, defence, card_id, true);
+                }
+                player1_hand.remove(card_id);
+                addToHand(2);
+                switchPlayer();
             }
-            player1_hand.remove(card_id);
-            addToHand(2);
         }
+    }
+
+    public void switchPlayer() {
+        if (current_player == 1)
+            current_player = 2;
+        else
+            current_player = 1;
     }
 
     public void checkActivation() {
@@ -154,27 +190,31 @@ public class Board {
             player2_cards.removeFirst();
         }
     }
-    public void timeLine() {
-        for (int i=0;i<21;i++){
-            if (player1_board[i] != null && player1_board[i].isActive()){
-                player2_hp-=player1_board[i].getDamage();
-            }
-            else if (player2_board[i] != null && player2_board[i].isActive()) {
-                player1_hp-=player2_board[i].getDamage();
+
+    public int timeLine() {
+        for (int i = 0; i < 21; i++) {
+            if (player1_board[i] != null && player1_board[i].isActive()) {
+                player2_hp -= player1_board[i].getDamage();
+            } else if (player2_board[i] != null && player2_board[i].isActive()) {
+                player1_hp -= player2_board[i].getDamage();
             }
 
             if (player1_hp <= 0) {
-                System.out.println("Game is over! The winner is"+player2+"!");
-                System.out.println(player2+": +"+victoryCoinCalculate(player2_hp,level)+"coin | +"+victoryXPCalculate(player2_hp,level)+"XP");
-                System.out.println(player1+": -"+DefeatCoinCalculate(player2_hp,level)+"coin | +"+DefeatXPCalculate(player2_hp,level)+"XP");
-                /////DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-                return;
+                System.out.println("Game is over! The winner is" + player2 + "!");
+                System.out.println(player2 + ": +" + victoryCoinCalculate(player2_hp, level) + "coin | +"
+                        + victoryXPCalculate(player2_hp, level) + "XP");
+                System.out.println(player1 + ": -" + DefeatCoinCalculate(player2_hp, level) + "coin | +"
+                        + DefeatXPCalculate(player2_hp, level) + "XP");
+                ///// DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+                return 0;
             } else if (player2_hp <= 0) {
-                System.out.println("Game is over! The winner is"+player1+"!");
-                System.out.println(player1+": +"+victoryCoinCalculate(player1_hp,level)+"coin | +"+victoryXPCalculate(player1_hp,level)+"XP");
-                System.out.println(player2+": -"+DefeatCoinCalculate(player1_hp,level)+"coin | +"+DefeatXPCalculate(player1_hp,level)+"XP");
-                /////DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-                return;
+                System.out.println("Game is over! The winner is" + player1 + "!");
+                System.out.println(player1 + ": +" + victoryCoinCalculate(player1_hp, level) + "coin | +"
+                        + victoryXPCalculate(player1_hp, level) + "XP");
+                System.out.println(player2 + ": -" + DefeatCoinCalculate(player1_hp, level) + "coin | +"
+                        + DefeatXPCalculate(player1_hp, level) + "XP");
+                ///// DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+                return 1;
             }
         }
         setPlayer1_dmg(0);

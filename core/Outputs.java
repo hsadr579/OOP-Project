@@ -55,9 +55,10 @@ public enum Outputs {
     SUCCESS_LOGIN_ADMIN("Admin logged in!"),
     SUCCESS_ADD_CARD("Card added successfully!"),
     SUCCESS_EDIT_CARD_FIELD("Card edited successfully!"),
-    SUCCESS_REMOVE_CARD("Card remove successfully!");
+    SUCCESS_REMOVE_CARD("Card remove successfully!"),
     // ##################### mode menu #####################
-
+    //##################### multiplayer####################
+    ERROR_GAP("You cannot do this because of the gap!");
     private final String pattern;
 
     Outputs(String pattern) {

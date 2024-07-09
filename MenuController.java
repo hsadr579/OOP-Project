@@ -434,15 +434,15 @@ public class MenuController {
     }
 
     private void buyCard() {
-        int ID;
-        ID = Integer.valueOf(RegexManager.get("id"));
+        String ID;
+        ID = RegexManager.get("id");
         // call...
         Shop.buyCard(ID);
     }
 
     private void upgradeCard() {
-        int ID;
-        ID = Integer.valueOf(RegexManager.get("id"));
+        String ID;
+        ID = RegexManager.get("id");
         // call...
         Shop.upgradeCard(ID);
     }
