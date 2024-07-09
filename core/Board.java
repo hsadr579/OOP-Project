@@ -35,6 +35,7 @@ public class Board {
         this.player2_cards = player2_cards;
         this.player1_gap = Utils.getRandomNumber(1, 21);
         this.player2_gap = Utils.getRandomNumber(1, 21);
+        firstHand();
         newTurn();
     }
 
@@ -146,7 +147,7 @@ public class Board {
             player2_cards.removeFirst();
         }
     }
-    public void timeLine() {
+    public int timeLine() {
         for (int i=0;i<21;i++){
             if (player1_board[i] != null && player1_board[i].isActive()){
                 player2_hp-=player1_board[i].getDamage();
@@ -160,13 +161,13 @@ public class Board {
                 System.out.println(player2+": +"+victoryCoinCalculate(player2_hp,level)+"coin | +"+victoryXPCalculate(player2_hp,level)+"XP");
                 System.out.println(player1+": -"+DefeatCoinCalculate(player2_hp,level)+"coin | +"+DefeatXPCalculate(player2_hp,level)+"XP");
                 /////DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-                return;
+                return 0;
             } else if (player2_hp <= 0) {
                 System.out.println("Game is over! The winner is"+player1+"!");
                 System.out.println(player1+": +"+victoryCoinCalculate(player1_hp,level)+"coin | +"+victoryXPCalculate(player1_hp,level)+"XP");
                 System.out.println(player2+": -"+DefeatCoinCalculate(player1_hp,level)+"coin | +"+DefeatXPCalculate(player1_hp,level)+"XP");
                 /////DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-                return;
+                return 1;
             }
         }
         setPlayer1_dmg(0);
@@ -176,6 +177,7 @@ public class Board {
             player2_board[i]=null;
         }
         newTurn();
+        return 2;
     }
 
     public void showBoard() {
