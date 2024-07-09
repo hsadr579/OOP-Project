@@ -1,6 +1,7 @@
-package core;  
+package core;
+
 // this class saves all properties of a card 
-public class Card {
+public class Card implements Cloneable {
     private String id;
     private String name;
     private int duration;
@@ -13,8 +14,7 @@ public class Card {
     private int cost_upg;
     private int enough_level;
     private String group;
-    //private String img;
-
+    // private String img;
 
     public Card(String id, String name, int duration, int defence, int damage, String explanation, String type,
             int level, String group) {
@@ -28,18 +28,25 @@ public class Card {
         this.level = level;
         this.group = group;
     }
-    
+
     public String toStringBuy() {
-        if (group.equals("attacker")){
-            return "ID:"+id+" | "+name+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | Price"+cost_buy;
-        }
-        else return "ID:"+id+" | "+name+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | "+explanation+" | Price"+cost_buy;
+        if (group.equals("attacker")) {
+            return "ID:" + id + " | " + name + " | dur:" + duration + " | def:" + defence + " | dmg:" + damage
+                    + " | type:" + type + " | Price" + cost_buy;
+        } else
+            return "ID:" + id + " | " + name + " | dur:" + duration + " | def:" + defence + " | dmg:" + damage
+                    + " | type:" + type + " | " + explanation + " | Price" + cost_buy;
     }
+
     public String toStringUpgrade() {
-        if (group.equals("attacker")){
-            return "ID:"+id+" | "+name+"+"+level+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | Upgrade for"+cost_upg+" (Just for level+"+enough_level+" players!)";
-        }
-        else return "ID:"+id+" | "+name+"+"+level+" | dur:"+duration+" | def:"+defence+" | dmg:"+damage+" | type:"+type+" | "+explanation+" | Upgrade for"+cost_upg+" (Just for level+"+enough_level+" players!)";
+        if (group.equals("attacker")) {
+            return "ID:" + id + " | " + name + "+" + level + " | dur:" + duration + " | def:" + defence + " | dmg:"
+                    + damage + " | type:" + type + " | Upgrade for" + cost_upg + " (Just for level+" + enough_level
+                    + " players!)";
+        } else
+            return "ID:" + id + " | " + name + "+" + level + " | dur:" + duration + " | def:" + defence + " | dmg:"
+                    + damage + " | type:" + type + " | " + explanation + " | Upgrade for" + cost_upg
+                    + " (Just for level+" + enough_level + " players!)";
     }
 
     public String getId() {
@@ -137,4 +144,10 @@ public class Card {
     public void setGroup(String group) {
         this.group = group;
     }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
 }

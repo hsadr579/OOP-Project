@@ -58,7 +58,8 @@ public enum Outputs {
     SUCCESS_REMOVE_CARD("Card remove successfully!"),
     // ##################### mode menu #####################
     //##################### multiplayer####################
-    ERROR_GAP("You cannot do this because of the gap!");
+    ERROR_GAP("You cannot do this because of the gap!"),
+    ERROR_NOT_EMPTY("This place is full!");
     private final String pattern;
 
     Outputs(String pattern) {

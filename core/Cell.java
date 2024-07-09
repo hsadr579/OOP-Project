@@ -11,6 +11,8 @@ public class Cell {
     public Cell(Spells type) {
         this.type = type;
         isSpell = true;
+        defence = 0;
+        active = true;
     }
 
     public Cell(int damage, int defence, String id, boolean active) {
@@ -37,6 +39,8 @@ public class Cell {
     }
 
     public void setActive(boolean active) {
+        if (isSpell())
+            return;
         this.active = active;
     }
 

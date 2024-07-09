@@ -17,6 +17,7 @@ public class Board {
     private int player2_turn;
     private int player1_gap;
     private int player2_gap;
+    private int level_player1, level_player2;
     private ArrayList<Card> player1_cards;
     private ArrayList<Card> player2_cards;
     private ArrayList<Card> player1_hand;
@@ -26,7 +27,8 @@ public class Board {
     private int current_player;
 
     public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
-            int player2_hp, ArrayList<Card> player1_cards, ArrayList<Card> player2_cards, int current_player) {
+            int player2_hp, ArrayList<Card> player1_cards, ArrayList<Card> player2_cards, int current_player,
+            int level_player1, int level_player2) {
         this.player1 = player1;
         this.player2 = player2;
         this.player1_char = player1_char;
@@ -36,6 +38,8 @@ public class Board {
         this.player1_cards = player1_cards;
         this.player2_cards = player2_cards;
         this.current_player = current_player;
+        this.level_player1 = level_player1;
+        this.level_player2 = level_player2;
         this.player1_gap = Utils.getRandomNumber(1, 21);
         this.player2_gap = Utils.getRandomNumber(1, 21);
         buffType();
@@ -54,9 +58,9 @@ public class Board {
         setPlayer2_turn(4);
     }
 
-    public void placeCard(String card_id, int place) {
+    public void placeCard(int placeHand, int place) {
         int player = current_player;
-        Card temp = DB.getCardByID(card_id);
+        Card temp = DB.getCardByID(player1_hand.get(placeHand - 1).getId());
         Spells tempType = null;
         if (temp.getGroup().equals("spell")) {
             if (temp.getId().equals(Spells.FIXER.get())) {
@@ -70,9 +74,9 @@ public class Board {
             } else if (temp.getId().equals(Spells.SWAMP.get())) {
                 doSwamp();
             } else if (temp.getId().equals(Spells.CLONE.get())) {
-
+                doClone();
             } else if (temp.getId().equals(Spells.HIDDEN.get())) {
-
+                doHide();
             } else {
 
                 if (temp.getId().equals(Spells.STAR_DESTROYER.get())) {
@@ -92,9 +96,16 @@ public class Board {
                             Session.getInstance().setOutput(Outputs.ERROR_GAP);
                             return;
                         }
+                        if (player1_board[i] != null) {
+                            Session.getInstance().setOutput(Outputs.ERROR_NOT_EMPTY);
+                            return;
+                        }
+
+                    }
+                    for (int i = place - 1; i < place + 1 - 1; i++) {
                         player1_board[i] = new Cell(tempType);
                     }
-                    player1_hand.remove(card_id);
+                    player1_hand.remove(temp);
                     addToHand(1);
                     switchPlayer();
                 } else {
@@ -103,9 +114,16 @@ public class Board {
                             Session.getInstance().setOutput(Outputs.ERROR_GAP);
                             return;
                         }
+                        if (player2_board[i] != null) {
+                            Session.getInstance().setOutput(Outputs.ERROR_NOT_EMPTY);
+                            return;
+                        }
+
+                    }
+                    for (int i = place - 1; i < place + 1 - 1; i++) {
                         player2_board[i] = new Cell(tempType);
                     }
-                    player1_hand.remove(card_id);
+                    player2_hand.remove(temp);
                     addToHand(2);
                     switchPlayer();
                 }
@@ -120,9 +138,16 @@ public class Board {
                         Session.getInstance().setOutput(Outputs.ERROR_GAP);
                         return;
                     }
-                    player1_board[i] = new Cell((int) damage / duration, defence, card_id, true);
+                    if (player1_board[i] != null) {
+                        Session.getInstance().setOutput(Outputs.ERROR_NOT_EMPTY);
+                        return;
+                    }
+
                 }
-                player1_hand.remove(card_id);
+                for (int i = place - 1; i < place + duration - 1; i++) {
+                    player1_board[i] = new Cell((int) damage / duration, defence, temp.getId(), true);
+                }
+                player1_hand.remove(temp);
                 addToHand(1);
                 switchPlayer();
             } else {
@@ -131,13 +156,21 @@ public class Board {
                         Session.getInstance().setOutput(Outputs.ERROR_GAP);
                         return;
                     }
-                    player2_board[i] = new Cell((int) damage / duration, defence, card_id, true);
+                    if (player2_board[i] != null) {
+                        Session.getInstance().setOutput(Outputs.ERROR_NOT_EMPTY);
+                        return;
+                    }
+
                 }
-                player1_hand.remove(card_id);
+                for (int i = place - 1; i < place + duration - 1; i++) {
+                    player2_board[i] = new Cell((int) damage / duration, defence, temp.getId(), true);
+                }
+                player2_hand.remove(temp);
                 addToHand(2);
                 switchPlayer();
             }
         }
+        checkActivation();
     }
 
     // ######################################################################
@@ -146,6 +179,18 @@ public class Board {
         player1_turn--;
         player2_turn--;
 
+    }
+
+    private void doClone() {
+        try {
+            if (current_player == 1) {
+                player1_hand.add((Card) player1_hand.getFirst().clone());
+
+            } else {
+                player2_hand.add((Card) player2_hand.getFirst().clone());
+            }
+        } catch (Exception e) {
+        }
     }
 
     private void doFixer() {
@@ -164,13 +209,32 @@ public class Board {
         }
     }
 
+    private boolean hide_player1 = false, hide_player2 = false;
+
+    private void doHide() {
+        if (current_player == 1) {
+            hide_player2 = true;
+            shuffleCards(player2_hand);
+        } else {
+            hide_player1 = true;
+            shuffleCards(player2_hand);
+        }
+    }
+
+    private int DAMAGE_REDUCE = 10;
+    private int DEFENSE_REDUCE = 10;
+
     private void doSwamp() {
         if (current_player == 1) {
             Cell c1 = player2_board[Utils.getRandomNotNullIndex(player2_board)];
+            c1.setDamage(c1.getDamage() - DAMAGE_REDUCE);
             Cell c2 = player2_board[Utils.getRandomNotNullIndex(player2_board)];
+            c2.setDefence(c2.getDefence() - DEFENSE_REDUCE);
         } else {
             Cell c1 = player1_board[Utils.getRandomNotNullIndex(player1_board)];
+            c1.setDamage(c1.getDamage() - DAMAGE_REDUCE);
             Cell c2 = player1_board[Utils.getRandomNotNullIndex(player1_board)];
+            c2.setDefence(c2.getDefence() - DEFENSE_REDUCE);
         }
     }
 
@@ -195,6 +259,7 @@ public class Board {
 
     public void checkActivation() {
         for (int i = 0; i < 21; i++) {
+        
             if (player1_board[i].getDefence() > player2_board[i].getDefence()) {
                 player2_board[i].setActive(false);
             }
@@ -272,6 +337,24 @@ public class Board {
 
     public int timeLine() {
         for (int i = 0; i < 21; i++) {
+
+            if(player1_board[i] != null && player1_board[i].isSpell())
+            {
+                if (player2_board[i] != null && player2_board[i].isSpell()) {
+                    continue;
+                } else if (player2_board[i] != null && player2_board[i].isActive()) {
+                    
+                }
+
+            }else if(player2_board[i] != null && player2_board[i].isSpell())
+            {
+                if (player2_board[i] != null && player2_board[i].isSpell()) {
+                    continue;
+                } else if (player2_board[i] != null && player2_board[i].isActive()) {
+
+                }
+            }
+            else{
             if (player1_board[i] != null && player1_board[i].isActive()) {
                 player2_hp -= player1_board[i].getDamage();
             } else if (player2_board[i] != null && player2_board[i].isActive()) {
@@ -280,21 +363,21 @@ public class Board {
 
             if (player1_hp <= 0) {
                 System.out.println("Game is over! The winner is" + player2 + "!");
-                System.out.println(player2 + ": +" + victoryCoinCalculate(player2_hp, level) + "coin | +"
-                        + victoryXPCalculate(player2_hp, level) + "XP");
-                System.out.println(player1 + ": -" + DefeatCoinCalculate(player2_hp, level) + "coin | +"
-                        + DefeatXPCalculate(player2_hp, level) + "XP");
+                System.out.println(player2 + ": +" + victoryCoinCalculate(player2_hp, level_player2) + "coin | +"
+                        + victoryXPCalculate(player2_hp, level_player2) + "XP");
+                System.out.println(player1 + ": -" + DefeatCoinCalculate(player2_hp, level_player2) + "coin | +"
+                        + DefeatXPCalculate(player2_hp, level_player2) + "XP");
                 ///// DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 return 0;
             } else if (player2_hp <= 0) {
                 System.out.println("Game is over! The winner is" + player1 + "!");
-                System.out.println(player1 + ": +" + victoryCoinCalculate(player1_hp, level) + "coin | +"
-                        + victoryXPCalculate(player1_hp, level) + "XP");
-                System.out.println(player2 + ": -" + DefeatCoinCalculate(player1_hp, level) + "coin | +"
-                        + DefeatXPCalculate(player1_hp, level) + "XP");
+                System.out.println(player1 + ": +" + victoryCoinCalculate(player1_hp, level_player1) + "coin | +"
+                        + victoryXPCalculate(player1_hp, level_player1) + "XP");
+                System.out.println(player2 + ": -" + DefeatCoinCalculate(player1_hp, level_player1) + "coin | +"
+                        + DefeatXPCalculate(player1_hp, level_player1) + "XP");
                 ///// DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 return 1;
-            }
+            }}
         }
         setPlayer1_dmg(0);
         setPlayer2_dmg(0);
@@ -307,7 +390,7 @@ public class Board {
     }
 
     public void showBoard() {
-        checkActivation();
+
         calculateDamage();
         // ####### player1 information #######\\
         System.out.println("Player 1: " + player1 + " " + player1_char + " HP :" + player1_hp + " DMG :" + player1_dmg
