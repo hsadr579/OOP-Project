@@ -95,4 +95,23 @@ public class Utils {
 
         return nullIndices.get(randomIndex);
     }
+
+    public static Integer getRandomNotNullIndex(Object[] array) {
+        List<Integer> nullIndices = new ArrayList<>();
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                nullIndices.add(i);
+            }
+        }
+
+        if (nullIndices.isEmpty()) {
+            return null;
+        }
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(nullIndices.size());
+
+        return nullIndices.get(randomIndex);
+    }
 }
