@@ -47,4 +47,24 @@ public class Cell {
     public Spells spellType() {
         return type;
     }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setSpell(boolean spell) {
+        isSpell = spell;
+    }
+
+    public void setType(Spells type) {
+        this.type = type;
+    }
 }
