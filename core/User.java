@@ -2,12 +2,11 @@ package core;
 
 public class User {
     public String username, password, nickName, email, securityQuestion, securityAnswer;
-    public int[] cardsId;
+    public String[] cardsId;
     int level, XP, HP, coin;
 
-    public User(String username,String password,String nickName,String email,String securityQuestion,
-            String securityAnswer, int[] cardsId,int level,int XP,int HP,int coin)
-    {
+    public User(String username, String password, String nickName, String email, String securityQuestion,
+            String securityAnswer, String[] cardsId, int level, int XP, int HP, int coin) {
         this.username = username;
         this.password = password;
         this.nickName = nickName;
@@ -21,8 +20,7 @@ public class User {
         this.coin = coin;
     }
 
-    public String toString()
-    {
+    public String toString() {
         String output = "User Information:\n";
         output += "username: " + username + "\n";
         output += "password: " + password + "\n";
@@ -37,7 +35,7 @@ public class User {
 
         output += "your cards: \n";
         int j = 0;
-        for (int i : cardsId) {
+        for (String i : cardsId) {
 
             j++;
             output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toStringUpgrade() + "\n";

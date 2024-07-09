@@ -27,23 +27,23 @@ public class DB {
 
     }
 
-    public static int getCardUpgradeLevel(int cardId) {
+    public static int getCardUpgradeLevel(String cardId) {
         // it gets the required level to upgrade a particular card
     }
 
-    public static int[] getUserCardsIDs(int id) {
+    public static String[] getUserCardsIDs(int id) {
         // getting the ID of all user's cards
     }
 
-    public static Card getCardByID(int ID) {
+    public static Card getCardByID(String ID) {
 
     }
 
-    public static Card getUserCardByID(int userId, int cardId) {
+    public static Card getUserCardByID(int userId, String cardId) {
 
     }
 
-    public static int[] getAllCards() {
+    public static String[] getAllCards() {
 
     }
 
@@ -55,11 +55,11 @@ public class DB {
 
     }
 
-    public static int getCardCost(int ID) {
+    public static int getCardCost(String ID) {
 
     }
 
-    public static int getLevelUpCardCost(int ID) {
+    public static int getLevelUpCardCost(String ID) {
 
     }
 
@@ -67,11 +67,11 @@ public class DB {
 
     }
 
-    public static void buyCardForUser(int userId, int cardId) {
+    public static void buyCardForUser(int userId, String cardId) {
 
     }
 
-    public static void upgradeCardForUser(int userId, int cardId) {
+    public static void upgradeCardForUser(int userId, String cardId) {
 
     }
 

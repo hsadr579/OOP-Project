@@ -1,12 +1,12 @@
 package core;
 
 public class Shop {
-    static int[] allCards;
-    static int[] usersCards;
+    static String[] allCards;
+    static String[] usersCards;
 
-    static boolean isIdIn(int id) {
-        for (int i : usersCards) {
-            if (i == id)
+    static boolean isIdIn(String id) {
+        for (String i : usersCards) {
+            if (i.equals(id))
                 return true;
         }
         return false;
@@ -15,7 +15,7 @@ public class Shop {
     static String shopToString() {
         String output = "You are in shop menu!\n\nCards that you don't have, and you can buy them:\n";
         int j = 0;
-        for (int i : allCards) {
+        for (String i : allCards) {
             if (!isIdIn(i)) {
                 j++;
                 output += j + DB.getCardByID(i).toStringBuy() + "\n";
@@ -24,7 +24,7 @@ public class Shop {
         }
         output += "\nCards that you already have, and you can upgrade them:\n";
         j = 0;
-        for (int i : usersCards) {
+        for (String i : usersCards) {
 
             j++;
             output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toStringUpgrade() + "\n";
@@ -42,7 +42,7 @@ public class Shop {
         Session.getInstance().setOutput(shopToString());
     }
 
-    public static void buyCard(int ID) {
+    public static void buyCard(String ID) {
         int id = Session.getInstance().getLoggedUser();
         int ourCoins = DB.getUserCoins(id);
         int cost = DB.getCardCost(ID);
@@ -55,7 +55,7 @@ public class Shop {
         Session.getInstance().setOutput(Outputs.SUCCESS_BUY_CARD);
     }
 
-    public static void upgradeCard(int ID) {
+    public static void upgradeCard(String ID) {
         int id = Session.getInstance().getLoggedUser();
         int ourCoins = DB.getUserCoins(id);
         int cost = DB.getCardCost(ID);
@@ -74,7 +74,7 @@ public class Shop {
     public static void showMyCards() {
         int j = 0;
         String output = "";
-        for (int i : usersCards) {
+        for (String i : usersCards) {
 
             j++;
             output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toString() + "\n";
@@ -83,11 +83,11 @@ public class Shop {
         Session.getInstance().setOutput(output);
     }
 
-    public static int[] getAllCards() {
+    public static String[] getAllCards() {
         return allCards;
     }
 
-    public static int[] getUsersCards() {
+    public static String[] getUsersCards() {
         return usersCards;
     }
 }
