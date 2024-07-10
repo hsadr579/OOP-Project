@@ -14,6 +14,7 @@ public class Game {
     static User player2;
     static User currentPlayer;
     static Tower map;
+    static int betCost;
     static String[] chars = { "Darth", "Luke", "Fett", "Count" };
     static Mode[] modes = { Mode.MULTIPLAYER, Mode.SINGLE_PLAYER, Mode.BET };
 
@@ -74,9 +75,10 @@ public class Game {
         board.showBoard();
         if (board.getPlayer1_turn() == 0 && board.getPlayer2_turn() == 0) {
             if (board.timeLine() == 1) {
-                Session.getInstance().setOutput(Outputs.HOST_WIN);
+                Session.getInstance().setCurrentMenu(Menus.WIN);
+      
             } else if (board.timeLine() == 2) {
-                Session.getInstance().setOutput(Outputs.OPPONENT_WIN);
+                Session.getInstance().setCurrentMenu(Menus.WIN);
             } else {
                 board.newTurn();
             }
