@@ -408,14 +408,17 @@ public class MenuController {
 
     private void startGame() {
         // call...
+        MainMenu.startGame();
     }
 
     private void showMyCards() {
         // call...
+        MainMenu.showMyCards();
     }
 
     private void showHistory() {
         // call...
+        MainMenu.hist();
     }
 
     private void goShopMenu() {
@@ -425,6 +428,7 @@ public class MenuController {
 
     private void goProfileMenu() {
         // call...
+        MainMenu.goProfile();
 
     }
 

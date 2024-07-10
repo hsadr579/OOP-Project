@@ -13,7 +13,7 @@ public enum Spells {
     SWAMP("25"),
     CLONE("26"),
     HIDDEN("27");
-    
+
     private final String pattern;
 
     Spells(String pattern) {
@@ -22,5 +22,14 @@ public enum Spells {
 
     public String get() {
         return pattern;
+    }
+
+    public static boolean isSpell(String id) {
+        for (Spells K : values()) {
+            if (id.equals(K.get())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

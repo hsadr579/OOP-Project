@@ -24,11 +24,12 @@ public class Shop {
         }
         output += "\nCards that you already have, and you can upgrade them:\n";
         j = 0;
-        for (String i : usersCards) {
 
+        for (String i : usersCards) {
+            if (Spells.isSpell(i))
+                continue;
             j++;
             output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toStringUpgrade() + "\n";
-
 
         }
         return output;
@@ -77,7 +78,7 @@ public class Shop {
         for (String i : usersCards) {
 
             j++;
-            output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toString() + "\n";
+            output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toStringUpgrade() + "\n";
 
         }
         Session.getInstance().setOutput(output);
