@@ -6,7 +6,8 @@ import java.sql.*;
 public class DB {
     private static Connection connection;
 
-    private DB() {}
+    private DB() {
+    }
 
     static {
         try {
@@ -31,14 +32,16 @@ public class DB {
                 + "user_id INTEGER NOT NULL,\n" + "card_id TEXT NOT NULL,\n" + "level INTEGER NOT NULL\n" + ");";
         command(sql);
 
-        sql = "CREATE TABLE IF NOT EXISTS cards (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n" + "name TEXT NOT NULL,\n"
+        sql = "CREATE TABLE IF NOT EXISTS cards (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + "name TEXT NOT NULL,\n"
                 + "cost INTEGER NOT NULL,\n" + "levelup_cost INTEGER NOT NULL,\n"
                 + "duration INTEGER NOT NULL,\n" + "defence INTEGER NOT NULL,\n" + "damage INTEGER NOT NULL,\n"
                 + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"
                 + "image TEXT NOT NULL\n" + ");";
         command(sql);
 
-        sql = "CREATE TABLE IF NOT EXISTS clans (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n" + "name TEXT NOT NULL,\n" + "owner_id INTEGER NOT NULL);";
+        sql = "CREATE TABLE IF NOT EXISTS clans (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + "name TEXT NOT NULL,\n" + "owner_id INTEGER NOT NULL);";
         command(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS security_questions (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
@@ -50,14 +53,27 @@ public class DB {
         command(sql);
     }
 
+    public static void setUserLevel(int id, int newLevel) {
+
+    }
+
+    public static void setUsersXP(int id, int newXP) {
+        if (newXP >= (getUserLevel(id) + 1) * 10) {
+            setUserLevel(id, getUserLevel(id) + 1);
+        }
+        // ...
+    }
+
     public static User getUserById(int id) {
         String sql = "SELECT * FROM users WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
-            return new User(rs.getString("username"), rs.getString("password"), rs.getString("nickname"), rs.getString("email"),
-                    rs.getString("security_question_id"), rs.getString("security_question_answer"), new String[] {}, rs.getInt("level"),
+            return new User(rs.getString("username"), rs.getString("password"), rs.getString("nickname"),
+                    rs.getString("email"),
+                    rs.getString("security_question_id"), rs.getString("security_question_answer"), new String[] {},
+                    rs.getInt("level"),
                     rs.getInt("xp"), rs.getInt("hp"), rs.getInt("coins"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -80,11 +96,11 @@ public class DB {
     }
 
     // public static int getCardUpgradeLevel(String cardId) {
-    //     // it gets the required level to upgrade a particular card
+    // // it gets the required level to upgrade a particular card
     // }
 
     // public static String[] getUserCardsIDs(int id) {
-    //     // getting the ID of all user's cards
+    // // getting the ID of all user's cards
     // }
 
     public static Card getCardByID(String ID) {
@@ -93,7 +109,9 @@ public class DB {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, ID);
             ResultSet rs = stmt.executeQuery();
-            return new Card(rs.getString("id"), rs.getString("name"), rs.getInt("duration"), rs.getInt("defence"), rs.getInt("damage"), rs.getString("explanation"), rs.getString("type"), rs.getInt("level"), rs.getString("group"));
+            return new Card(rs.getString("id"), rs.getString("name"), rs.getInt("duration"), rs.getInt("defence"),
+                    rs.getInt("damage"), rs.getString("explanation"), rs.getString("type"), rs.getInt("level"),
+                    rs.getString("group"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -204,12 +222,13 @@ public class DB {
     }
 
     public static void upgradeCardForUser(int userId, String cardId) {
-        String sql = "UPDATE users_cards SET level = level + 1 WHERE user_id = '" + userId + "' AND card_id = '" + cardId + "'";
+        String sql = "UPDATE users_cards SET level = level + 1 WHERE user_id = '" + userId + "' AND card_id = '"
+                + cardId + "'";
         command(sql);
     }
 
     // ===========================================================
-    //                            USERS
+    // USERS
     // ===========================================================
 
     public static void changeUsername(int userId, String newUsername) {
@@ -232,7 +251,8 @@ public class DB {
         command(sql);
     }
 
-    public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
+    public static void createUser(String username, String password, int security_question_id,
+            String security_question_answer, String email) {
         String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`) VALUES";
         sql += "(NULL, '" + username + "', '" + password + "' , '" + security_question_id + "', '"
                 + security_question_answer + "', '" + email + "', '0', '0', '0', NULL)";
@@ -334,7 +354,7 @@ public class DB {
     }
 
     // ===========================================================
-    //                            AUTH
+    // AUTH
     // ===========================================================
 
     public static boolean login(String username, String password) {
@@ -350,7 +370,7 @@ public class DB {
     }
 
     // ===========================================================
-    //                            CLANS
+    // CLANS
     // ===========================================================
     public static void createClan(String name, String tag, int owner_id) {
         String sql = "INSERT INTO `clans` (`id`, `name`, `tag`, `owner_id`, `xp`, `members`, `description`) VALUES";
@@ -359,7 +379,7 @@ public class DB {
     }
 
     // ===========================================================
-    //                          DB METHODS
+    // DB METHODS
     // ===========================================================
 
     private static void command(String sql) {

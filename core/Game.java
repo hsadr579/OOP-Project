@@ -76,9 +76,29 @@ public class Game {
         if (board.getPlayer1_turn() == 0 && board.getPlayer2_turn() == 0) {
             if (board.timeLine() == 1) {
                 Session.getInstance().setCurrentMenu(Menus.WIN);
-      
+                DB.setUsersXP(DB.getUserId(player1.username),
+                        player1.XP + board.newXPW);
+                DB.setUsersXP(DB.getUserId(player2.username),
+                        player2.XP + board.newXPD);
+                DB.setUsersCoins(DB.getUserId(player1.username),
+                        player1.coin + board.coinGift + ((mode == Mode.BET) ? betCost : 0));
+                DB.setUsersCoins(DB.getUserId(player2.username),
+                        player2.coin - board.coinDec);
+                Win.setUp(player1.username, player2.username, board.coinGift, board.coinDec, board.newXPW,
+                        board.newXPD);
             } else if (board.timeLine() == 2) {
                 Session.getInstance().setCurrentMenu(Menus.WIN);
+                Session.getInstance().setCurrentMenu(Menus.WIN);
+                DB.setUsersXP(DB.getUserId(player2.username),
+                        player2.XP + board.newXPW);
+                DB.setUsersXP(DB.getUserId(player1.username),
+                        player1.XP + board.newXPD);
+                DB.setUsersCoins(DB.getUserId(player2.username),
+                        player2.coin + board.coinGift + ((mode == Mode.BET) ? betCost : 0));
+                DB.setUsersCoins(DB.getUserId(player1.username),
+                        player1.coin - board.coinDec);
+                Win.setUp(player2.username, player1.username, board.coinGift, board.coinDec, board.newXPW,
+                        board.newXPD);
             } else {
                 board.newTurn();
             }

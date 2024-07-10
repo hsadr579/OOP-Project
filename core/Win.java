@@ -16,13 +16,13 @@ public class Win {
 
     static void setOutput()
     {
-        String output=" The winner is" + winnersName + "!\n"
+        String output = " The winner is" + winnersName + "!\n"
                 + "The winner got +" + coinGift + "coins and +" + newXPW + "XP\n"
-                +"The looser cost -"+coinDec+"coins and got +"+newXPD+"XP";
-        if(Game.mode==Mode.BET)
-        {
-            output+="\n"+winnersName+" is the winner of the bet and got "+Game.betCost+"!";
+                + "The looser cost -" + coinDec + "coins and got +" + newXPD + "XP";
+        if (Game.mode == Mode.BET) {
+            output += "\n" + winnersName + " is the winner of the bet and got " + Game.betCost + "!";
         }
         Session.getInstance().setOutput(output);
+    }
 
 }

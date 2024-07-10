@@ -39,7 +39,7 @@ public class MenuController {
     public void input(String command) {
         this.command = command;
         RegexManager.setInput(command);
-        switch (core.Session.getInstance().getCurrentMenu()) {
+        switch (Session.getInstance().getCurrentMenu()) {
             case Menus.SIGN_UP -> signUpMenu();
             case Menus.PROFILE -> profileMenu();
             case Menus.MAIN -> mainMenu();
@@ -56,9 +56,15 @@ public class MenuController {
             case Menus.JOIN_CLAN -> joinClanModeMenu();
             case Menus.CREATE_CLAN -> createClanModeMenu();
             case Menus.SECURITY_QUESTION -> securityQuestion();
+            case Menus.WIN -> win();
+            default -> invalidCommand();
 
         }
 
+    }
+
+    private void win() {
+        Session.getInstance().setCurrentMenu(Menus.MAIN);
     }
 
     private void signUpMenu() {
@@ -86,6 +92,7 @@ public class MenuController {
             loginAdmin();
             return;
         }
+        invalidCommand();
     }
 
     private void securityQuestion() {
@@ -93,6 +100,7 @@ public class MenuController {
             pickQuestion();
             return;
         }
+        invalidCommand();
     }
 
     private void profileMenu() {
@@ -120,6 +128,7 @@ public class MenuController {
             changePassword();
             return;
         }
+        invalidCommand();
 
     }
 
@@ -156,7 +165,7 @@ public class MenuController {
             createClanModeMenu();
             return;
         }
-
+        invalidCommand();
     }
 
     private void shopMenu() {
@@ -175,6 +184,7 @@ public class MenuController {
         if (RegexManager.matches(Regex.SHOW_MY_CARDS)) {
             showMyCardsShop();
         }
+        invalidCommand();
     }
 
     private void modeMenu() {
@@ -182,6 +192,7 @@ public class MenuController {
             modeSelect();
             return;
         }
+        invalidCommand();
 
     }
 
@@ -211,6 +222,7 @@ public class MenuController {
             logout();
             return;
         }
+        invalidCommand();
     }
 
     private void historyMenu() {
@@ -234,6 +246,7 @@ public class MenuController {
             goPageNumber();
             return;
         }
+        invalidCommand();
     }
 
     private void multiplayerModeMenuLoginLevel() {
@@ -250,6 +263,7 @@ public class MenuController {
             selectCharacterMultiplayer();
             return;
         }
+        invalidCommand();
 
     }
 
@@ -263,6 +277,7 @@ public class MenuController {
             placeCardMultiplayer();
             return;
         }
+        invalidCommand();
     }
 
     private void singlePlayerModeMenuCharacterLevel() {
@@ -271,6 +286,7 @@ public class MenuController {
             selectCharacterSinglePlayer();
             return;
         }
+        invalidCommand();
 
     }
 
@@ -284,6 +300,7 @@ public class MenuController {
             placeCardSinglePlayer();
             return;
         }
+        invalidCommand();
     }
 
     private void myClanMenu() {
@@ -296,6 +313,7 @@ public class MenuController {
 
             return;
         }
+        invalidCommand();
     }
 
     private void joinClanModeMenu() {
@@ -308,6 +326,7 @@ public class MenuController {
 
             return;
         }
+        invalidCommand();
 
     }
 
@@ -317,12 +336,17 @@ public class MenuController {
 
             return;
         }
+        invalidCommand();
 
     }
 
     // ############################################################
     // #################### Connector methods #####################
     // ############################################################
+    private void invalidCommand() {
+        Session.getInstance().setOutput("invalid command!");
+    }
+
     private void createNewUser() {
         String userName, password, email, nickname;
         userName = RegexManager.get("username");
