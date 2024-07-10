@@ -7,8 +7,8 @@ import java.util.Random;
 public class Board {
     private String player1;
     private String player2;
-    private String player1_char;
-    private String player2_char;
+    private Character player1_char;
+    private Character player2_char;
     private int player1_hp;
     private int player2_hp;
     private int player1_dmg;
@@ -26,7 +26,7 @@ public class Board {
     private Cell[] player2_board;
     private int current_player;
 
-    public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
+    public Board(String player1, String player2,  Character player1_char, Character player2_char, int player1_hp,
             int player2_hp, ArrayList<Card> player1_cards, ArrayList<Card> player2_cards, int current_player,
             int level_player1, int level_player2) {
         this.player1 = player1;
@@ -504,19 +504,19 @@ public class Board {
         }
     }
 
-    public String getPlayer1_char() {
+    public Character getPlayer1_char() {
         return player1_char;
     }
 
-    public void setPlayer1_char(String player1_char) {
+    public void setPlayer1_char(Character player1_char) {
         this.player1_char = player1_char;
     }
 
-    public String getPlayer2_char() {
+    public Character getPlayer2_char() {
         return player2_char;
     }
 
-    public void setPlayer2_char(String player2_char) {
+    public void setPlayer2_char(Character player2_char) {
         this.player2_char = player2_char;
     }
 
