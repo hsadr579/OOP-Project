@@ -1,7 +1,9 @@
 package core;
+
 public class MainMenu {
     public static void startGame() {
         Session.getInstance().setCurrentMenu(Menus.MODE);
+        Session.getInstance().setOutput(Outputs.SUCCESS_START_GAME);
     }
 
     public static void showMyCards() {
@@ -22,8 +24,7 @@ public class MainMenu {
 
     }
 
-    public static void goProfile()
-    {
+    public static void goProfile() {
         Session.getInstance().setCurrentMenu(Menus.PROFILE);
     }
 }

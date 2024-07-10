@@ -65,19 +65,19 @@ public class Game {
     }
 
     public static void selectCard() {
-        //don't need
+        // ASA->don't need
+        // HS->nice
     }
 
-    public static void placeCard(int i , int place) {
-        board.placeCard(i,place);
+    public static void placeCard(int i, int place) {
+        board.placeCard(i, place);
         board.showBoard();
-        if (board.getPlayer1_turn()==0 && board.getPlayer2_turn()==0){
-            if (board.timeLine()==1){
-                //win player 1
-            } else if (board.timeLine()==2) {
-                //win player 2
-            }
-            else {
+        if (board.getPlayer1_turn() == 0 && board.getPlayer2_turn() == 0) {
+            if (board.timeLine() == 1) {
+                Session.getInstance().setOutput(Outputs.HOST_WIN);
+            } else if (board.timeLine() == 2) {
+                Session.getInstance().setOutput(Outputs.OPPONENT_WIN);
+            } else {
                 board.newTurn();
             }
         }

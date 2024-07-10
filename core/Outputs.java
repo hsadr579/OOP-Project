@@ -2,11 +2,8 @@ package core;
 
 public enum Outputs {
     // ##################### user creating #####################
-    SUCCESS_CREATE_USER("""
-            User created successfully. Please choose a security question :
-                • 1-What is your father’s name ?
-                • 2-What is your favourite color ?
-                • 3-What is the name of your school ?"""),
+    SUCCESS_CREATE_USER(
+            "User created successfully. Please choose a security question :\n\t• 1-What is your father’s name ?\n\t• 2-What is your favourite color ?\n\t• 3-What is the name of your school ?"),
     ERROR_EMPTY_FIELD("Some fields are empty!"),
     ERROR_DUPLICATE_USERNAME("This username has already been chosen!"),
     ERROR_INVALID_USERNAME("Your username is invalid!"),
@@ -33,13 +30,7 @@ public enum Outputs {
     SUCCESS_CHANGE_EMAIL("Your email changed successfully!"),
     // ##################### main menu #####################
     MAIN_MENU("You are on main menu."),
-    SUCCESS_START_GAME("""
-            Select a mode:
-            1. Multiplayer
-            2. Bet
-            3. Single player
-            4. Clan war
-            """),
+    SUCCESS_START_GAME("Select a mode:\n\t1. Multiplayer\n\t2. Bet\n\t3. Single player\n\t4. Clan war"),
     SUCCESS_GO_TO_SHOP("You are in shop menu!"),
     SUCCESS_GO_TO_PROFILE("You are in profile menu!"),
     // ##################### shop menu #####################
@@ -60,8 +51,9 @@ public enum Outputs {
     // ##################### mode menu #####################
     // ##################### multiplayer####################
     ERROR_GAP("You cannot do this because of the gap!"),
-    ERROR_NOT_EMPTY("This place is full!");
-
+    ERROR_NOT_EMPTY("This place is full!"),
+    OPPONENT_WIN("The opponent is the winner.\nThe host defeated!"),
+    HOST_WIN("The host is the winner!");
     private final String pattern;
 
     Outputs(String pattern) {
