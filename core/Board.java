@@ -65,18 +65,46 @@ public class Board {
         if (temp.getGroup().equals("spell")) {
             if (temp.getId().equals(Spells.FIXER.get())) {
                 doFixer();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             } else if (temp.getId().equals(Spells.ALARM.get())) {
                 doAlarm();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             } else if (temp.getId().equals(Spells.HOLE.get())) {
                 doHole();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             } else if (temp.getId().equals(Spells.THIEF.get())) {
                 doThief();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             } else if (temp.getId().equals(Spells.SWAMP.get())) {
                 doSwamp();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             } else if (temp.getId().equals(Spells.CLONE.get())) {
                 doClone();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             } else if (temp.getId().equals(Spells.HIDDEN.get())) {
                 doHide();
+                if (player==1){
+                    player1_turn--;
+                }
+                else player2_turn--;
             }
             else {
 
@@ -108,6 +136,7 @@ public class Board {
                     }
                     player1_hand.remove(temp);
                     addToHand(1);
+                    player1_turn--;
                     switchPlayer();
                 } else {
                     for (int i = place - 1; i < place + 1 - 1; i++) {
@@ -126,6 +155,7 @@ public class Board {
                     }
                     player2_hand.remove(temp);
                     addToHand(2);
+                    player2_turn--;
                     switchPlayer();
                 }
             }
@@ -150,6 +180,7 @@ public class Board {
                 }
                 player1_hand.remove(temp);
                 addToHand(1);
+                player1_turn--;
                 switchPlayer();
             } else {
                 for (int i = place - 1; i < place + duration - 1; i++) {
@@ -168,6 +199,7 @@ public class Board {
                 }
                 player2_hand.remove(temp);
                 addToHand(2);
+                player2_turn--;
                 switchPlayer();
             }
         }
@@ -383,19 +415,19 @@ public class Board {
             }
 
             if (player1_hp <= 0) {
-                System.out.println("Game is over! The winner is" + player2 + "!");
-                System.out.println(player2 + ": +" + victoryCoinCalculate(player2_hp, level_player2) + "coin | +"
-                        + victoryXPCalculate(player2_hp, level_player2) + "XP");
-                System.out.println(player1 + ": -" + DefeatCoinCalculate(player2_hp, level_player2) + "coin | +"
-                        + DefeatXPCalculate(player2_hp, level_player2) + "XP");
+//                System.out.println("Game is over! The winner is" + player2 + "!");
+//                System.out.println(player2 + ": +" + victoryCoinCalculate(player2_hp, level_player2) + "coin | +"
+//                        + victoryXPCalculate(player2_hp, level_player2) + "XP");
+//                System.out.println(player1 + ": -" + DefeatCoinCalculate(player2_hp, level_player2) + "coin | +"
+//                        + DefeatXPCalculate(player2_hp, level_player2) + "XP");
                 ///// DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-                return 0;
+                return 2;
             } else if (player2_hp <= 0) {
-                System.out.println("Game is over! The winner is" + player1 + "!");
-                System.out.println(player1 + ": +" + victoryCoinCalculate(player1_hp, level_player1) + "coin | +"
-                        + victoryXPCalculate(player1_hp, level_player1) + "XP");
-                System.out.println(player2 + ": -" + DefeatCoinCalculate(player1_hp, level_player1) + "coin | +"
-                        + DefeatXPCalculate(player1_hp, level_player1) + "XP");
+//                System.out.println("Game is over! The winner is" + player1 + "!");
+//                System.out.println(player1 + ": +" + victoryCoinCalculate(player1_hp, level_player1) + "coin | +"
+//                        + victoryXPCalculate(player1_hp, level_player1) + "XP");
+//                System.out.println(player2 + ": -" + DefeatCoinCalculate(player1_hp, level_player1) + "coin | +"
+//                        + DefeatXPCalculate(player1_hp, level_player1) + "XP");
                 ///// DB change\\\\\\ \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
                 return 1;
             }}
@@ -406,8 +438,8 @@ public class Board {
             player1_board[i] = null;
             player2_board[i] = null;
         }
-        newTurn();
-        return 2;
+        //newTurn();
+        return 0;
     }
 
     public void showBoard() {
