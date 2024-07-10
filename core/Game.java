@@ -56,11 +56,22 @@ public class Game {
     }
 
     public static void selectCard() {
-
+        //don't need
     }
 
-    public static void placeCard() {
-
+    public static void placeCard(int i , int place) {
+        board.placeCard(i,place);
+        board.showBoard();
+        if (board.getPlayer1_turn()==0 && board.getPlayer2_turn()==0){
+            if (board.timeLine()==1){
+                //win player 1
+            } else if (board.timeLine()==2) {
+                //win player 2
+            }
+            else {
+                board.newTurn();
+            }
+        }
     }
 
     public static void newSinglePlayerGame() {
