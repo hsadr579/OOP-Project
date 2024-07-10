@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static java.lang.Math.abs;
+
 public class Board {
     private String player1;
     private String player2;
@@ -458,18 +460,26 @@ public class Board {
         }
         System.out.println();
 
-        for (Cell cell : player1_board) {
-            if (cell.isActive())
-                System.out.print("|" + cell.getDamage() + "|" + cell.getDefence());
-            else
+        for (int i = 0; i < 21 ; i++) {
+            if (player1_board[i].isActive())
+                System.out.print("|" + player1_board[i].getDamage() + "|" + player1_board[i].getDefence());
+            else if (i==player1_gap-1)
+                System.out.print("| GAP ");
+            else if (player1_board[i]!=null)
                 System.out.print("|##|##");
+            else
+                System.out.print("|  |  ");
         }
         System.out.println("|");
-        for (Cell cell : player1_board) {
-            if (cell.isActive())
-                System.out.print("|  " + cell.getId() + "  ");
+        for (int i = 0; i < 21 ; i++) {
+            if (player1_board[i].isActive())
+                System.out.print("| " + player1_board[i].getId() + "  ");
+            else if (i==player1_gap-1)
+                System.out.print("| GAP ");
+            else if (player1_board[i]!=null)
+                System.out.print("| ##  ");
             else
-                System.out.print("|  ##  ");
+                System.out.print("|     ");
         }
         System.out.println("|");
 
@@ -478,18 +488,26 @@ public class Board {
         }
         System.out.println();
 
-        for (Cell cell : player2_board) {
-            if (cell.isActive())
-                System.out.print("|" + cell.getDamage() + "|" + cell.getDefence());
-            else
+        for (int i = 0; i < 21 ; i++) {
+            if (player2_board[i].isActive())
+                System.out.print("|" + player2_board[i].getDamage() + "|" + player2_board[i].getDefence());
+            else if (i==player2_gap-1)
+                System.out.print("| GAP ");
+            else if (player2_board[i]!=null)
                 System.out.print("|##|##");
+            else
+                System.out.print("|  |  ");
         }
         System.out.println("|");
-        for (Cell cell : player2_board) {
-            if (cell.isActive())
-                System.out.print("|  " + cell.getId() + "  ");
+        for (int i = 0; i < 21 ; i++) {
+            if (player2_board[i].isActive())
+                System.out.print("| " + player2_board[i].getId() + "  ");
+            else if (i==player2_gap-1)
+                System.out.print("| GAP ");
+            else if (player2_board[i]!=null)
+                System.out.print("| ##  ");
             else
-                System.out.print("|  ##  ");
+                System.out.print("|     ");
         }
         System.out.println("|");
 
@@ -602,5 +620,76 @@ public class Board {
 
     public void setPlayer2_turn(int player2_turn) {
         this.player2_turn = player2_turn;
+    }
+
+    public int[] botPlacing(){
+        int card = Utils.getRandomNumber(1,5);
+        int place = 1;
+        int[] out = {card,place};
+        if (player2_turn==4){
+            if (player2_gap<11){
+                place=Utils.getRandomNumber(11,15);
+                out[1]=place;
+                return out;
+            }
+            else {
+                place = Utils.getRandomNumber(1,5);
+                out[1]=place;
+                return out;
+            }
+        }
+        else if (player2_turn==2 || player2_turn==3) {
+            for (int i=0;i<21;i++){
+                if (player1_board[i].getDefence()< player2_hand.get(card).getDefence()){
+                    if (i>player2_gap-1 && (21-i)>=player2_hand.get(card).getDuration()){
+                        place = i+1;
+                        out[1]=place;
+                        return out;
+                    }
+                    else if (i>player2_gap-1) {
+                        if (player2_gap<11){
+                            place=Utils.getRandomNumber(11,15);
+                            out[1]=place;
+                            return out;
+                        }
+                        else {
+                            place = Utils.getRandomNumber(1,5);
+                            out[1]=place;
+                            return out;
+                        }
+                    }
+                    else if (i<player2_gap-1 && (player2_gap-1-i)>=player2_hand.get(card).getDuration()) {
+                        place = i+1;
+                        out[1]=place;
+                        return out;
+                    }
+                    else if (i<player2_gap-1) {
+                        if (player2_gap<11){
+                            place=Utils.getRandomNumber(11,15);
+                            out[1]=place;
+                            return out;
+                        }
+                        else {
+                            place = Utils.getRandomNumber(1,5);
+                            out[1]=place;
+                            return out;
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            if (player2_gap<11){
+                place=Utils.getRandomNumber(11,15);
+                out[1]=place;
+                return out;
+            }
+            else {
+                place = Utils.getRandomNumber(1,5);
+                out[1]=place;
+                return out;
+            }
+        }
+        return out;
     }
 }
