@@ -14,12 +14,21 @@ public class Game {
     static User player2;
     static User currentPlayer;
     static Tower map;
-    static Character[] chars = {};
+    static String[] chars = { "Darth", "Luke", "Fett", "Count" };
+    static Mode[] modes = { Mode.MULTIPLAYER, Mode.SINGLE_PLAYER, Mode.BET };
 
     public static void newMultiplayerGame() {
         mode = Mode.MULTIPLAYER;
         player1 = DB.getUserById(Session.getInstance().getLoggedUser());
         Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_LOGIN);
+
+    }
+
+    public static void setMode(int moden) {
+
+        if (modes[moden] == Mode.MULTIPLAYER) {
+            newMultiplayerGame();
+        }
 
     }
 
@@ -33,14 +42,14 @@ public class Game {
         }
     }
 
-    public static void selectCharacterMultiplayer(String username, int character) {
+    public static void selectStringMultiplayer(String username, int character) {
 
         if (player1.username.equals(username)) {
             player1.character = chars[character];
         } else {
             player2.character = chars[character];
         }
-        if (player1.character != 0 && player2.character != 0) {
+        if (player1.character != null && player2.character != null) {
             Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_GAME);
             ArrayList<Card> c1 = new ArrayList<>();
             ArrayList<Card> c2 = new ArrayList<>();
