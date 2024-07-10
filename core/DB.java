@@ -95,7 +95,7 @@ public class DB {
     // ===========================================================
 
     public static void createUser(String username, String password, int security_question_id,
-            String security_question_answer, String email) {
+                                  String security_question_answer, String email) {
         String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`) VALUES";
         sql += "(NULL, '" + username + "', '" + password + "' , '" + security_question_id + "', '"
                 + security_question_answer + "', '" + email + "', '0', '0', '0', NULL)";
@@ -131,7 +131,7 @@ public class DB {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return new int[] { rs.getInt("login_fail_number"), rs.getInt("last_failed_login") };
+            return new int[]{rs.getInt("login_fail_number"), rs.getInt("last_failed_login")};
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -147,7 +147,7 @@ public class DB {
             if (rs.next()) {
                 String question = rs.getString("security_question_id");
                 String answer = rs.getString("security_question_answer");
-                return new String[] { question, answer };
+                return new String[]{question, answer};
             } else {
                 return null;
             }
@@ -174,10 +174,10 @@ public class DB {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return new String[] { rs.getString("username"), rs.getString("password"),
+            return new String[]{rs.getString("username"), rs.getString("password"),
                     rs.getString("security_question_id"), rs.getString("security_question_answer"),
                     rs.getString("email"), rs.getString("nickname"), rs.getString("xp"), rs.getString("coins"),
-                    rs.getString("clan_id"), rs.getString("last_failed_login"), rs.getString("login_fail_number") };
+                    rs.getString("clan_id"), rs.getString("last_failed_login"), rs.getString("login_fail_number")};
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;

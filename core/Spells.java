@@ -13,7 +13,7 @@ public enum Spells {
     SWAMP("25"),
     CLONE("26"),
     HIDDEN("27");
-    
+
     private final String pattern;
 
     Spells(String pattern) {

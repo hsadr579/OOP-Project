@@ -6,7 +6,7 @@ public class User {
     int level, XP, HP, coin;
 
     public User(String username, String password, String nickName, String email, String securityQuestion,
-            String securityAnswer, String[] cardsId, int level, int XP, int HP, int coin) {
+                String securityAnswer, String[] cardsId, int level, int XP, int HP, int coin) {
         this.username = username;
         this.password = password;
         this.nickName = nickName;

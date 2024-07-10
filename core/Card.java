@@ -17,7 +17,7 @@ public class Card implements Cloneable {
     // private String img;
 
     public Card(String id, String name, int duration, int defence, int damage, String explanation, String type,
-            int level, String group) {
+                int level, String group) {
         this.id = id;
         this.name = name;
         this.duration = duration;

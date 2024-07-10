@@ -5,7 +5,7 @@ public class Auth {
 
     // register
     public static void register(String username, String password, int security_question_id,
-            String security_question_answer, String email) {
+                                String security_question_answer, String email) {
 
         if (Session.getInstance().getLoggedUser() != -1) {
             Session.getInstance().setOutput("You are already logged in!");
