@@ -13,7 +13,7 @@ public enum Menus {
     MAIN("Main Menu"), MY_CLAN("Your Clan"),
     JOIN_CLAN("Join Clan Page"),
     CREATE_CLAN("Create Clan"),
-    SECURITY_QUESTION("Enter With Security Question"), WIN("You are the winner"), BET_COST("Bet cost");
+    SECURITY_QUESTION("Enter With Security Question"), WIN("You are the winner"),CAPCHA("Enter capcha"), BET_COST("Bet cost");
 
     private final String pattern;
 

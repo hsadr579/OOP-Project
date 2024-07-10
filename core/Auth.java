@@ -2,28 +2,70 @@
 package core;
 
 public class Auth {
+    static String currentCapcha, registeringUsername, registeringPassword, registeringNickname, registeringEmail,
+            secAnswer;
+    static int secID;
 
-    // register
-    public static void register(String username, String password, int security_question_id,
-            String security_question_answer, String email) {
-
-        if (Session.getInstance().getLoggedUser() != -1) {
-            Session.getInstance().setOutput("You are already logged in!");
-            return;
-        }
+    public static void preRegister(String username, String password, String passConf, String nickName, String email) {
 
         if (!Utils.usernameIsValid(username)) {
-            Session.getInstance().setOutput("Username is not valid!");
+            Session.getInstance().setOutput(Outputs.ERROR_INVALID_USERNAME);
             return;
         }
-
-        if (password == "") {
+        if(passConf!=null)
+        if (!passConf.equals(password)) {
+            Session.getInstance().setOutput(Outputs.ERROR_PASSWORDS_NOT_SAME);
+            return;
+        }
+        if (password.equals("random")) {
             password = Utils.generateRandomString(8);
         } else if (!Utils.passwordIsValid(password)) {
-            Session.getInstance().setOutput("Password is not valid!");
+            Session.getInstance().setOutput(Outputs.ERROR_INVALID_PASSWORD_1);
+            return;
+        } else if (!Utils.emailIsValid(email)) {
+            Session.getInstance().setOutput(Outputs.ERROR_INVALID_EMAIL);
             return;
         }
+        registeringUsername = username;
+        registeringPassword = password;
+        registeringEmail = email;
+        registeringNickname = nickName;
+        Session.getInstance().setCurrentMenu(Menus.SECURITY_QUESTION);
+        Session.getInstance().setOutput(Outputs.SUCCESS_CREATE_USER);
 
+    }
+
+    private static String makeNewCapcha() {
+        currentCapcha = Utils.convertStringToAsciiArt(Utils.generateRandomString(4));
+        return currentCapcha;
+    }
+
+    public static void setSecurityQ(int id, String answer, String confirm) {
+        if (!answer.equals(confirm)) {
+            Session.getInstance().setOutput(Outputs.ERROR_ANSWERS_NOT_SAME);
+            return;
+        }
+        secID = id;
+        secAnswer = answer;
+        Session.getInstance().setCurrentMenu(Menus.CAPCHA);
+        Session.getInstance().setOutput(makeNewCapcha());
+
+    }
+
+    public static void checkCapcha(String c) {
+        if (currentCapcha.equals(c)) {
+            register(registeringUsername, registeringPassword, secID, secAnswer, registeringEmail);
+            DB.changeNickname(DB.getUserId(registeringUsername), registeringNickname);
+            Session.getInstance().setCurrentMenu(Menus.SIGN_UP);
+
+        } else {
+            Session.getInstance().setOutput(makeNewCapcha());
+        }
+    }
+    // register
+
+    public static void register(String username, String password, int security_question_id,
+            String security_question_answer, String email) {
 
         if (!DB.usernameExists(username)) {
             DB.createUser(username, password, security_question_id, security_question_answer, email);
@@ -34,11 +76,6 @@ public class Auth {
 
     // login
     public static void login(String username, String password) {
-
-        if (Session.getInstance().getLoggedUser() != -1) {
-            Session.getInstance().setOutput("You are already logged in!");
-            return;
-        }
 
         int[] failedLoginData = DB.getUserFailedLoginData(username);
         int loginFailNumber = failedLoginData[0];

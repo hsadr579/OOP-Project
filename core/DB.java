@@ -54,7 +54,7 @@ public class DB {
     }
 
     public static void setUserLevel(int id, int newLevel) {
-
+kjhk
     }
 
     public static void setUsersXP(int id, int newXP) {
@@ -62,6 +62,7 @@ public class DB {
             setUserLevel(id, getUserLevel(id) + 1);
         }
         // ...
+        kho
     }
 
     public static User getUserById(int id) {

@@ -58,10 +58,15 @@ public class MenuController {
             case Menus.SECURITY_QUESTION -> securityQuestion();
             case Menus.WIN -> win();
             case Menus.BET_COST -> betCost();
+            case Menus.CAPCHA -> capcha();
             default -> invalidCommand();
 
         }
 
+    }
+
+    private void capcha() {
+        Auth.checkCapcha(command);
     }
 
     private void betCost() {
@@ -367,12 +372,16 @@ public class MenuController {
     }
 
     private void createNewUser() {
-        String userName, password, email, nickname;
+        String userName, password, passwordConf, email, nickname;
         userName = RegexManager.get("username");
+
+        passwordConf = RegexManager.get("passwordConfirmation");
+
         password = RegexManager.get("password");
         email = RegexManager.get("email");
         nickname = RegexManager.get("nickname");
         // call...
+        Auth.preRegister(userName, password, passwordConf, nickname, email);
 
     }
 
@@ -382,7 +391,7 @@ public class MenuController {
         email = RegexManager.get("email");
         nickname = RegexManager.get("nickname");
         // call...
-
+        Auth.preRegister(userName, "random", null, nickname, email);
     }
 
     private void pickQuestion() {
@@ -392,6 +401,7 @@ public class MenuController {
         answerConf = RegexManager.get("answerConfirm");
         questionNumber = Integer.valueOf(RegexManager.get("questionNumber"));
         // call...
+        Auth.setSecurityQ(questionNumber, answer, answerConf);
     }
 
     private void login() {
