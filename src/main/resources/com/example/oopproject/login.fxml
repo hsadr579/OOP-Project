@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oopproject.LoginControl">
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="230.0" BorderPane.alignment="CENTER">
          <children>
@@ -17,14 +17,14 @@
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Label fx:id="error" layoutX="261.0" layoutY="343.0" prefHeight="44.0" prefWidth="326.0" text="Errors" textFill="#fa0606" />
+            <Label fx:id="error" layoutX="261.0" layoutY="343.0" prefHeight="44.0" prefWidth="326.0" textFill="#fa0606" />
             <PasswordField fx:id="pass" layoutX="266.0" layoutY="240.0" prefHeight="26.0" prefWidth="316.0" />
             <TextField fx:id="username" layoutX="265.0" layoutY="174.0" prefHeight="26.0" prefWidth="318.0" />
             <Label layoutX="265.0" layoutY="143.0" prefHeight="18.0" prefWidth="83.0" text="Username" />
             <Label layoutX="266.0" layoutY="214.0" prefHeight="18.0" prefWidth="83.0" text="Password" />
             <TextField fx:id="answer" layoutX="265.0" layoutY="305.0" prefHeight="26.0" prefWidth="318.0" />
             <Label fx:id="question" layoutX="265.0" layoutY="279.0" prefHeight="18.0" prefWidth="103.0" text="Security Question" />
-            <Button fx:id="forgot" alignment="CENTER" layoutX="591.0" layoutY="304.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="126.0" text="Foget password" textAlignment="CENTER">
+            <Button fx:id="forgot" alignment="CENTER" layoutX="591.0" layoutY="304.0" mnemonicParsing="false" onAction="#forgetPass" prefHeight="26.0" prefWidth="126.0" text="Foget password" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="13.0" />
                </font>

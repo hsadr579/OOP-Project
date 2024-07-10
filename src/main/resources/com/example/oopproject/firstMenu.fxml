@@ -5,17 +5,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oopproject.FirstControl">
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="230.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="sign_upB" alignment="CENTER" layoutX="331.0" layoutY="262.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="167.0" text="Sign up" textAlignment="CENTER" AnchorPane.rightAnchor="331.40000000000003">
+            <Button fx:id="sign_upB" alignment="CENTER" layoutX="279.0" layoutY="195.0" mnemonicParsing="false" onAction="#signUP" prefHeight="99.0" prefWidth="272.0" text="Sign up" textAlignment="CENTER" AnchorPane.rightAnchor="278.0">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="loginB" alignment="CENTER" layoutX="331.0" layoutY="342.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="167.0" text="Login" textAlignment="CENTER">
+            <Button fx:id="loginB" alignment="CENTER" layoutX="279.0" layoutY="339.0" mnemonicParsing="false" onAction="#login" prefHeight="99.0" prefWidth="272.0" text="Login" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
