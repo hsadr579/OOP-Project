@@ -114,4 +114,44 @@ public class Utils {
 
         return nullIndices.get(randomIndex);
     }
+    public static Integer findRandomIndex(Cell[] array, int m, int gap) {
+        Random rand = new Random();
+        int arrayLength = array.length;
+        List<Integer> validIndices = new ArrayList<>();
+
+        for (int i = 0; i <= arrayLength - m; i++) {
+            boolean allNulls = true;
+
+            for (int j = i; j < i + m; j++) {
+                if (array[j] != null) {
+                    allNulls = false;
+                    break;
+                }
+            }
+
+            if (allNulls) {
+                validIndices.add(i);
+            }
+        }
+
+        List<Integer> filteredIndices = new ArrayList<>();
+        for (int index : validIndices) {
+            boolean withinGap = false;
+            for (int i = index + 1; i <= index + gap && i < arrayLength; i++) {
+                if (array[i] != null) {
+                    withinGap = true;
+                    break;
+                }
+            }
+            if (!withinGap) {
+                filteredIndices.add(index);
+            }
+        }
+
+        if (filteredIndices.isEmpty()) {
+            return null;
+        } else {
+            return filteredIndices.get(rand.nextInt(filteredIndices.size()));
+        }
+    }
 }
