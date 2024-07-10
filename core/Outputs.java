@@ -55,7 +55,8 @@ public enum Outputs {
     ERROR_NOT_EMPTY("This place is full!"),
     OPPONENT_WIN("The opponent is the winner.\nThe host defeated!"),
     HOST_WIN("The host is the winner!"), TRY_AGAIN("Try again!")
-    ,NOT_ENOUGH_COIN_BET("Not enough coin!");
+    , NOT_ENOUGH_COIN_BET("Not enough coin!"),LOGIN_PLAYER2("Please login guest");
+    
 
     private final String pattern;
 

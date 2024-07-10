@@ -283,10 +283,7 @@ public class MenuController {
 
     private void multiplayerModeMenuGameLevel() {
 
-        if (RegexManager.matches(Regex.SELECT_CARD_M)) {
-            selectCardMultiplayer();
-            return;
-        }
+       
         if (RegexManager.matches(Regex.PLACE_CARD_M)) {
             placeCardMultiplayer();
             return;
@@ -579,6 +576,7 @@ public class MenuController {
         int number;
         number = Integer.valueOf(RegexManager.get("number"));
         // call...
+        Game.setMode(number);
     }
 
     private void loginPlayerTwo() {
@@ -586,6 +584,7 @@ public class MenuController {
         userName = RegexManager.get("username");
         password = RegexManager.get("password");
         // call...
+        Game.loginUser2(userName, password);
     }
 
     private void selectCharacterMultiplayer() {
@@ -594,15 +593,11 @@ public class MenuController {
         int number;
         number = Integer.valueOf(RegexManager.get("number"));
         // call...
+        Game.selectCharacterMultiplayer(player, number);
+
     }
 
-    private void selectCardMultiplayer() {
-        int id;
-        id = Integer.valueOf(RegexManager.get("id"));
-        String player;
-        player = RegexManager.get("player");
-        // call...
-    }
+    
 
     private void placeCardMultiplayer() {
         int id;
@@ -610,6 +605,7 @@ public class MenuController {
         int block;
         block = Integer.valueOf(RegexManager.get("block"));
         // call...
+        Game.placeCard(id, block);
     }
 
     private void selectCharacterSinglePlayer() {

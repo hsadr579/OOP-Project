@@ -26,6 +26,7 @@ public class Game {
         mode = Mode.MULTIPLAYER;
         player1 = DB.getUserById(Session.getInstance().getLoggedUser());
         Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_LOGIN);
+        Session.getInstance().setOutput(Outputs.LOGIN_PLAYER2);
 
     }
 
@@ -42,7 +43,7 @@ public class Game {
     public static void loginUser2(String username, String password) {
         if (DB.login(username, password)) {
             player2 = DB.getUserById(DB.getUserId(username));
-            if(mode==Mode.MULTIPLAYER)
+            if (mode == Mode.MULTIPLAYER)
                 Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
             else
                 Session.getInstance().setCurrentMenu(Menus.BET_COST);
@@ -55,12 +56,12 @@ public class Game {
     public static void seBetCost(String username, int cost) {
 
         if (player1.username.equals(username)) {
-            if(cost>player1.coin)
+            if (cost > player1.coin)
                 Session.getInstance().setOutput(Outputs.NOT_ENOUGH_COIN_BET);
             else {
                 player1.coin -= cost;
                 betCost += cost;
-                sCost1=true;
+                sCost1 = true;
             }
         } else if (player2.username.equals(username)) {
             if (cost > player1.coin)
@@ -87,8 +88,7 @@ public class Game {
             player1.character = chars[character];
         } else if (player2.username.equals(username)) {
             player2.character = chars[character];
-        }
-        else {
+        } else {
             Session.getInstance().setOutput(Outputs.TRY_AGAIN);
         }
         if (player1.character != null && player2.character != null) {
@@ -156,6 +156,7 @@ public class Game {
         sCost2 = false;
         mode = Mode.BET;
         player1 = DB.getUserById(Session.getInstance().getLoggedUser());
+        Session.getInstance().setOutput(Outputs.LOGIN_PLAYER2);
         Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_LOGIN);
     }
 }

@@ -55,6 +55,7 @@ public enum Regex {
     SELECT_CARD_M("select card (?<id>\\d+) player (?<player>\\w+)\\s*"),
     PLACE_CARD_M("place card (?<id>\\d+) in block (?<block>\\d+)\\s*"),
     // ##################### bet mode #####################
+    
     SET_BET_COST("(?<username>\\w+) bet for (?<cost>\\d+)"),
     // ##################### single player mode #####################
     SELECT_CHARACTER("select character (?<number>\\d+)"),
