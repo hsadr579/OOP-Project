@@ -12,6 +12,19 @@ public class Auth {
             return;
         }
 
+        if (!Utils.usernameIsValid(username)) {
+            Session.getInstance().setOutput("Username is not valid!");
+            return;
+        }
+
+        if (password == "") {
+            password = Utils.generateRandomString(8);
+        } else if (!Utils.passwordIsValid(password)) {
+            Session.getInstance().setOutput("Password is not valid!");
+            return;
+        }
+
+
         if (!DB.usernameExists(username)) {
             DB.createUser(username, password, security_question_id, security_question_answer, email);
         } else {

@@ -625,20 +625,13 @@ public class Board {
     }
 
     public int[] botPlacing(){
-        int card = Utils.getRandomNumber(1,5);
+        int card = Utils.getRandomNumber(0,4);
         int place = 1;
         int[] out = {card,place};
         if (player2_turn==4){
-            if (player2_gap<11){
-                place=Utils.getRandomNumber(11,15);
-                out[1]=place;
-                return out;
-            }
-            else {
-                place = Utils.getRandomNumber(1,5);
-                out[1]=place;
-                return out;
-            }
+            place=Utils.findRandomIndex(player2_board, player2_hand.get(card).getDuration(),player2_gap-1);
+            out[1]=place;
+            return out;
         }
         else if (player2_turn==2 || player2_turn==3) {
             for (int i=0;i<21;i++){
@@ -649,16 +642,9 @@ public class Board {
                         return out;
                     }
                     else if (i>player2_gap-1) {
-                        if (player2_gap<11){
-                            place=Utils.getRandomNumber(11,15);
-                            out[1]=place;
-                            return out;
-                        }
-                        else {
-                            place = Utils.getRandomNumber(1,5);
-                            out[1]=place;
-                            return out;
-                        }
+                        place=Utils.findRandomIndex(player2_board, player2_hand.get(card).getDuration(),player2_gap-1);
+                        out[1]=place;
+                        return out;
                     }
                     else if (i<player2_gap-1 && (player2_gap-1-i)>=player2_hand.get(card).getDuration()) {
                         place = i+1;
@@ -666,31 +652,17 @@ public class Board {
                         return out;
                     }
                     else if (i<player2_gap-1) {
-                        if (player2_gap<11){
-                            place=Utils.getRandomNumber(11,15);
-                            out[1]=place;
-                            return out;
-                        }
-                        else {
-                            place = Utils.getRandomNumber(1,5);
-                            out[1]=place;
-                            return out;
-                        }
+                        place=Utils.findRandomIndex(player2_board, player2_hand.get(card).getDuration(),player2_gap-1);
+                        out[1]=place;
+                        return out;
                     }
                 }
             }
         }
         else {
-            if (player2_gap<11){
-                place=Utils.getRandomNumber(11,15);
-                out[1]=place;
-                return out;
-            }
-            else {
-                place = Utils.getRandomNumber(1,5);
-                out[1]=place;
-                return out;
-            }
+            place=Utils.findRandomIndex(player2_board, player2_hand.get(card).getDuration(),player2_gap-1);
+            out[1]=place;
+            return out;
         }
         return out;
     }
