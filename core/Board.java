@@ -298,7 +298,7 @@ public class Board {
             }
             if (player1_board[i].getDefence() < player2_board[i].getDefence()) {
                 player1_board[i].setActive(false);
-            } else {
+            } else if (player1_board[i].getDefence() == player2_board[i].getDefence()){
                 player1_board[i].setActive(false);
                 player2_board[i].setActive(false);
             }
@@ -449,7 +449,9 @@ public class Board {
         System.out.println("Player 1: " + player1 + " " + player1_char + " HP :" + player1_hp + " DMG :" + player1_dmg
                 + " Turn: " + player1_turn);
         // ####### player1 cards #######\\
-        ////////////////////////////////////////////////////////
+        for (int i=0;i<5;i++){
+            System.out.println((i+1)+"- "+player1_hand.get(i).getName()+" |dur="+player1_hand.get(i).getDuration()+" |def="+player1_hand.get(i).getDefence()+" |dmg="+player1_hand.get(i).getDamage());
+        }
         // ####### cells #######\\
         for (int i = 0; i < 21 * 6 + 1; i++) {
             System.out.print("_");
@@ -497,7 +499,9 @@ public class Board {
         System.out.println();
 
         // ####### player2 cards #######\\
-        ////////////////////////////////////////////////////////
+        for (int i=0;i<5;i++){
+            System.out.println((i+1)+"- "+player2_hand.get(i).getName()+" |dur="+player2_hand.get(i).getDuration()+" |def="+player2_hand.get(i).getDefence()+" |dmg="+player2_hand.get(i).getDamage());
+        }
         // ####### player2 information #######\\
         System.out.println("Player 2: " + player2 + " " + player2_char + " HP :" + player2_hp + " DMG :" + player2_dmg
                 + " Turn: " + player2_turn);
