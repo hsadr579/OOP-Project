@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="sign_upB" alignment="CENTER" layoutX="495.0" layoutY="575.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="334.0" text="Sign up" textAlignment="CENTER" AnchorPane.rightAnchor="236.0">
+               <font>
+                  <Font name="Comic Sans MS" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="randomB" alignment="CENTER" layoutX="593.0" layoutY="110.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="78.0" text="Random" textAlignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Button>
+            <Label fx:id="error" layoutX="261.0" layoutY="528.0" prefHeight="44.0" prefWidth="326.0" text="Errors" textFill="#fa0606" />
+            <PasswordField fx:id="pass" layoutX="266.0" layoutY="111.0" prefHeight="26.0" prefWidth="316.0" />
+            <TextField fx:id="username" layoutX="265.0" layoutY="45.0" prefHeight="26.0" prefWidth="318.0" />
+            <Label layoutX="265.0" layoutY="14.0" prefHeight="18.0" prefWidth="83.0" text="Username" />
+            <Label layoutX="266.0" layoutY="85.0" prefHeight="18.0" prefWidth="83.0" text="Password" />
+            <PasswordField fx:id="confirm_pass" layoutX="266.0" layoutY="180.0" prefHeight="26.0" prefWidth="316.0" />
+            <Label layoutX="266.0" layoutY="154.0" prefHeight="18.0" prefWidth="125.0" text="Confirm Password" />
+            <TextField fx:id="nickname" layoutX="265.0" layoutY="245.0" prefHeight="26.0" prefWidth="318.0" />
+            <Label layoutX="265.0" layoutY="220.0" prefHeight="18.0" prefWidth="83.0" text="Nickname" />
+            <CheckBox fx:id="q1" layoutX="285.0" layoutY="305.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="209.0" text="1-What is your father’s name ?" />
+            <Label layoutX="266.0" layoutY="280.0" prefHeight="18.0" prefWidth="113.0" text="Security Question" />
+            <CheckBox fx:id="q2" layoutX="285.0" layoutY="331.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="209.0" text="2-What is your favourite color ?" />
+            <CheckBox fx:id="q3" layoutX="285.0" layoutY="356.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="229.0" text="3-What is the name of your school ?" />
+            <TextField fx:id="answer" layoutX="319.0" layoutY="383.0" prefHeight="26.0" prefWidth="262.0" />
+            <Label layoutX="266.0" layoutY="387.0" prefHeight="18.0" prefWidth="63.0" text="Answer:" />
+            <TextField fx:id="email" layoutX="265.0" layoutY="445.0" prefHeight="26.0" prefWidth="318.0" />
+            <Label layoutX="265.0" layoutY="420.0" prefHeight="18.0" prefWidth="83.0" text="Email" />
+            <TextField fx:id="captchaF" layoutX="466.0" layoutY="498.0" prefHeight="26.0" prefWidth="116.0" />
+            <ImageView fx:id="captchaP" fitHeight="50.0" fitWidth="184.0" layoutX="265.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
