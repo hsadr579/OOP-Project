@@ -57,10 +57,19 @@ public class MenuController {
             case Menus.CREATE_CLAN -> createClanModeMenu();
             case Menus.SECURITY_QUESTION -> securityQuestion();
             case Menus.WIN -> win();
+            case Menus.BET_COST -> betCost();
             default -> invalidCommand();
 
         }
 
+    }
+
+    private void betCost() {
+        if (RegexManager.matches(Regex.SET_BET_COST)) {
+            setBetCost();
+            return;
+        }
+        invalidCommand();
     }
 
     private void win() {
@@ -345,6 +354,16 @@ public class MenuController {
     // ############################################################
     private void invalidCommand() {
         Session.getInstance().setOutput("invalid command!");
+    }
+
+    private void setBetCost() {
+        String userName;
+        int cost;
+        userName = RegexManager.get("username");
+        cost = Integer.valueOf(RegexManager.get("cost"));
+
+        // call...
+        Game.seBetCost(userName, cost);
     }
 
     private void createNewUser() {

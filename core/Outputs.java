@@ -53,7 +53,9 @@ public enum Outputs {
     ERROR_GAP("You cannot do this because of the gap!"),
     ERROR_NOT_EMPTY("This place is full!"),
     OPPONENT_WIN("The opponent is the winner.\nThe host defeated!"),
-    HOST_WIN("The host is the winner!");
+    HOST_WIN("The host is the winner!"), TRY_AGAIN("Try again!")
+    ,NOT_ENOUGH_COIN_BET("Not enough coin!");
+
     private final String pattern;
 
     Outputs(String pattern) {
