@@ -58,9 +58,9 @@ public enum Regex {
     
     SET_BET_COST("(?<username>\\w+) bet for (?<cost>\\d+)"),
     // ##################### single player mode #####################
-    SELECT_CHARACTER("select character (?<number>\\d+)"),
-    SELECT_CARD("select card (?<id>\\d+)"),
-    PLACE_CARD("place card (?<id>\\d+) in block (?<block>\\d+)\\s*"),
+    SELECT_CHARACTER("select character (?<number>\\d+) for level (?<level>\\d+)\\s*"),
+    PLACE_CARD("place card (?<id>\\d+)"),
+
     // ##################### clan war mode #####################
     MY_CLAN_MENU("my clan"),
     JOIN_CLAN_MENU("join clan"),

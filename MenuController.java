@@ -612,7 +612,10 @@ public class MenuController {
 
         int number;
         number = Integer.valueOf(RegexManager.get("number"));
+        int level;
+        number = Integer.valueOf(RegexManager.get("level"));
         // call...
+
     }
 
     private void selectCardSinglePlayer() {

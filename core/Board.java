@@ -27,6 +27,7 @@ public class Board {
     private Cell[] player1_board;
     private Cell[] player2_board;
     private int current_player;
+    private boolean isSingleMode;
 
     public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
             int player2_hp, ArrayList<Card> player1_cards, ArrayList<Card> player2_cards, int current_player,
@@ -42,13 +43,34 @@ public class Board {
         this.current_player = current_player;
         this.level_player1 = level_player1;
         this.level_player2 = level_player2;
+        this.isSingleMode = false;
         this.player1_gap = Utils.getRandomNumber(1, 21);
         this.player2_gap = Utils.getRandomNumber(1, 21);
         buffType();
         firstHand();
         newTurn();
     }
-
+    public Board(String player1, String player2, String player1_char, String player2_char, int player1_hp,
+                 int player2_hp, ArrayList<Card> player1_cards, ArrayList<Card> player2_cards, int current_player,
+                 int level_player1, int level_player2 , boolean isSingleMode) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.player1_char = player1_char;
+        this.player2_char = player2_char;
+        this.player1_hp = player1_hp;
+        this.player2_hp = player2_hp;
+        this.player1_cards = player1_cards;
+        this.player2_cards = player2_cards;
+        this.current_player = current_player;
+        this.level_player1 = level_player1;
+        this.level_player2 = level_player2;
+        this.isSingleMode = isSingleMode;
+        this.player1_gap = Utils.getRandomNumber(1, 21);
+        this.player2_gap = Utils.getRandomNumber(1, 21);
+        buffType();
+        firstHand();
+        newTurn();
+    }
     // public Board(String player1, String player2) {
     // this.player1 = player1;
     // this.player2 = player2;
@@ -59,6 +81,7 @@ public class Board {
         setPlayer1_turn(4);
         setPlayer2_turn(4);
     }
+
 
     public void placeCard(int placeHand, int place) {
         int player = current_player;
@@ -139,6 +162,10 @@ public class Board {
                     addToHand(1);
                     player1_turn--;
                     switchPlayer();
+                    if (isSingleMode){
+                        int[] out = botPlacing();
+                        placeCard(out[0],out[1]);
+                    }
                 } else {
                     for (int i = place - 1; i < place + 1 - 1; i++) {
                         if (i == player2_gap - 1) {

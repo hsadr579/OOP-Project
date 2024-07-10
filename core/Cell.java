@@ -21,6 +21,12 @@ public class Cell {
         this.id = id;
         this.active = active;
     }
+    public Cell(int damage, int defence, boolean active) {
+        this.damage = damage;
+        this.defence = defence;
+        this.active = active;
+    }
+
 
     public int getDamage() {
         return damage;
