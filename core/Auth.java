@@ -12,11 +12,11 @@ public class Auth {
             Session.getInstance().setOutput(Outputs.ERROR_INVALID_USERNAME);
             return;
         }
-        if(passConf!=null)
-        if (!passConf.equals(password)) {
-            Session.getInstance().setOutput(Outputs.ERROR_PASSWORDS_NOT_SAME);
-            return;
-        }
+        if (passConf != null)
+            if (!passConf.equals(password)) {
+                Session.getInstance().setOutput(Outputs.ERROR_PASSWORDS_NOT_SAME);
+                return;
+            }
         if (password.equals("random")) {
             password = Utils.generateRandomString(8);
         } else if (!Utils.passwordIsValid(password)) {
@@ -131,17 +131,6 @@ public class Auth {
         String securityQuestion = securityQuestionData[0];
         String securityQuestionAnswer = securityQuestionData[1];
 
-        // Session.getInstance().setOutput("Security Question: " + securityQuestion);
-        // System.out.print("Answer: ");
-        // String answer = new Scanner(System.in).nextLine();
-
-        // if (answer.equals(securityQuestionAnswer)) {
-        // System.out.print("Enter new password: ");
-        // String newPassword = new Scanner(System.in).nextLine();
-        // DB.updatePassword(username, newPassword);
-        // } else {
-        // Session.getInstance().setOutput("Answer is incorrect!");
-        // }
     }
 
 }
