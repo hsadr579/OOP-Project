@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/citywars.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/signUp.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +104,7 @@
       <workItem from="1720680009059" duration="3387000" />
       <workItem from="1720690008310" duration="5864000" />
       <workItem from="1720701341506" duration="1196000" />
+      <workItem from="1720709806343" duration="184000" />
     </task>
     <servers />
   </component>

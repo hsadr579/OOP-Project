@@ -80,6 +80,16 @@ public class signControl implements Initializable {
 
     }
     final ToggleGroup group = new ToggleGroup();
+    @FXML
+    public void back()
+    {
+        Statics.clickEffect.play();
+        try {
+            Statics.changeScene("firstMenu.fxml");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

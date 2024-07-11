@@ -48,6 +48,11 @@
                </font>
             </TextArea>
             <Label fx:id="randPass" layoutX="595.0" layoutY="146.0" prefHeight="31.0" prefWidth="108.0" />
+            <Button layoutX="632.0" layoutY="577.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="106.0" text="Back">
+               <font>
+                  <Font name="Comic Sans MS" size="16.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </center>

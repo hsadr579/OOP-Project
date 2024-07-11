@@ -12,7 +12,7 @@
    <center>
         <AnchorPane prefHeight="521.0" prefWidth="829.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="loginB" alignment="CENTER" layoutX="261.0" layoutY="438.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="326.0" text="Login" textAlignment="CENTER" AnchorPane.rightAnchor="242.0">
+                <Button fx:id="loginB" alignment="CENTER" layoutX="261.0" layoutY="438.0" mnemonicParsing="false" onAction="#login" prefHeight="38.0" prefWidth="326.0" text="Login" textAlignment="CENTER" AnchorPane.rightAnchor="242.0">
                     <font>
                         <Font name="Comic Sans MS" size="18.0" />
                     </font>
