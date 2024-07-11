@@ -315,15 +315,8 @@ public class DB {
             return false;
         }
     }
-        try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            return rs.next();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
+
+
 
     public static int getUserId(String username) {
         String sql = "SELECT id FROM users WHERE username = ?";
