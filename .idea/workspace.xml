@@ -4,29 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="y" />
-=======
-    <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/citywars.db" afterDir="false" />
+    <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="r">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/FirstControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/FirstControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginUser2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginUser2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/ModeMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/ModeMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/ProfileControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/ProfileControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/Statics.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/Statics.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/BossBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/BossBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Chracters.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Chracters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Defeat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Defeat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/History.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Menus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Outputs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Outputs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Profile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Spells.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Spells.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Tower.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Tower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Win.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Win.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/selectChar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/selectChar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
->>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +62,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2j396Dhlrtpvlxq9UHgFBLRYcvy" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -55,27 +73,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.HelloApplication.executor": "Run",
     "git-widget-placeholder": "graphic",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
-=======
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sqlite java/sqlite-jdbc-3.45.3.0.jar" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
->>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\resources\com\example\oopproject" />
@@ -158,6 +165,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="y" />
-    <option name="LAST_COMMIT_MESSAGE" value="y" />
+    <MESSAGE value="r" />
+    <option name="LAST_COMMIT_MESSAGE" value="r" />
   </component>
 </project>
