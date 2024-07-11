@@ -5,7 +5,7 @@ public enum Regex {
     END("end\\s*"),
     // $##################### user creating #####################
     CREATE_NEW_USER(
-            "user\\s+create\\s+-u (?<username>[\\w\\s]+) -p (?<password>[\\w\\s@#$%&*]+) (?<passwordConfirmation>[\\w\\s@#$%&*]+) –email (?<email>[\\w\\s@\\.]+) -n (?<nickname>[\\w\\s]+)"),
+            "user\\s+create\\s+-u (?<username>[\\w\\s]+) -p (?<password>[\\w\\s@#$%&*]+) (?<passwordConfirmation>[\\w\\s@#$%&*]+) -email (?<email>[\\w\\s@\\.]+) -n (?<nickname>[\\w\\s]+)"),
     CREATE_NEW_USER_WITH_RANDOM_PASSWORD(
             "user\\s+create\\s+-u (?<username>[\\w\\s]+) -p random –email (?<email>[\\w\\s@\\.]+) -n (?<nickname>[\\w\\s]+)"),
     PROPER_USERNAME("[A-Za-z0-9]+"),
