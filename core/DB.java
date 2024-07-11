@@ -14,6 +14,8 @@ public class DB {
             String url = "jdbc:sqlite:citywars.db";
             connection = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
+            createTables();
+            System.out.println("Tables Ok.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -395,6 +397,25 @@ public class DB {
         String sql = "UPDATE users SET login_fail_number = 0 WHERE username = '" + username + "';";
         command(sql);
     }
+
+    public static String[] getUsers() {
+        String sql = "SELECT * FROM users";
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            String[] users = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                users[i] = rs.getString("username");
+                i++;
+            }
+            return users;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
 
     // ===========================================================
     // AUTH
