@@ -7,7 +7,7 @@ public enum Regex {
     CREATE_NEW_USER(
             "user\\s+create\\s+-u (?<username>[\\w\\s]+) -p (?<password>[\\w\\s@#$%&*]+) (?<passwordConfirmation>[\\w\\s@#$%&*]+) -email (?<email>[\\w\\s@\\.]+) -n (?<nickname>[\\w\\s]+)"),
     CREATE_NEW_USER_WITH_RANDOM_PASSWORD(
-            "user\\s+create\\s+-u (?<username>[\\w\\s]+) -p random –email (?<email>[\\w\\s@\\.]+) -n (?<nickname>[\\w\\s]+)"),
+            "user\\s+create\\s+-u (?<username>[\\w\\s]+) -p random -email (?<email>[\\w\\s@\\.]+) -n (?<nickname>[\\w\\s]+)"),
     PROPER_USERNAME("[A-Za-z0-9]+"),
     PROPER_PASSWORD("(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}"),
     PROPER_EMAIL("\\w+@\\w+\\.com"),
