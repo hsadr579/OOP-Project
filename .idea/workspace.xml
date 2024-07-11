@@ -4,72 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Cards/01.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/02.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/03.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/04.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/05.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/06.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/07.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/08.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/09.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/10.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/11.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/12.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/13.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/14.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/15.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/16.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/17.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/18.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/19.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/21.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/22.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/23.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/24.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/25.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/26.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/27.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/28.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/29.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/30.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/31.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/32.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/33.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/34.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/35.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/36.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/37.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/38.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/39.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/40.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/41.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/42.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/43.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/44.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/45.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/46.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/47.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/48.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/49.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/50.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/51.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/52.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/53.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/54.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/55.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/56.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cards/57.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/MainControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/sqlite-jdbc-3.7.2.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloApplication.class" afterDir="false" />
-    </list>
+    <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,7 +91,7 @@
       <workItem from="1720604720680" duration="1765000" />
       <workItem from="1720631269833" duration="166000" />
       <workItem from="1720631592934" duration="11508000" />
-      <workItem from="1720680009059" duration="2890000" />
+      <workItem from="1720680009059" duration="3387000" />
     </task>
     <servers />
   </component>
