@@ -52,7 +52,7 @@ public class Session {
     }
 
     public void setCurrentMenu(Menus current_menu) {
-        previous_menu = current_menu;
+        previous_menu = this.current_menu;
         this.current_menu = current_menu;
     }
 
