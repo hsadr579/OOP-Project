@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/clone-wars (1).gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/clone-wars.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/setting.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/citywars.db" beforeDir="false" afterPath="$PROJECT_DIR$/citywars.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/loginUser2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/loginUser2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/firstMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/firstMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
         <option value="Enum" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -123,6 +117,7 @@
       <workItem from="1720709806343" duration="184000" />
       <workItem from="1720711617927" duration="332000" />
       <workItem from="1720717765710" duration="1514000" />
+      <workItem from="1720729631849" duration="1787000" />
     </task>
     <servers />
   </component>
