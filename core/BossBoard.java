@@ -176,14 +176,14 @@ public class BossBoard {
             player1_hand.add(player1_cards.get(i));
         }
         for (int i = 0; i < 5; i++) {
-            player1_cards.removeFirst();
+            player1_cards.remove(0);
         }
     }
 
     public void addToHand() {
         shuffleCards(player1_cards);
-        player1_hand.add(player1_cards.getFirst());
-        player1_cards.removeFirst();
+        player1_hand.add(player1_cards.get(0));
+        player1_cards.remove(0);
     }
     public void shuffleCards(ArrayList<Card> arr) {
         Random rand = new Random();

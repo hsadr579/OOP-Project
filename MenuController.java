@@ -1,11 +1,12 @@
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import core.*;
 
 class RegexManager {
     static String input;
     static Matcher matcher;
-
+    static Pattern pattern;
     public static void setInput(String i) {
         input = i;
     }
@@ -19,11 +20,13 @@ class RegexManager {
     }
 
     public static void setMatcher(Regex r) {
-        matcher = r.getMatcher(input);
+        pattern = Pattern.compile(r.getPattern());
+        matcher=pattern.matcher(input);
         matcher.find();
     }
 
     public static String get(String ID) {
+
         return matcher.group(ID);
     }
 }
@@ -40,25 +43,25 @@ public class MenuController {
         this.command = command;
         RegexManager.setInput(command);
         switch (Session.getInstance().getCurrentMenu()) {
-            case Menus.SIGN_UP -> signUpMenu();
-            case Menus.PROFILE -> profileMenu();
-            case Menus.MAIN -> mainMenu();
-            case Menus.SHOP -> shopMenu();
-            case Menus.ADMIN -> adminMenu();
-            case Menus.HISTORY -> historyMenu();
-            case Menus.MODE -> modeMenu();
-            case Menus.MULTI_PLAYER_MODE_LOGIN -> multiplayerModeMenuLoginLevel();
-            case Menus.MULTI_PLAYER_MODE_CHARACTER -> multiplayerModeMenuCharacterLevel();
-            case Menus.MULTI_PLAYER_MODE_GAME -> multiplayerModeMenuGameLevel();
-            case Menus.SINGLE_PLAYER_MODE_CHARACTER -> singlePlayerModeMenuCharacterLevel();
-            case Menus.SINGLE_PLAYER_MODE_GAME -> singlePlayerModeMenuGameLevel();
-            case Menus.MY_CLAN -> myClanMenu();
-            case Menus.JOIN_CLAN -> joinClanModeMenu();
-            case Menus.CREATE_CLAN -> createClanModeMenu();
-            case Menus.SECURITY_QUESTION -> securityQuestion();
-            case Menus.WIN -> win();
-            case Menus.BET_COST -> betCost();
-            case Menus.CAPCHA -> capcha();
+            case SIGN_UP -> signUpMenu();
+            case PROFILE -> profileMenu();
+            case MAIN -> mainMenu();
+            case SHOP -> shopMenu();
+            case ADMIN -> adminMenu();
+            case HISTORY -> historyMenu();
+            case MODE -> modeMenu();
+            case MULTI_PLAYER_MODE_LOGIN -> multiplayerModeMenuLoginLevel();
+            case MULTI_PLAYER_MODE_CHARACTER -> multiplayerModeMenuCharacterLevel();
+            case MULTI_PLAYER_MODE_GAME -> multiplayerModeMenuGameLevel();
+            case SINGLE_PLAYER_MODE_CHARACTER -> singlePlayerModeMenuCharacterLevel();
+            case SINGLE_PLAYER_MODE_GAME -> singlePlayerModeMenuGameLevel();
+            case MY_CLAN -> myClanMenu();
+            case JOIN_CLAN -> joinClanModeMenu();
+            case CREATE_CLAN -> createClanModeMenu();
+            case SECURITY_QUESTION -> securityQuestion();
+            case WIN -> win();
+            case BET_COST -> betCost();
+            case CAPCHA -> capcha();
             default -> invalidCommand();
 
         }
@@ -367,11 +370,12 @@ public class MenuController {
 
     private void createNewUser() {
         String userName, password, passwordConf, email, nickname;
+        password = RegexManager.get("password");
         userName = RegexManager.get("username");
 
         passwordConf = RegexManager.get("passwordConfirmation");
 
-        password = RegexManager.get("password");
+
         email = RegexManager.get("email");
         nickname = RegexManager.get("nickname");
         // call...

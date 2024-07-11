@@ -245,10 +245,10 @@ public class Board {
     private void doClone() {
         try {
             if (current_player == 1) {
-                player1_hand.add((Card) player1_hand.getFirst().clone());
+                player1_hand.add((Card) player1_hand.get(0).clone());
 
             } else {
-                player2_hand.add((Card) player2_hand.getFirst().clone());
+                player2_hand.add((Card) player2_hand.get(0).clone());
             }
         } catch (Exception e) {
         }
@@ -301,11 +301,11 @@ public class Board {
 
     private void doThief() {
         if (current_player == 1) {
-            player1_hand.add(player2_hand.getFirst());
-            player2_hand.removeFirst();
+            player1_hand.add(player2_hand.get(0));
+            player2_hand.remove(0);
         } else {
-            player2_hand.add(player1_hand.getFirst());
-            player1_hand.removeFirst();
+            player2_hand.add(player1_hand.get(0));
+            player1_hand.remove(0);
         }
     }
 
@@ -379,8 +379,8 @@ public class Board {
             player2_hand.add(player2_cards.get(i));
         }
         for (int i = 0; i < 5; i++) {
-            player1_cards.removeFirst();
-            player1_cards.removeFirst();
+            player1_cards.remove(0);
+            player1_cards.remove(0);
         }
     }
 
@@ -388,11 +388,11 @@ public class Board {
         shuffleCards(player1_cards);
         shuffleCards(player2_cards);
         if (player == 1) {
-            player1_hand.add(player1_cards.getFirst());
-            player1_cards.removeFirst();
+            player1_hand.add(player1_cards.get(0));
+            player1_cards.remove(0);
         } else {
-            player2_hand.add(player2_cards.getFirst());
-            player2_cards.removeFirst();
+            player2_hand.add(player2_cards.get(0));
+            player2_cards.remove(0);
         }
     }
 
