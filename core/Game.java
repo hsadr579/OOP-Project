@@ -21,7 +21,7 @@ public class Game {
     static int betCost;
     static boolean sCost1, sCost2;
     static String[] chars = { "Darth", "Luke", "Fett", "Count" };
-    static Mode[] modes = { Mode.MULTIPLAYER, Mode.SINGLE_PLAYER, Mode.BET };
+    static Mode[] modes = { Mode.MULTIPLAYER, Mode.BET,Mode.SINGLE_PLAYER };
 
     public static void newMultiplayerGame() {
         mode = Mode.MULTIPLAYER;
@@ -33,13 +33,13 @@ public class Game {
 
     public static void setMode(int moden) {
 
-        if (modes[moden] == Mode.MULTIPLAYER) {
+        if (modes[moden-1] == Mode.MULTIPLAYER) {
             newMultiplayerGame();
         }
-        if (modes[moden] == Mode.BET) {
+        if (modes[moden-1] == Mode.BET) {
             newBetModeGame();
         }
-        if (modes[moden] == Mode.SINGLE_PLAYER) {
+        if (modes[moden-1] == Mode.SINGLE_PLAYER) {
             newSinglePlayerGame();
         }
     }
