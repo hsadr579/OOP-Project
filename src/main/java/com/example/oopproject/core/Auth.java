@@ -60,6 +60,7 @@ public class Auth {
         if (!DB.usernameExists(username)) {
             DB.createUser(username, password, security_question_id, security_question_answer, email);
             DB.changeNickname(DB.getUserId(username), nickname);
+            Session.getInstance().setOutput(Outputs.SUCCESS_CREATE_USER);
         } else {
             Session.getInstance().setOutput(Outputs.ERROR_DUPLICATE_USERNAME);
         }
@@ -69,15 +70,18 @@ public class Auth {
     public static void login(String username, String password) {
 
         int[] failedLoginData = DB.getUserFailedLoginData(username);
+        int current_timestamp = (int) (System.currentTimeMillis() / 1000);
+        if(failedLoginData!=null)
+        {
         int loginFailNumber = failedLoginData[0];
         int lastFailedLogin = failedLoginData[1];
-        int current_timestamp = (int) (System.currentTimeMillis() / 1000);
+
         if (current_timestamp < lastFailedLogin + 5 * loginFailNumber) {
             Session.getInstance().setOutput(Outputs.TRY_AGAIN);
             Session.getInstance().setOutput(
                     "Try again in " + (lastFailedLogin + 5 * loginFailNumber - current_timestamp) + " seconds!");
             return;
-        }
+        }}
 
         if (!DB.usernameExists(username)) {
             Session.getInstance().setOutput(Outputs.ERROR_NO_USERNAME);

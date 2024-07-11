@@ -69,7 +69,7 @@ public class signControl implements Initializable {
         if(o==Outputs.SUCCESS_CREATE_USER)
         {
             try {
-                Statics.changeScene("signUp.fxml");
+                Statics.changeScene("firstMenu.fxml");
             } catch (IOException e) {
                 e.printStackTrace();
             }

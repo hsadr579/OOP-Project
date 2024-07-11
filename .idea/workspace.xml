@@ -5,45 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/LoginUser2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/ModeMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/ProfileControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/BossBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Mode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/M2yq-ezgif.com-crop.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/M2yq.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/d59b4e4305b607a8e7d749cdf5746a78.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/darth.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/dz6ieu-0733cb78-2550-4f4b-8f22-e74eeede3158-ezgif.com-resize.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/loginUser2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/tumblr_90cc2339a6e5fc5d8c4ea19c4ef1a762_d1f4b9ec_500-ezgif.com-crop.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/tumblr_90cc2339a6e5fc5d8c4ea19c4ef1a762_d1f4b9ec_500-ezgif.com-crop.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/tumblr_cf3490a5365646bdc81a86a4e57b5abb_9c924c75_540.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/citywars.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/MainControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/MainControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Outputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Outputs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/sqlite-jdbc-3.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/modeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/modeMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Outputs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Outputs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +57,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/example/oopproject" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sqlite java/sqlite-jdbc-3.45.3.0.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -135,6 +116,7 @@
       <workItem from="1720631592934" duration="11508000" />
       <workItem from="1720680009059" duration="3387000" />
       <workItem from="1720690008310" duration="5864000" />
+      <workItem from="1720701341506" duration="1196000" />
     </task>
     <servers />
   </component>

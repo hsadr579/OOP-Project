@@ -10,7 +10,7 @@
    <top>
       <AnchorPane prefHeight="539.0" prefWidth="829.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="start" alignment="CENTER" layoutX="251.0" layoutY="150.0" mnemonicParsing="false" onAction="#start" prefHeight="38.0" prefWidth="326.0" text="Start Game" textAlignment="CENTER" AnchorPane.rightAnchor="252.20000000000005">
+            <Button fx:id="start" alignment="CENTER" layoutX="251.0" layoutY="150.0" mnemonicParsing="false" onAction="#startG" prefHeight="38.0" prefWidth="326.0" text="Start Game" textAlignment="CENTER" AnchorPane.rightAnchor="252.20000000000005">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
@@ -20,7 +20,7 @@
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="shop" alignment="CENTER" layoutX="251.0" layoutY="285.0" mnemonicParsing="false" onAction="#shop" prefHeight="38.0" prefWidth="326.0" text="Shop" textAlignment="CENTER">
+            <Button fx:id="shop" alignment="CENTER" layoutX="251.0" layoutY="285.0" mnemonicParsing="false" onAction="#shop1" prefHeight="38.0" prefWidth="326.0" text="Shop" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
