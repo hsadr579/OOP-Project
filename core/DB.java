@@ -35,7 +35,8 @@ public class DB {
         command(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS games (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-                + "user_id INTEGER NOT NULL,\n" + "opponent_id INTEGER NOT NULL,\n" + "opponent_level INTEGER NOT NULL,\n" + "is_winner INTEGER NOT NULL,\n"
+                + "user_id INTEGER NOT NULL,\n" + "opponent_id INTEGER NOT NULL,\n"
+                + "opponent_level INTEGER NOT NULL,\n" + "is_winner INTEGER NOT NULL,\n"
                 + "prize TEXT NOT NULL,\n" + "punish TEXT NOT NULL\n" + ");";
         command(sql);
 
@@ -43,7 +44,8 @@ public class DB {
                 + "name TEXT NOT NULL,\n"
                 + "cost INTEGER NOT NULL,\n" + "levelup_cost INTEGER NOT NULL,\n"
                 + "duration INTEGER NOT NULL,\n" + "defence INTEGER NOT NULL,\n" + "damage INTEGER NOT NULL,\n"
-                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"  + "upgrade_level INTEGER NOT NULL,\n"
+                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"
+                + "upgrade_level INTEGER NOT NULL,\n"
                 + "image TEXT NOT NULL\n" + ");";
         command(sql);
 
@@ -92,18 +94,18 @@ public class DB {
     }
 
     public static User getUserById(int id) {
-        String sql = "SELECT * FROM users WHERE id = '" + id +"'";
+        String sql = "SELECT * FROM users WHERE id = '" + id + "'";
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return new User(rs.getString("username"), 
-            rs.getString("password"), rs.getString("nickname"),
-            rs.getString("email"), 
-            rs.getString("security_question_id"), 
-            rs.getString("security_question_answer"), 
-            getUserCardsIDs(id),
-            rs.getInt("level"),
-            rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
+            return new User(rs.getString("username"),
+                    rs.getString("password"), rs.getString("nickname"),
+                    rs.getString("email"),
+                    rs.getString("security_question_id"),
+                    rs.getString("security_question_answer"),
+                    getUserCardsIDs(id),
+                    rs.getInt("level"),
+                    rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -304,9 +306,11 @@ public class DB {
         command(sql);
     }
 
-    public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
+    public static void createUser(String username, String password, int security_question_id,
+            String security_question_answer, String email) {
         String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`) VALUES";
-        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '0', '0', '0', '0', '0')";
+        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '"
+                + security_question_answer + "', '" + email + "', '" + username + "', '0', '0', '0', '0', '0')";
         command(sql);
     }
 
@@ -320,7 +324,6 @@ public class DB {
             System.out.println(e.getMessage());
             return false;
         }
-
 
     }
 
@@ -423,7 +426,6 @@ public class DB {
             return null;
         }
     }
-
 
     // ===========================================================
     // AUTH
