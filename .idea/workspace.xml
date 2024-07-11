@@ -5,46 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/FirstControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/LoginControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/Statics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Chracters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Defeat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/History.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Menus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Outputs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Profile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Shop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Spells.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Tower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Win.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/background.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/click.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/01.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/02.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/03.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/04.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/05.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/06.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/07.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/08.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/09.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/10.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/11.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/12.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/13.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/14.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/15.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/16.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/17.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/18.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/19.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/21.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/22.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/23.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/24.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/25.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/26.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/27.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/28.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/29.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/30.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/31.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/32.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/33.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/34.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/35.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/36.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/37.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/38.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/39.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/40.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/41.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/42.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/43.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/44.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/45.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/46.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/47.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/48.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/49.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/50.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/51.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/52.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/53.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/54.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/55.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/56.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cards/57.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/MainControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/sqlite-jdbc-3.7.2.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/firstMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/firstMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/signUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/mainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/HelloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/firstMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/firstMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/signUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/signUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +103,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/example/oopproject" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\java\com\example\oopproject" />
+      <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\java\com\example\oopproject\core" />
       <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\resources\com\example\oopproject" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -94,7 +120,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.oopproject.HelloApplication" />
       <module name="OOP-Project" />
@@ -108,9 +134,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sqlite-jdbc-3.7.2.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/src/main/java/com/example/oopproject/sqlite-jdbc-3.7.2.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JAR Application.sqlite-jdbc-3.7.2.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -125,6 +156,7 @@
       <workItem from="1720604720680" duration="1765000" />
       <workItem from="1720631269833" duration="166000" />
       <workItem from="1720631592934" duration="11508000" />
+      <workItem from="1720680009059" duration="2890000" />
     </task>
     <servers />
   </component>

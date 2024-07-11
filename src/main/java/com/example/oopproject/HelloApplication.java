@@ -20,7 +20,7 @@ public class HelloApplication extends Application {
         stage.resizableProperty().setValue(false);
         Statics.backgroundMusic.setCycleCount(MediaPlayer.INDEFINITE);
         Statics.backgroundMusic.play();
-        DB.createTables();
+        //DB.createTables();
         stage.show();
     }
 
