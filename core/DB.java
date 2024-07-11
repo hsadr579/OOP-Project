@@ -58,6 +58,10 @@ public class DB {
         sql = "CREATE TABLE IF NOT EXISTS user_security_questions (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "user_id INTEGER NOT NULL,\n" + "question_id INTEGER NOT NULL,\n" + "answer TEXT NOT NULL\n" + ");";
         command(sql);
+
+        sql = "ALTER TABLE users ADD COLUMN hp INTEGER NOT NULL DEFAULT '0';";
+        command(sql);
+
     }
 
     public static void setUserLevel(int id, int newLevel) {
