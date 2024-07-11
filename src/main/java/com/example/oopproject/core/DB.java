@@ -14,6 +14,10 @@ public class DB {
             String url = "jdbc:sqlite:citywars.db";
             connection = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
+            createTables();
+            System.out.println("Tables Ok.");
+            System.err.println(usernameExists("Ali2"));
+            System.err.println(usernameExists("Ali22"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -24,7 +28,7 @@ public class DB {
         String sql = "CREATE TABLE IF NOT EXISTS users (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "username TEXT NOT NULL,\n" + "password TEXT NOT NULL,\n" + "security_question_id INTEGER NOT NULL,\n"
                 + "security_question_answer TEXT NOT NULL,\n" + "email TEXT NOT NULL,\n" + "nickname TEXT NOT NULL,\n"
-                + "xp INTEGER NOT NULL,\n" + "coins INTEGER NOT NULL,\n" + "clan_id INTEGER,\n"
+                + "xp INTEGER NOT NULL,\n" + "coins INTEGER NOT NULL,\n" + "hp INTEGER NOT NULL DEFAULT '0',\n" + "clan_id INTEGER,\n"
                 + "last_failed_login INTEGER NOT NULL,\n" + "login_fail_number INTEGER NOT NULL\n" + ");";
         command(sql);
 
@@ -32,11 +36,16 @@ public class DB {
                 + "user_id INTEGER NOT NULL,\n" + "card_id TEXT NOT NULL,\n" + "level INTEGER NOT NULL\n" + ");";
         command(sql);
 
+        sql = "CREATE TABLE IF NOT EXISTS games (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + "user_id INTEGER NOT NULL,\n" + "opponent_id INTEGER NOT NULL,\n" + "opponent_level INTEGER NOT NULL,\n" + "is_winner INTEGER NOT NULL,\n"
+                + "prize TEXT NOT NULL,\n" + "punish TEXT NOT NULL\n" + ");";
+        command(sql);
+
         sql = "CREATE TABLE IF NOT EXISTS cards (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "name TEXT NOT NULL,\n"
                 + "cost INTEGER NOT NULL,\n" + "levelup_cost INTEGER NOT NULL,\n"
                 + "duration INTEGER NOT NULL,\n" + "defence INTEGER NOT NULL,\n" + "damage INTEGER NOT NULL,\n"
-                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"
+                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"  + "upgrade_level INTEGER NOT NULL,\n"
                 + "image TEXT NOT NULL\n" + ");";
         command(sql);
 
@@ -54,28 +63,45 @@ public class DB {
     }
 
     public static void setUserLevel(int id, int newLevel) {
-
+        String sql = "UPDATE users SET level = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, newLevel);
+            stmt.setInt(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void setUsersXP(int id, int newXP) {
         if (newXP >= (getUserLevel(id) + 1) * 10) {
             setUserLevel(id, getUserLevel(id) + 1);
         }
-        // ...
-        
+        String sql = "UPDATE users SET xp = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, newXP);
+            stmt.setInt(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static User getUserById(int id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
+        String sql = "SELECT * FROM users WHERE id = '" + id +"'";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            return new User(rs.getString("username"), rs.getString("password"), rs.getString("nickname"),
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            return new User(rs.getString("username"),
+                    rs.getString("password"), rs.getString("nickname"),
                     rs.getString("email"),
-                    rs.getString("security_question_id"), rs.getString("security_question_answer"), new String[] {},
+                    rs.getString("security_question_id"),
+                    rs.getString("security_question_answer"),
+                    getUserCardsIDs(id),
                     rs.getInt("level"),
-                    rs.getInt("xp"), rs.getInt("hp"), rs.getInt("coins"));
+                    rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
@@ -96,13 +122,37 @@ public class DB {
         }
     }
 
-    // public static int getCardUpgradeLevel(String cardId) {
-    // // it gets the required level to upgrade a particular card
-    // }
+    public static int getCardUpgradeLevel(String cardId) {
+        String sql = "SELECT upgrade_level FROM cards WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, cardId);
+            ResultSet rs = stmt.executeQuery();
+            return rs.getInt("upgrade_level");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return -1;
+        }
+    }
 
-    // public static String[] getUserCardsIDs(int id) {
-    // // getting the ID of all user's cards
-    // }
+    public static String[] getUserCardsIDs(int id) {
+        String sql = "SELECT card_id FROM users_cards WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            String[] cards = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                cards[i] = rs.getString("card_id");
+                i++;
+            }
+            return cards;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
     public static Card getCardByID(String ID) {
         String sql = "SELECT * FROM cards WHERE id = ?";
@@ -252,16 +302,14 @@ public class DB {
         command(sql);
     }
 
-    public static void createUser(String username, String password, int security_question_id,
-            String security_question_answer, String email) {
-        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`) VALUES";
-        sql += "(NULL, '" + username + "', '" + password + "' , '" + security_question_id + "', '"
-                + security_question_answer + "', '" + email + "', '0', '0', '0', NULL)";
+    public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
+        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`) VALUES";
+        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '0', '0', '0', '0', '0')";
         command(sql);
     }
 
     public static boolean usernameExists(String username) {
-        String sql = "SELECT * FROM users WHERE username = ?";
+        String sql = "SELECT * FROM users WHERE username = '" + username + "'";
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -354,6 +402,25 @@ public class DB {
         command(sql);
     }
 
+    public static String[] getUsers() {
+        String sql = "SELECT * FROM users";
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            String[] users = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                users[i] = rs.getString("username");
+                i++;
+            }
+            return users;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+
     // ===========================================================
     // AUTH
     // ===========================================================
@@ -370,6 +437,12 @@ public class DB {
         }
     }
 
+    // create card
+    public static void createCard(String name, int cost, int levelup_cost, int duration, int defence, int damage, String explanation, String type, int level, String group, String image) {
+        String sql = "INSERT INTO `cards` (`id`, `name`, `cost`, `levelup_cost`, `duration`, `defence`, `damage`, `explanation`, `type`, `level`, `group`, `image`) VALUES";
+        sql += "(NULL, '" + name + "', '" + cost + "', '" + levelup_cost + "', '" + duration + "', '" + defence + "', '" + damage + "', '" + explanation + "', '" + type + "', '" + level + "', '" + group + "', '" + image + "')";
+        command(sql);
+    }
     // ===========================================================
     // CLANS
     // ===========================================================
@@ -377,6 +450,64 @@ public class DB {
         String sql = "INSERT INTO `clans` (`id`, `name`, `tag`, `owner_id`, `xp`, `members`, `description`) VALUES";
         sql += "(NULL, '" + name + "', '" + tag + "', '" + owner_id + "', '0', '1', '')";
         command(sql);
+    }
+
+    public static String[] getGamesHistorySortedByWin(int userId, boolean isWinner) {
+        String sql = "SELECT * FROM games WHERE user_id = ? AND is_winner = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, isWinner ? 1 : 0);
+            ResultSet rs = stmt.executeQuery();
+            String[] games = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                games[i] = rs.getString("opponent_id");
+                i++;
+            }
+            return games;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static String[] getGamesHistorySortedByOpponent(int userId) {
+        String sql = "SELECT * FROM games WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            String[] games = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                games[i] = rs.getString("opponent_id");
+                i++;
+            }
+            return games;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static String[] getGamesHistorySortedByOpponentLevel(int userId) {
+        String sql = "SELECT * FROM games WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            String[] games = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                games[i] = rs.getString("opponent_level");
+                i++;
+            }
+            return games;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     // ===========================================================
@@ -402,11 +533,4 @@ public class DB {
         }
     }
 
-    public static String[] getUserCardsIDs(int loggedUser) {
-        return null;
-    }
-
-    public static int getCardUpgradeLevel(String iD) {
-       return 0;
-    }
 }
