@@ -1,11 +1,12 @@
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import core.*;
 
 class RegexManager {
     static String input;
     static Matcher matcher;
-
+    static Pattern pattern;
     public static void setInput(String i) {
         input = i;
     }
@@ -19,11 +20,13 @@ class RegexManager {
     }
 
     public static void setMatcher(Regex r) {
-        matcher = r.getMatcher(input);
+        pattern = Pattern.compile(r.getPattern());
+        matcher=pattern.matcher(input);
         matcher.find();
     }
 
     public static String get(String ID) {
+
         return matcher.group(ID);
     }
 }
@@ -367,11 +370,12 @@ public class MenuController {
 
     private void createNewUser() {
         String userName, password, passwordConf, email, nickname;
+        password = RegexManager.get("password");
         userName = RegexManager.get("username");
 
         passwordConf = RegexManager.get("passwordConfirmation");
 
-        password = RegexManager.get("password");
+
         email = RegexManager.get("email");
         nickname = RegexManager.get("nickname");
         // call...
