@@ -88,16 +88,18 @@ public class DB {
     }
 
     public static User getUserById(int id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
+        String sql = "SELECT * FROM users WHERE id = '" + id +"'";
         try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, id);
-            ResultSet rs = stmt.executeQuery();
-            return new User(rs.getString("username"), rs.getString("password"), rs.getString("nickname"),
-                    rs.getString("email"),
-                    rs.getString("security_question_id"), rs.getString("security_question_answer"), new String[] {},
-                    rs.getInt("level"),
-                    rs.getInt("xp"), rs.getInt("hp"), rs.getInt("coins"));
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            return new User(rs.getString("username"), 
+            rs.getString("password"), rs.getString("nickname"),
+            rs.getString("email"), 
+            rs.getString("security_question_id"), 
+            rs.getString("security_question_answer"), 
+            getUserCardsIDs(id),
+            rs.getInt("level"),
+            rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
