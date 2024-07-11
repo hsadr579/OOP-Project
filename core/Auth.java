@@ -56,6 +56,12 @@ public class Auth {
         if (currentCapcha.equals(c)) {
             register(registeringUsername, registeringPassword, secID, secAnswer, registeringEmail);
             DB.changeNickname(DB.getUserId(registeringUsername), registeringNickname);
+            String[] cards = DB.getAllCards();
+            String[] userRandom = Utils.getRandomElements(cards);
+            int id = DB.getUserId(registeringUsername);
+            for (String i : userRandom) {
+                DB.buyCardForUser(id, i);
+            }
             Session.getInstance().setCurrentMenu(Menus.SIGN_UP);
 
         } else {
@@ -69,6 +75,7 @@ public class Auth {
 
         if (!DB.usernameExists(username)) {
             DB.createUser(username, password, security_question_id, security_question_answer, email);
+
         } else {
             Session.getInstance().setOutput("Username already exists");
         }

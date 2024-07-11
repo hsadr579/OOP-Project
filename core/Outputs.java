@@ -52,7 +52,8 @@ public enum Outputs {
     // ##################### mode menu #####################
     // ##################### multiplayer####################
     ERROR_GAP("You cannot do this because of the gap!"),
-    ERROR_NOT_EMPTY("This place is full!"),
+        ERROR_NOT_EMPTY("This place is full!"),
+    SELECT_CHAR("Select your character:\n\t1.Darth\n\t2.Luke\n\t3.Fett\n\t4.Count"),
     OPPONENT_WIN("The opponent is the winner.\nThe host defeated!"),
     HOST_WIN("The host is the winner!"), TRY_AGAIN("Try again!")
     , NOT_ENOUGH_COIN_BET("Not enough coin!"),LOGIN_PLAYER2("Please login guest");

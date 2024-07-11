@@ -303,10 +303,7 @@ public class MenuController {
 
     private void singlePlayerModeMenuGameLevel() {
 
-        if (RegexManager.matches(Regex.SELECT_CARD)) {
-            selectCardSinglePlayer();
-            return;
-        }
+   
         if (RegexManager.matches(Regex.PLACE_CARD)) {
             placeCardSinglePlayer();
             return;
@@ -615,6 +612,7 @@ public class MenuController {
         int level;
         number = Integer.valueOf(RegexManager.get("level"));
         // call...
+        
 
     }
 
