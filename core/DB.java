@@ -401,4 +401,12 @@ public class DB {
             System.out.println(ex.getMessage());
         }
     }
+
+    public static String[] getUserCardsIDs(int loggedUser) {
+        
+    }
+
+    public static int getCardUpgradeLevel(String iD) {
+       
+    }
 }
