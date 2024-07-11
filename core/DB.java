@@ -32,11 +32,16 @@ public class DB {
                 + "user_id INTEGER NOT NULL,\n" + "card_id TEXT NOT NULL,\n" + "level INTEGER NOT NULL\n" + ");";
         command(sql);
 
+        sql = "CREATE TABLE IF NOT EXISTS games (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                + "user_id INTEGER NOT NULL,\n" + "opponent_id INTEGER NOT NULL,\n" + "opponent_level INTEGER NOT NULL,\n" + "is_winner INTEGER NOT NULL,\n"
+                + "prize TEXT NOT NULL,\n" + "punish TEXT NOT NULL\n" + ");";
+        command(sql);
+
         sql = "CREATE TABLE IF NOT EXISTS cards (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "name TEXT NOT NULL,\n"
                 + "cost INTEGER NOT NULL,\n" + "levelup_cost INTEGER NOT NULL,\n"
                 + "duration INTEGER NOT NULL,\n" + "defence INTEGER NOT NULL,\n" + "damage INTEGER NOT NULL,\n"
-                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"
+                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"  + "upgrade_level INTEGER NOT NULL,\n"
                 + "image TEXT NOT NULL\n" + ");";
         command(sql);
 
@@ -54,15 +59,30 @@ public class DB {
     }
 
     public static void setUserLevel(int id, int newLevel) {
-
+        String sql = "UPDATE users SET level = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, newLevel);
+            stmt.setInt(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void setUsersXP(int id, int newXP) {
         if (newXP >= (getUserLevel(id) + 1) * 10) {
             setUserLevel(id, getUserLevel(id) + 1);
         }
-        // ...
-        
+        String sql = "UPDATE users SET xp = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, newXP);
+            stmt.setInt(2, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static User getUserById(int id) {
@@ -96,13 +116,37 @@ public class DB {
         }
     }
 
-    // public static int getCardUpgradeLevel(String cardId) {
-    // // it gets the required level to upgrade a particular card
-    // }
+    public static int getCardUpgradeLevel(String cardId) {
+        String sql = "SELECT upgrade_level FROM cards WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, cardId);
+            ResultSet rs = stmt.executeQuery();
+            return rs.getInt("upgrade_level");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return -1;
+        }
+    }
 
-    // public static String[] getUserCardsIDs(int id) {
-    // // getting the ID of all user's cards
-    // }
+    public static String[] getUserCardsIDs(int id) {
+        String sql = "SELECT card_id FROM users_cards WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            String[] cards = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                cards[i] = rs.getString("card_id");
+                i++;
+            }
+            return cards;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
     public static Card getCardByID(String ID) {
         String sql = "SELECT * FROM cards WHERE id = ?";
@@ -379,6 +423,64 @@ public class DB {
         command(sql);
     }
 
+    public static String[] getGamesHistorySortedByWin(int userId, boolean isWinner) {
+        String sql = "SELECT * FROM games WHERE user_id = ? AND is_winner = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, isWinner ? 1 : 0);
+            ResultSet rs = stmt.executeQuery();
+            String[] games = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                games[i] = rs.getString("opponent_id");
+                i++;
+            }
+            return games;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static String[] getGamesHistorySortedByOpponent(int userId) {
+        String sql = "SELECT * FROM games WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            String[] games = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                games[i] = rs.getString("opponent_id");
+                i++;
+            }
+            return games;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static String[] getGamesHistorySortedByOpponentLevel(int userId) {
+        String sql = "SELECT * FROM games WHERE user_id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            String[] games = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                games[i] = rs.getString("opponent_level");
+                i++;
+            }
+            return games;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
     // ===========================================================
     // DB METHODS
     // ===========================================================
@@ -402,11 +504,4 @@ public class DB {
         }
     }
 
-    public static String[] getUserCardsIDs(int loggedUser) {
-        
-    }
-
-    public static int getCardUpgradeLevel(String iD) {
-       
-    }
 }
