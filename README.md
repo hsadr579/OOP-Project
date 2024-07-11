@@ -1,12 +1,11 @@
 # Citywars - Tehran Reign
-
 Java Advanced Programming Final Project
 
-Developers:
-
+Developers: 
 - Hossein Sadr
 - Amir Saeed Anghaei
 - Mohammad Hossein Farahmand
+
 
 2024 Summer
 
