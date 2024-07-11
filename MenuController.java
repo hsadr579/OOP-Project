@@ -307,8 +307,17 @@ public class MenuController {
     private void singlePlayerModeMenuGameLevel() {
 
    
-        if (RegexManager.matches(Regex.PLACE_CARD)) {
+        if (RegexManager.matches(Regex.PLACE_CARD_M)) {
             placeCardSinglePlayer();
+            return;
+        }
+        invalidCommand();
+    }
+    private void singlePlayerModeMenuGameBoss() {
+
+
+        if (RegexManager.matches(Regex.PLACE_CARD)) {
+            placeCardSinglePlayerBoss();
             return;
         }
         invalidCommand();
@@ -616,9 +625,10 @@ public class MenuController {
 
         int number;
         number = Integer.valueOf(RegexManager.get("number"));
-        int level;
+        int level=1;
         number = Integer.valueOf(RegexManager.get("level"));
         // call...
+        Game.selectCharacterSinglePlayer(number,level);
         
 
     }
@@ -628,6 +638,7 @@ public class MenuController {
         id = Integer.valueOf(RegexManager.get("id"));
 
         // call...
+
     }
 
     private void placeCardSinglePlayer() {
@@ -636,6 +647,14 @@ public class MenuController {
         int block;
         block = Integer.valueOf(RegexManager.get("block"));
         // call...
+        Game.placeCard(id,block);
+    }
+    private void placeCardSinglePlayerBoss() {
+        int id;
+        id = Integer.valueOf(RegexManager.get("id"));
+
+        // call...
+        Game.placeCardBoss(id);
     }
 
 }

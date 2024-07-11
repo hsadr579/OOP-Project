@@ -190,7 +190,7 @@ public class Game {
         mode = Mode.SINGLE_PLAYER;
         player1 = DB.getUserById(Session.getInstance().getLoggedUser());
         Session.getInstance().setOutput(Outputs.SELECT_CHAR);
-        Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
+        Session.getInstance().setCurrentMenu(Menus.SINGLE_PLAYER_MODE_CHARACTER);
     }
 
     public static void newBetModeGame() {
