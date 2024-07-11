@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oopproject.MainControl">
+   <center>
+        <AnchorPane prefHeight="628.0" prefWidth="5.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="username" layoutX="31.0" layoutY="15.0" prefHeight="53.0" prefWidth="340.0" text="Select Chracter for" textFill="#2a1cc6">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font></Label>
+            <Label fx:id="usernname" layoutX="360.0" layoutY="20.0" prefHeight="43.0" prefWidth="141.0" text="Label">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="c1" fitHeight="425.0" fitWidth="218.0" layoutY="139.0" onContextMenuRequested="#fc1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@darth.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="c3" fitHeight="516.0" fitWidth="218.0" layoutX="392.0" layoutY="140.0" onContextMenuRequested="#fc3" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@M2yq-ezgif.com-crop.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="c2" fitHeight="504.0" fitWidth="218.0" layoutX="188.0" layoutY="139.0" onContextMenuRequested="#fc2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@dz6ieu-0733cb78-2550-4f4b-8f22-e74eeede3158-ezgif.com-resize.gif" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="c4" fitHeight="423.0" fitWidth="226.0" layoutX="610.0" layoutY="140.0" onContextMenuRequested="#fc4" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@tumblr_90cc2339a6e5fc5d8c4ea19c4ef1a762_d1f4b9ec_500-ezgif.com-crop.gif" />
+               </image>
+            </ImageView>
+            <TextField fx:id="bet" layoutX="255.0" layoutY="577.0" prefHeight="44.0" prefWidth="274.0" />
+            <Label layoutX="134.0" layoutY="582.0" prefHeight="34.0" prefWidth="95.0" text="Enter Bet Cost" />
+            <Label fx:id="error" layoutX="600.0" layoutY="580.0" prefHeight="39.0" prefWidth="53.0" textFill="RED" />
+            </children>
+        </AnchorPane>
+   </center>
+</BorderPane>

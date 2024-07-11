@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="829.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.oopproject.LoginUser2">
+   <center>
+        <AnchorPane prefHeight="521.0" prefWidth="829.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="loginB" alignment="CENTER" layoutX="261.0" layoutY="438.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="326.0" text="Login" textAlignment="CENTER" AnchorPane.rightAnchor="242.0">
+                    <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                    </font>
+                </Button>
+                <Label fx:id="error" layoutX="261.0" layoutY="343.0" prefHeight="44.0" prefWidth="326.0" textFill="#fa0606" />
+                <PasswordField fx:id="pass" layoutX="266.0" layoutY="281.0" prefHeight="26.0" prefWidth="316.0" />
+                <TextField fx:id="username" layoutX="265.0" layoutY="215.0" prefHeight="26.0" prefWidth="318.0" />
+                <Label layoutX="265.0" layoutY="184.0" prefHeight="18.0" prefWidth="83.0" text="Username" />
+                <Label layoutX="266.0" layoutY="255.0" prefHeight="18.0" prefWidth="83.0" text="Password" />
+            </children>
+        </AnchorPane>
+   </center>
+</BorderPane>

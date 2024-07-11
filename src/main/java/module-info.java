@@ -9,6 +9,9 @@ module com.example.oopproject {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires javafx.media;
+    requires java.sql;
+    requires java.desktop;
 
     opens com.example.oopproject to javafx.fxml;
     exports com.example.oopproject;

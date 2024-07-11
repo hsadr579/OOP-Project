@@ -4,11 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="y" />
+=======
+    <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/citywars.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/signControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Mode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/modeMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/signControl.class" afterDir="false" />
+    </list>
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,21 +55,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "git-widget-placeholder": "graphic",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
+=======
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sqlite java/sqlite-jdbc-3.45.3.0.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\resources\com\example\oopproject" />
+      <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\java\com\example\oopproject" />
+      <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\java\com\example\oopproject\core" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\java\com\example\oopproject" />
+      <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project\src\main\java\core" />
+      <recent name="C:\Users\ASUS\Documents\Eletrical Engineering\2nd semester\OOP\project\OOP-Project" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.oopproject.HelloApplication" />
       <module name="OOP-Project" />
@@ -52,9 +105,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="sqlite-jdbc-3.7.2.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/src/main/java/com/example/oopproject/sqlite-jdbc-3.7.2.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JAR Application.sqlite-jdbc-3.7.2.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -67,6 +125,11 @@
       <option name="presentableId" value="Default" />
       <updated>1720604718810</updated>
       <workItem from="1720604720680" duration="1765000" />
+      <workItem from="1720631269833" duration="166000" />
+      <workItem from="1720631592934" duration="11508000" />
+      <workItem from="1720680009059" duration="3387000" />
+      <workItem from="1720690008310" duration="5864000" />
+      <workItem from="1720701341506" duration="1196000" />
     </task>
     <task id="LOCAL‎−۰۰۰۰۱" summary="y">
       <option name="closed" value="true" />

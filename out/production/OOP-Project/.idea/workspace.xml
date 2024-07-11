@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -46,12 +47,18 @@
       <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Utils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Win.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Win.class" afterDir="false" />
+=======
+  <component name="ChangeListManager">
+    <list default="true" id="39e77b3b-a9a9-4053-9ac7-b0c07adf3e07" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -59,20 +66,27 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2j3KBGLCHqZnNO2wHsPxsmFOMpa" />
+=======
+  <component name="ProjectId" id="2j6EsKl6HKVy8EkFpev8Odd6Xam" />
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
@@ -96,10 +110,36 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="core" />
     </key>
+=======
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="21" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sqlite java/sqlite-jdbc-3.45.3.0.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="OOP-Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="bd330bef-946b-4ea0-931e-ceafbeac7e09" name="Changes" comment="" />
       <created>1720610183256</created>
       <option name="number" value="Default" />
@@ -158,11 +198,21 @@
       <updated>1720701234674</updated>
     </task>
     <option name="localTasksCounter" value="8" />
+=======
+      <changelist id="39e77b3b-a9a9-4053-9ac7-b0c07adf3e07" name="Changes" comment="" />
+      <created>1720699332352</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720699332352</updated>
+      <workItem from="1720699333810" duration="732000" />
+    </task>
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< HEAD
   <component name="VcsManagerConfiguration">
     <MESSAGE value="complete bard" />
     <MESSAGE value="add bot placing but has bug,fix showBoard" />
@@ -171,4 +221,6 @@
     <MESSAGE value="Regex fixed" />
     <option name="LAST_COMMIT_MESSAGE" value="Regex fixed" />
   </component>
+=======
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
 </project>
