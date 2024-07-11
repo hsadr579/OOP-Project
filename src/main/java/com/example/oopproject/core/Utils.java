@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.util.Collections;
 
 public class Utils {
     public static int getRandomNumber(int m, int n) {
@@ -114,6 +115,26 @@ public class Utils {
 
         return nullIndices.get(randomIndex);
     }
+
+    public static String[] getRandomElements(String[] array) {
+        // Check if the array is null or has less than 20 elements
+        if (array == null || array.length <= 20) {
+            return array; // Return the original array if it has 20 or fewer elements
+        }
+
+        // Convert the array to a List for easier manipulation
+        List<String> list = new ArrayList<>(List.of(array));
+
+        // Shuffle the list to get random elements
+        Collections.shuffle(list);
+
+        // Select the first 20 elements from the shuffled list
+        List<String> randomElements = list.subList(0, 20);
+
+        // Convert the list back to an array
+        return randomElements.toArray(new String[0]);
+    }
+
     public static Integer findRandomIndex(Cell[] array, int m, int gap) {
         Random rand = new Random();
         int arrayLength = array.length;

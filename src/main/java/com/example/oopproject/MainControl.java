@@ -46,7 +46,7 @@ public class MainControl implements Initializable {
     @FXML
     public void startG() throws IOException {
         Statics.clickEffect.play();
-        Statics.changeScene("loginGame.fxml");
+        Statics.changeScene("modeMenu.fxml");
     }
     @FXML
     public void setting1() throws IOException {

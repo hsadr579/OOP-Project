@@ -1,4 +1,5 @@
 
+
 package com.example.oopproject.core;
 
 public class Auth {
@@ -37,7 +38,7 @@ public class Auth {
 
 
     public static void register(String username, String password,String passConf,String nickname, int security_question_id,
-            String security_question_answer, String email) {
+                                String security_question_answer, String email) {
         if (!Utils.usernameIsValid(username)) {
             Session.getInstance().setOutput(Outputs.ERROR_INVALID_USERNAME);
             return;

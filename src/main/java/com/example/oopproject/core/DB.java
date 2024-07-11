@@ -62,7 +62,7 @@ public class DB {
             setUserLevel(id, getUserLevel(id) + 1);
         }
         // ...
-
+        
     }
 
     public static User getUserById(int id) {
@@ -406,7 +406,7 @@ public class DB {
         return null;
     }
 
-    public static int getCardUpgradeLevel(String id) {
-        return  0;
+    public static int getCardUpgradeLevel(String iD) {
+       return 0;
     }
 }

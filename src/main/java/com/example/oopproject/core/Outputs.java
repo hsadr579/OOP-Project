@@ -8,7 +8,8 @@ public enum Outputs {
     ERROR_DUPLICATE_USERNAME("This username has already been chosen!"),
     ERROR_INVALID_USERNAME("Your username is invalid!"),
     ERROR_PASSWORDS_NOT_SAME("The passwords are not the same!"),
-            ERROR_ANSWERS_NOT_SAME("The answers are not the same!"),
+    ERROR_ANSWERS_NOT_SAME("The answers are not the same!"),
+    SELECT_CHAR("Select your character:\n\t1.Darth\n\t2.Luke\n\t3.Fett\n\t4.Count"),
     ERROR_INVALID_PASSWORD_1(
             "Your password is weak!(it should have at least 8 characters and it should have at least one lowercase and one uppercase letter and one character other than numbers and letters)"),
     ERROR_INVALID_PASSWORD_2(
@@ -56,7 +57,7 @@ public enum Outputs {
     OPPONENT_WIN("The opponent is the winner.\nThe host defeated!"),
     HOST_WIN("The host is the winner!"), TRY_AGAIN("Try again!")
     , NOT_ENOUGH_COIN_BET("Not enough coin!"),LOGIN_PLAYER2("Please login guest");
-    
+
 
     private final String pattern;
 

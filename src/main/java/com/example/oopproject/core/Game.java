@@ -1,25 +1,27 @@
 package com.example.oopproject.core;
 
-
+import java.security.PublicKey;
 import java.util.ArrayList;
 
+import javax.swing.text.html.parser.Element;
+import javax.xml.parsers.FactoryConfigurationError;
 
-enum Mode {
-    MULTIPLAYER, SINGLE_PLAYER, BET
-}
 
 public class Game {
     static Board board;
+    static BossBoard bossBoard;
     static Mode mode;
-    static User player1;
-    static User player2;
+    public static User player1;public static User player2;
     static User currentPlayer;
     static Tower map;
     static int betCost;
     static boolean sCost1, sCost2;
     static String[] chars = { "Darth", "Luke", "Fett", "Count" };
     static Mode[] modes = { Mode.MULTIPLAYER, Mode.SINGLE_PLAYER, Mode.BET };
-
+    public static Mode getMode()
+    {
+        return mode;
+    }
     public static void newMultiplayerGame() {
         mode = Mode.MULTIPLAYER;
         player1 = DB.getUserById(Session.getInstance().getLoggedUser());
@@ -35,6 +37,9 @@ public class Game {
         }
         if (modes[moden] == Mode.BET) {
             newBetModeGame();
+        }
+        if (modes[moden] == Mode.SINGLE_PLAYER) {
+            newSinglePlayerGame();
         }
     }
 
@@ -76,6 +81,7 @@ public class Game {
         if (sCost1 && sCost2) {
             sCost1 = false;
             sCost2 = false;
+             Session.getInstance().setOutput(Outputs.SELECT_CHAR);
             Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
         }
     }
@@ -83,9 +89,9 @@ public class Game {
     public static void selectCharacterMultiplayer(String username, int character) {
 
         if (player1.username.equals(username)) {
-            player1.character = chars[character];
+            player1.character = chars[character-1];
         } else if (player2.username.equals(username)) {
-            player2.character = chars[character];
+            player2.character = chars[character-1];
         } else {
             Session.getInstance().setOutput(Outputs.TRY_AGAIN);
         }
@@ -101,6 +107,31 @@ public class Game {
             }
             board = new Board(player1.username, player2.username, player1.character, player2.character, player1.HP,
                     player2.HP, c1, c2, 1, player1.level, player2.level);
+        }
+    }
+    public static void selectCharacterSinglePlayer(int character , int level) {
+
+        player1.character = chars[character-1];
+        if (level==5) player2 = DB.getUserById(DB.getUserId("Boss"));
+        player2 = DB.getUserById(DB.getUserId(chars[character-1]));
+
+        if (player1.character != null && player2.character != null) {
+            Session.getInstance().setCurrentMenu(Menus.SINGLE_PLAYER_MODE_GAME);
+            ArrayList<Card> c1 = new ArrayList<>();
+            ArrayList<Card> c2 = new ArrayList<>();
+            for (String i : player1.cardsId) {
+                c1.add(DB.getCardByID(i));
+            }
+            if (level == 5) {
+                bossBoard = new BossBoard(player1.username, player1.character, player1.HP, player1.level,c1);
+            }
+            else {
+                for (String i : player2.cardsId) {
+                    c2.add(DB.getCardByID(i));
+                }
+                board = new Board(player1.username, player2.username, player1.character, player2.character, player1.HP,
+                        player2.HP, c1, c2, 1, player1.level, player2.level,true);
+            }
         }
     }
 
@@ -143,9 +174,22 @@ public class Game {
             }
         }
     }
+    public static void placeCardBoss(int i) {
+        bossBoard.placeCard(i);
+        if (board.getPlayer1_turn() == 0) {
+            if (board.timeLine() == 0) {
+                //defeat
+            } else if (board.timeLine() == 1) {
+                //win
+            }
+        }
+    }
 
     public static void newSinglePlayerGame() {
-
+        mode = Mode.SINGLE_PLAYER;
+        player1 = DB.getUserById(Session.getInstance().getLoggedUser());
+        Session.getInstance().setOutput(Outputs.SELECT_CHAR);
+        Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
     }
 
     public static void newBetModeGame() {
