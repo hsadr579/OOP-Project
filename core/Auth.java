@@ -36,8 +36,9 @@ public class Auth {
     }
 
     private static String makeNewCapcha() {
-        currentCapcha = Utils.convertStringToAsciiArt(Utils.generateRandomString(4));
-        return currentCapcha;
+        currentCapcha=Utils.generateRandomString(4);
+
+        return Utils.convertStringToAsciiArt(currentCapcha);
     }
 
     public static void setSecurityQ(int id, String answer, String confirm) {
