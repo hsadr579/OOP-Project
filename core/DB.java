@@ -23,10 +23,11 @@ public class DB {
 
     // create tables
     public static void createTables() {
+    public static void createTables() {
         String sql = "CREATE TABLE IF NOT EXISTS users (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "username TEXT NOT NULL,\n" + "password TEXT NOT NULL,\n" + "security_question_id INTEGER NOT NULL,\n"
                 + "security_question_answer TEXT NOT NULL,\n" + "email TEXT NOT NULL,\n" + "nickname TEXT NOT NULL,\n"
-                + "xp INTEGER NOT NULL,\n" + "coins INTEGER NOT NULL,\n" + "clan_id INTEGER,\n"
+                + "xp INTEGER NOT NULL,\n" + "coins INTEGER NOT NULL,\n" + "hp INTEGER NOT NULL DEFAULT '0',\n" + "clan_id INTEGER,\n"
                 + "last_failed_login INTEGER NOT NULL,\n" + "login_fail_number INTEGER NOT NULL\n" + ");";
         command(sql);
 
@@ -58,9 +59,7 @@ public class DB {
         sql = "CREATE TABLE IF NOT EXISTS user_security_questions (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "user_id INTEGER NOT NULL,\n" + "question_id INTEGER NOT NULL,\n" + "answer TEXT NOT NULL\n" + ");";
         command(sql);
-
-        sql = "ALTER TABLE users ADD COLUMN hp INTEGER NOT NULL DEFAULT '0';";
-        command(sql);
+    }
 
     }
 
