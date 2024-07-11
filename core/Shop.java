@@ -41,6 +41,7 @@ public class Shop {
         allCards = DB.getAllCards();
         usersCards = DB.getUserCardsIDs(Session.getInstance().getLoggedUser());
         Session.getInstance().setOutput(shopToString());
+        Session.getInstance().setCurrentMenu(Menus.SHOP);
     }
 
     public static void buyCard(String ID) {

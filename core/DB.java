@@ -22,7 +22,7 @@ public class DB {
     }
 
     // create tables
-    public static void createTables() {
+
     public static void createTables() {
         String sql = "CREATE TABLE IF NOT EXISTS users (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "username TEXT NOT NULL,\n" + "password TEXT NOT NULL,\n" + "security_question_id INTEGER NOT NULL,\n"
@@ -63,7 +63,7 @@ public class DB {
         command(sql);
     }
 
-    }
+
 
     public static void setUserLevel(int id, int newLevel) {
         String sql = "UPDATE users SET level = ? WHERE id = ?";
