@@ -469,7 +469,7 @@ public class MenuController {
 
     private void showHistory() {
         // call...
-        MainMenu.hist();
+        History.createTable();
     }
 
     private void goShopMenu() {
@@ -508,14 +508,17 @@ public class MenuController {
 
     private void sort() {
         // call...
+        History.sort();
     }
 
     private void nextPage() {
         // call...
+        History.next();
     }
 
     private void previousPage() {
         // call...
+        History.prev();
     }
 
     private void goPageNumber() {
