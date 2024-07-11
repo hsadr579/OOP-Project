@@ -103,6 +103,7 @@ public class Auth {
         if (DB.login(username, password)) {
             Session.getInstance().setLoggedUser(DB.getUserId(username));
             Session.getInstance().setCurrentMenu(Menus.MAIN);
+            Session.getInstance().setOutput(Outputs.SUCCESS_LOGIN);
             DB.resetFailedLoginNumber(username);
         } else {
             Session.getInstance().setOutput("Password and Username don't match!");
