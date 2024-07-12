@@ -125,6 +125,8 @@ public class Auth {
             return;
         }
         Session.getInstance().setLoggedUser(-1);
+        Session.getInstance().setOutput(Outputs.SUCCESS_LOG_OUT);
+        Session.getInstance().setCurrentMenu(Menus.SIGN_UP);
 
     }
 

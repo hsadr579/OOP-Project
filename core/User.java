@@ -39,7 +39,7 @@ public class User {
         for (String i : cardsId) {
 
             j++;
-            output += j + DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toStringUpgrade() + "\n";
+            output += j +". "+ DB.getUserCardByID(Session.getInstance().getLoggedUser(), i).toStringUpgrade() + "\n";
 
         }
         return output;

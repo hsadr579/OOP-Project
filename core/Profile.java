@@ -2,6 +2,7 @@ package core;
 
 public class Profile {
     public static void showInfo() {
+
         String info = getUser().toString();
         Session.getInstance().setOutput(info);
     }
