@@ -16,8 +16,6 @@ public class DB {
             System.out.println("Connection to SQLite has been established.");
             createTables();
             System.out.println("Tables Ok.");
-            System.err.println(usernameExists("Ali2"));
-            System.err.println(usernameExists("Ali22"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -28,8 +26,11 @@ public class DB {
         String sql = "CREATE TABLE IF NOT EXISTS users (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "username TEXT NOT NULL,\n" + "password TEXT NOT NULL,\n" + "security_question_id INTEGER NOT NULL,\n"
                 + "security_question_answer TEXT NOT NULL,\n" + "email TEXT NOT NULL,\n" + "nickname TEXT NOT NULL,\n"
+                + "level INTEGER NOT NULL,\n"
                 + "xp INTEGER NOT NULL,\n" + "coins INTEGER NOT NULL,\n" + "hp INTEGER NOT NULL DEFAULT '0',\n" + "clan_id INTEGER,\n"
                 + "last_failed_login INTEGER NOT NULL,\n" + "login_fail_number INTEGER NOT NULL\n" + ");";
+        command(sql);
+
         command(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS users_cards (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
