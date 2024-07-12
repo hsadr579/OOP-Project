@@ -405,11 +405,11 @@ public class DB {
     }
 
     public static int getUserId(String username) {
-        String sql = "SELECT id FROM users WHERE username = ?";
+        String sql = "SELECT id FROM users WHERE username = '" + username + "'";
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return rs.getInt("id") +1 ;
+            return rs.getInt("id");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return -1;
@@ -417,7 +417,7 @@ public class DB {
     }
 
     public static int[] getUserFailedLoginData(String username) {
-        String sql = "SELECT * FROM users WHERE username = ?";
+        String sql = "SELECT * FROM users WHERE username = '" + username + "'";
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
