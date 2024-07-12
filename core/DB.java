@@ -409,7 +409,7 @@ public class DB {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return rs.getInt("id");
+            return rs.getInt("id") +1 ;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return -1;
