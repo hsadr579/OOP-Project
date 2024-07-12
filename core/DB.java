@@ -389,8 +389,8 @@ public class DB {
     }
 
     public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
-        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`, `level`) VALUES";
-        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '0', '100', '0', '0', '0', '0')";
+        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`,`hp`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`, `level`) VALUES";
+        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '100', '0', '100', '0', '0', '0', '0')";
         command(sql);
     }
 
