@@ -104,6 +104,7 @@ public class DB {
             rs.getInt("level"),
             rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
         } catch (SQLException e) {
+            System.out.println("SAAAAAAALLAAAAMMMMMMMM");
             System.out.println(e.getMessage());
             return null;
         }
@@ -151,6 +152,7 @@ public class DB {
             return cards;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+
             return null;
         }
     }
@@ -304,8 +306,8 @@ public class DB {
     }
 
     public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
-        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`) VALUES";
-        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '0', '0', '0', '0', '0')";
+        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`, `level`) VALUES";
+        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '0', '0', '0', '0', '0', '0')";
         command(sql);
     }
 
