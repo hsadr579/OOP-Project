@@ -272,22 +272,20 @@ public class DB {
 
     public static String[] getAllCards() {
         String sql = "SELECT id FROM cards";
+        List<String> cardList = new ArrayList<>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            String[] cards = new String[rs.getFetchSize()];
-            int i = 0;
             while (rs.next()) {
-                cards[i] = rs.getString("id");
-                i++;
+                cardList.add(rs.getString("id"));
             }
-            return cards;
+            return cardList.toArray(new String[0]);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
-
+    
     public static int getUserCoins(int id) {
         String sql = "SELECT coins FROM users WHERE id = ?";
         try {
