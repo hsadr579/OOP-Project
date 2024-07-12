@@ -112,6 +112,7 @@ public class Game {
             }
             board = new Board(player1.username, player2.username, player1.character, player2.character, player1.HP,
                     player2.HP, c1, c2, 1, player1.level, player2.level);
+            board.showBoard();
         }
     }
     public static void selectCharacterSinglePlayer(int character , int level) {
@@ -161,6 +162,7 @@ public class Game {
                         player2.coin - board.coinDec);
                 Win.setUp(player1.username, player2.username, board.coinGift, board.coinDec, board.newXPW,
                         board.newXPD);
+                DB.addGame(DB.getUserId(player1.username),DB.getUserId(player2.username),player2.level,true,"+coin +XP","-coin +XP");
             } else if (board.timeLine() == 2) {
                 Session.getInstance().setCurrentMenu(Menus.WIN);
                 Session.getInstance().setCurrentMenu(Menus.WIN);
@@ -174,6 +176,8 @@ public class Game {
                         player1.coin - board.coinDec);
                 Win.setUp(player2.username, player1.username, board.coinGift, board.coinDec, board.newXPW,
                         board.newXPD);
+                DB.addGame(DB.getUserId(player2.username),DB.getUserId(player1.username),player2.level,false,"+coin +XP","-coin +XP");
+
             } else {
                 board.newTurn();
             }

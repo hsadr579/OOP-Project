@@ -158,7 +158,7 @@ public class Board {
                     for (int i = place - 1; i < place + 1 - 1; i++) {
                         player1_board[i] = new Cell(tempType);
                     }
-                    player1_hand.remove(temp);
+                    player1_hand.remove(placeHand-1);
                     addToHand(1);
                     player1_turn--;
                     switchPlayer();
@@ -181,7 +181,7 @@ public class Board {
                     for (int i = place - 1; i < place + 1 - 1; i++) {
                         player2_board[i] = new Cell(tempType);
                     }
-                    player2_hand.remove(temp);
+                    player2_hand.remove(placeHand-1);
                     addToHand(2);
                     player2_turn--;
                     switchPlayer();
@@ -206,7 +206,7 @@ public class Board {
                 for (int i = place - 1; i < place + duration - 1; i++) {
                     player1_board[i] = new Cell((int) damage / duration, defence, temp.getId(), true);
                 }
-                player1_hand.remove(temp);
+                player1_hand.remove(placeHand-1);
                 addToHand(1);
                 player1_turn--;
                 switchPlayer();
@@ -225,7 +225,7 @@ public class Board {
                 for (int i = place - 1; i < place + duration - 1; i++) {
                     player2_board[i] = new Cell((int) damage / duration, defence, temp.getId(), true);
                 }
-                player2_hand.remove(temp);
+                player2_hand.remove(placeHand-1);
                 addToHand(2);
                 player2_turn--;
                 switchPlayer();
