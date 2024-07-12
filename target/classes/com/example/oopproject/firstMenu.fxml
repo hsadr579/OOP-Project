@@ -14,7 +14,7 @@
                   <Font name="Comic Sans MS" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="loginB" alignment="CENTER" layoutX="279.0" layoutY="339.0" mnemonicParsing="false" onAction="#login" prefHeight="99.0" prefWidth="272.0" text="Login" textAlignment="CENTER">
+            <Button fx:id="loginB" alignment="CENTER" layoutX="279.0" layoutY="336.0" mnemonicParsing="false" onAction="#login" prefHeight="99.0" prefWidth="272.0" text="Login" textAlignment="CENTER">
                <font>
                   <Font name="Comic Sans MS" size="18.0" />
                </font>

@@ -40,7 +40,11 @@ public class LoginUser2 {
             error.setText(Session.getInstance().getOutput().get());
         }
     }
-
+    @FXML
+    public void  back() throws IOException {
+        Statics.clickEffect.play();
+        Statics.changeScene("modeMenu.fxml");
+    }
 
 
 }

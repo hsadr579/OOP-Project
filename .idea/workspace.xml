@@ -5,13 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8a2c5e-3471-45db-9325-e2534e3a227e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/clone-wars (1).gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/clone-wars.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/setting.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/ModeControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/firstMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/firstMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/citywars.db" beforeDir="false" afterPath="$PROJECT_DIR$/citywars.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/LoginControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/LoginControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/LoginUser2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/LoginUser2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/MainControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/MainControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/ProfileControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/ProfileControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/core/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/oopproject/selectChar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/loginUser2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/loginUser2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/oopproject/selectChar.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginUser2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/LoginUser2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/MainControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/ProfileControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/ProfileControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/core/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/firstMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/firstMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/loginUser2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/loginUser2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/selectChar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/selectChar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/oopproject/selectChar.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/oopproject/selectChar.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>

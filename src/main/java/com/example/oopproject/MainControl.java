@@ -26,12 +26,14 @@ public class MainControl implements Initializable {
     Button profile,setting,shop,history,start,logout;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        username.setText(DB.getUsernameById(Session.getInstance().getLoggedUser()));
-        coin.setText(DB.getUserCoins(Session.getInstance().getLoggedUser())+"");
-        XP.setText(DB.getUserLevel(Session.getInstance().getLoggedUser())+"");
-        XP1.setText(DB.getUserById(Session.getInstance().getLoggedUser()).XP+"");
+       ok();
 
     }
+    public void ok()
+    {username.setText("username: "+DB.getUsernameById(Session.getInstance().getLoggedUser()));
+        coin.setText("coin: "+DB.getUserCoins(Session.getInstance().getLoggedUser())+"");
+        XP.setText("level: "+DB.getUserLevel(Session.getInstance().getLoggedUser())+"");
+        XP1.setText("xp: "+DB.getUserById(Session.getInstance().getLoggedUser()).XP+"");}
     @FXML
     public void logoutFunc() throws IOException {
         Statics.clickEffect.play();

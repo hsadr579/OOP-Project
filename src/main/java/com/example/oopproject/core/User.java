@@ -3,7 +3,7 @@ package com.example.oopproject.core;
 public class User {
     public String username, password, nickName, email, securityQuestion, securityAnswer;
     public String[] cardsId;
-    public int level, XP, HP, coin;
+    public int level, XP, HP, coin,id;
     String character=null;
 
     public User(String username, String password, String nickName, String email, String securityQuestion,

@@ -28,11 +28,14 @@ public class ProfileControl implements Initializable {
     Label XP1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        username.setText(DB.getUsernameById(Session.getInstance().getLoggedUser()));
-        coin.setText(DB.getUserCoins(Session.getInstance().getLoggedUser())+"");
-        XP.setText(DB.getUserLevel(Session.getInstance().getLoggedUser())+"");
-        XP1.setText(DB.getUserById(Session.getInstance().getLoggedUser()).XP+"");
+        ok();
     }
+    public void ok()
+    {username.setText("username: "+DB.getUsernameById(Session.getInstance().getLoggedUser()));
+        coin.setText("coin: "+DB.getUserCoins(Session.getInstance().getLoggedUser())+"");
+        XP.setText("level: "+DB.getUserLevel(Session.getInstance().getLoggedUser())+"");
+        XP1.setText("xp: "+DB.getUserById(Session.getInstance().getLoggedUser()).XP+"");}
+
     @FXML
     public void back1() throws IOException {
         Statics.clickEffect.play();
@@ -46,6 +49,7 @@ public class ProfileControl implements Initializable {
         {
             error.setText(Session.getInstance().getOutput().get());
         }
+        ok();
     }
     @FXML
     public void changeNickname()
@@ -54,7 +58,7 @@ public class ProfileControl implements Initializable {
         if(!(Session.getInstance().getOutput()== Outputs.SUCCESS_CHANGE_NICKNAME))
         {
             error.setText(Session.getInstance().getOutput().get());
-        }
+        }  ok();
     }
     @FXML
     public void changePass()
@@ -63,7 +67,7 @@ public class ProfileControl implements Initializable {
         if(!(Session.getInstance().getOutput()== Outputs.SUCCESS_CHANGE_PASSWORD))
         {
             error.setText(Session.getInstance().getOutput().get());
-        }
+        }  ok();
     }
     @FXML
     public void changeEmail()
@@ -72,6 +76,6 @@ public class ProfileControl implements Initializable {
         if(!(Session.getInstance().getOutput()== Outputs.SUCCESS_CHANGE_EMAIL))
         {
             error.setText(Session.getInstance().getOutput().get());
-        }
+        }  ok();
     }
 }
