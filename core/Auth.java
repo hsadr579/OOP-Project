@@ -8,6 +8,11 @@ public class Auth {
 
     public static void preRegister(String username, String password, String passConf, String nickName, String email) {
 
+        if(DB.usernameExists(username))
+        {
+            Session.getInstance().setOutput(Outputs.ERROR_DUPLICATE_USERNAME);
+            return;
+        }
         if (!Utils.usernameIsValid(username)) {
             Session.getInstance().setOutput(Outputs.ERROR_INVALID_USERNAME);
             return;

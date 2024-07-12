@@ -103,6 +103,7 @@ public class DB {
             rs.getInt("level"),
             rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
         } catch (SQLException e) {
+            System.out.println("SAAAAAAALLAAAAMMMMMMMM");
             System.out.println(e.getMessage());
             return null;
         }
@@ -150,6 +151,7 @@ public class DB {
             return cards;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+
             return null;
         }
     }
