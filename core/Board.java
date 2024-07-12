@@ -321,10 +321,10 @@ public class Board {
     public void checkActivation() {
         for (int i = 0; i < 21; i++) {
             if (player1_board[i]==null && player2_board[i]!=null){
-
+                player2_board[i].setActive(true);
             }
             else if (player1_board[i]!=null && player2_board[i]==null){
-
+                player1_board[i].setActive(true);
             }
             else if (player1_board[i]==null && player2_board[i]==null){
 
