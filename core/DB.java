@@ -16,12 +16,13 @@ public class DB {
             System.out.println("Connection to SQLite has been established.");
             createTables();
             System.out.println("Tables Ok.");
+            createCards();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    // create tables
+    
     public static void createTables() {
         String sql = "CREATE TABLE IF NOT EXISTS users (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "username TEXT NOT NULL,\n" + "password TEXT NOT NULL,\n" + "security_question_id INTEGER NOT NULL,\n"
@@ -42,12 +43,21 @@ public class DB {
                 + "prize TEXT NOT NULL,\n" + "punish TEXT NOT NULL\n" + ");";
         command(sql);
 
-        sql = "CREATE TABLE IF NOT EXISTS cards (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
-                + "name TEXT NOT NULL,\n"
-                + "cost INTEGER NOT NULL,\n" + "levelup_cost INTEGER NOT NULL,\n"
-                + "duration INTEGER NOT NULL,\n" + "defence INTEGER NOT NULL,\n" + "damage INTEGER NOT NULL,\n"
-                + "explanation TEXT NOT NULL,\n" + "type TEXT NOT NULL,\n" + "level INTEGER NOT NULL,\n"  + "upgrade_level INTEGER NOT NULL,\n"
-                + "image TEXT NOT NULL\n" + ");";
+
+        sql = "CREATE TABLE IF NOT EXISTS cards (\n" 
+                    + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                    + "name TEXT NOT NULL,\n"
+                    + "cost INTEGER NOT NULL,\n"
+                    + "levelup_cost INTEGER NOT NULL,\n"
+                    + "duration INTEGER NOT NULL,\n"
+                    + "defence INTEGER NOT NULL,\n"
+                    + "damage INTEGER NOT NULL,\n"
+                    + "explanation TEXT NOT NULL,\n"
+                    + "gr TEXT NOT NULL,\n"
+                    + "type TEXT NOT NULL,\n"
+                    + "level INTEGER NOT NULL,\n"
+                    + "upgrade_level INTEGER NOT NULL\n"
+                    + ");";
         command(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS clans (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
@@ -61,6 +71,80 @@ public class DB {
         sql = "CREATE TABLE IF NOT EXISTS user_security_questions (\n" + "id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
                 + "user_id INTEGER NOT NULL,\n" + "question_id INTEGER NOT NULL,\n" + "answer TEXT NOT NULL\n" + ");";
         command(sql);
+    }
+
+    public static void createCards() {
+        String sql = "SELECT * FROM cards";
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            if (rs.next()) {
+                return;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
+
+        sql = "INSERT INTO `cards` (`id`, `name`, `duration`, `defence`, `damage`, `explanation`, `levelup_cost`, `cost`, `gr`, `type`, `level`, `upgrade_level`) VALUES";
+        sql += "(NULL, 'Scout Trooper', '2', '20', '10', '-', '10', '30', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Storm Trooper', '2', '15', '10', '-', '12', '30', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Snow Trooper', '4', '20', '20', '-', '15', '30', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Executioner Trooper', '2', '20', '30', '-', '20', '30', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Range Trooper', '3', '40', '30', '-', '20', '30', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Shock Trooper', '4', '24', '16', '-', '20', '30', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Rocket Trooper', '5', '20', '50', '-', '30', '35', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Flame Trooper', '4', '24', '16', '-', '10', '35', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Death Trooper', '2', '30', '28', '-', '20', '40', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Armored Commando', '2', '40', '24', '-', '40', '60', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Crimson Guard', '4', '30', '64', '-', '50', '70', 'attacker', 'imperial', '1', '2'),";
+        sql += "(NULL, 'Darth Vader', '1', '50', '60', '-', '80', '100', 'attacker', 'imperial', '1', '3'),";
+        sql += "(NULL, 'Palpatine', '1', '20', '30', '-', '70', '80', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'Inquisitor', '1', '35', '35', '-', '40', '60', 'attacker', 'imperial', '1', '1'),";
+        sql += "(NULL, 'TIE fighter', '5', '1000000', '50', '-', '50', '50', 'attacker', 'imperial', '1', '2'),";
+        sql += "(NULL, 'Star Destroyer', '1', '0', '0', 'If takes damage, deal 2x damage to opponent', '-', '100', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Shield', '1', '0', '0', 'Prevents any damage', '-', '20', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Heal', '1', '0', '0', 'Heal player +40', '-', '20', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Clover', '1', '0', '0', 'Halves the damage of opponent', '-', '20', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Poison', '1', '0', '0', 'Deal +30 Damage and cancel attack', '-', '40', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Fixer', '0', '0', '0', 'Change gap cell', '-', '20', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Thief', '0', '0', '0', 'Remove card from opponent and add to your hand', '-', '30', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Swamp', '0', '0', '0', 'Redused damage and defence of two oppennet card', '-', '30', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Clone', '0', '0', '0', 'Copy a card from your hand and add it to your hand', '-', '30', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Hidden', '0', '0', '0', 'Hide opponent cards in next turn', '-', '50', 'spell', '-', '1', '1'),";
+        sql += "(NULL, 'Luke Skywalker', '4', '30', '40', '-', '50', '84', 'attacker', 'jedi', '1', '2'),";
+        sql += "(NULL, 'Mace Windu', '2', '25', '30', '-', '40', '50', 'attacker', 'jedi', '1', '1'),";
+        sql += "(NULL, 'Obi-Wan Kenobi', '2', '35', '40', '-', '45', '78', 'attacker', 'jedi', '1', '1'),";
+        sql += "(NULL, 'Plo Koon', 2, 20, 24, '-', 40, 56, 'attacker', 'jedi', 1, 1),";
+        sql += "(NULL, 'Qui-Gon Jinn', 1, 45, 30, '-', 55, 48, 'attacker', 'jedi', 1, 2),";
+        sql += "(NULL, 'Yoda', 1, 50, 50, '-', 60, 100, 'attacker', 'jedi', 1, 3),";
+        sql += "(NULL, 'Baby Yoda', 3, 20, 45, '-', 45, 90, 'attacker', 'jedi', 1, 1),";
+        sql += "(NULL, 'Cal Kestis', 3, 40, 30, '-', 50, 82, 'attacker', 'jedi', 1, 1),";
+        sql += "(NULL, 'Kit Fisto', 2, 25, 26, '-', 30, 40, 'attacker', 'jedi', 1, 1),";
+        sql += "(NULL, 'Anakin Skywalker', 1, 50, 40, '-', 60, 98, 'attacker', 'jedi', 1, 3),";
+        sql += "(NULL, 'Boba Fett', 2, 50, 30, '-', 60, 90, 'attacker', 'mandalorian', 1, 2),";
+        sql += "(NULL, 'Jango Fett', 2, 50, 30, '-', 40, 70, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'Paz Vizsla', 2, 30, 30, '-', 30, 60, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'Din Djarin', 1, 45, 30, '-', 45, 90, 'attacker', 'mandalorian', 1, 2),";
+        sql += "(NULL, 'Death Watch', 3, 35, 45, '-', 40, 80, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'The Armorer', 1, 50, 20, '-', 35, 78, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'Tarre Vizsla', 1, 30, 25, '-', 30, 60, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'Pre Vizsla', 2, 30, 20, '-', 30, 60, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'Gar Saxon', 1, 34, 26, '-', 30, 64, 'attacker', 'mandalorian', 1, 1),";
+        sql += "(NULL, 'Mythosaurs', 5, 60, 64, '-', 70, 140, 'attacker', 'mandalorian', 1, 3),";
+        sql += "(NULL, 'Count Dooku', 1, 30, 45, '-', 55, 95, 'attacker', 'separatist', 1, 2),";
+        sql += "(NULL, 'Wat Tambor', 3, 45, 24, '-', 35, 75, 'attacker', 'separatist', 1, 1),";
+        sql += "(NULL, 'Tikkes', 2, 25, 20, '-', 25, 50, 'attacker', 'separatist', 1, 1),";
+        sql += "(NULL, 'Darth Sidious', 1, 30, 30, '-', 45, 90, 'attacker', 'separatist', 1, 2),";
+        sql += "(NULL, 'General Grievous', 4, 50, 40, '-', 60, 100, 'attacker', 'separatist', 1, 2),";
+        sql += "(NULL, 'San Hill', 2, 30, 20, '-', 25, 50, 'attacker', 'separatist', 1, 1),";
+        sql += "(NULL, 'Nute Gunray', 2, 27, 30, '-', 20, 40, 'attacker', 'separatist', 1, 1),";
+        sql += "(NULL, 'Poggle the Lesser', 2, 32, 20, '-', 22, 45, 'attacker', 'separatist', 1, 1),";
+        sql += "(NULL, 'Death Star', 4, '1000000', 64, '-', 75, 150, 'attacker', 'separatist', 1, 3),";
+        sql += "(NULL, 'Kylo Ren', 1, 36, 30, '-', 42, 86, 'attacker', 'separatist', 1, 1);";
+
+        command(sql);
+
     }
 
     public static void setUserLevel(int id, int newLevel) {
@@ -165,7 +249,7 @@ public class DB {
             ResultSet rs = stmt.executeQuery();
             return new Card(rs.getString("id"), rs.getString("name"), rs.getInt("duration"), rs.getInt("defence"),
                     rs.getInt("damage"), rs.getString("explanation"), rs.getString("type"), rs.getInt("level"),
-                    rs.getString("group"));
+                    rs.getString("gr"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
