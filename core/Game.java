@@ -53,8 +53,8 @@ public class Game {
                 }
             else
                 Session.getInstance().setCurrentMenu(Menus.BET_COST);
-            Session.getInstance().setOutput(Outputs.SUCCESS_LOGIN);
-            Session.getInstance().setOutput(Outputs.SELECT_CHAR);
+        
+            Session.getInstance().setOutput(Outputs.SUCCESS_LOGIN.get()+"\n"+Outputs.SELECT_CHAR.get());
         } else {
             Session.getInstance().setOutput(Outputs.ERROR_WRONG_PASSWORD);
         }
