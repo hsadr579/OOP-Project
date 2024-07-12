@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.security.SecureRandom;
 import java.util.Collections;
 
 public class Utils {
@@ -32,6 +33,39 @@ public class Utils {
         return randomString.toString();
     }
 
+    public static String generatePassword(int length) {
+
+        String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+        String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String DIGITS = "0123456789";
+        String SPECIAL = "!@#$%^&*()-_=+[]{}|;:,.<>?";
+        String ALL_CHARS = LOWERCASE + UPPERCASE + DIGITS + SPECIAL;
+    
+        if (length < 8) {
+            throw new IllegalArgumentException("Password length must be at least 8 characters.");
+        }
+
+        SecureRandom random = new SecureRandom();
+        StringBuilder password = new StringBuilder(length);
+
+        password.append(LOWERCASE.charAt(random.nextInt(LOWERCASE.length())));
+        password.append(UPPERCASE.charAt(random.nextInt(UPPERCASE.length())));
+        password.append(SPECIAL.charAt(random.nextInt(SPECIAL.length())));
+
+        for (int i = 3; i < length; i++) {
+            password.append(ALL_CHARS.charAt(random.nextInt(ALL_CHARS.length())));
+        }
+
+        for (int i = password.length() - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            char temp = password.charAt(i);
+            password.setCharAt(i, password.charAt(j));
+            password.setCharAt(j, temp);
+        }
+
+        return password.toString();
+    }
+    
     public static boolean passwordIsValid(String password) {
         String pass = "(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}";
         return password.matches(pass);
