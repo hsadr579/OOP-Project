@@ -48,8 +48,9 @@ public class Game {
         if (DB.login(username, password)) {
             player2 = DB.getUserById(DB.getUserId(username));
             if (mode == Mode.MULTIPLAYER)
+            {
                 Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
-            Session.getInstance().setOutput(Outputs.SELECT_CHAR);
+            Session.getInstance().setOutput(Outputs.SELECT_CHAR);}
             else
                 Session.getInstance().setCurrentMenu(Menus.BET_COST);
             Session.getInstance().setOutput(Outputs.SUCCESS_LOGIN);
