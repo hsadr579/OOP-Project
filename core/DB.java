@@ -181,7 +181,7 @@ public class DB {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return new User(rs.getString("username"), 
+            User b= new User(rs.getString("username"),
             rs.getString("password"), rs.getString("nickname"),
             rs.getString("email"), 
             rs.getString("security_question_id"), 
@@ -189,6 +189,8 @@ public class DB {
             getUserCardsIDs(id),
             rs.getInt("level"),
             rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
+            b.id=id;
+            return b;
         } catch (SQLException e) {
             System.out.println("SAAAAAAALLAAAAMMMMMMMM");
             System.out.println(e.getMessage());

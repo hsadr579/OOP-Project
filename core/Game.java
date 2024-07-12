@@ -47,13 +47,14 @@ public class Game {
     public static void loginUser2(String username, String password) {
         if (DB.login(username, password)) {
             player2 = DB.getUserById(DB.getUserId(username));
+
             if (mode == Mode.MULTIPLAYER)
             {
                 Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
                 }
             else
                 Session.getInstance().setCurrentMenu(Menus.BET_COST);
-        
+
             Session.getInstance().setOutput(Outputs.SUCCESS_LOGIN.get()+"\n"+Outputs.SELECT_CHAR.get());
         } else {
             Session.getInstance().setOutput(Outputs.ERROR_WRONG_PASSWORD);
