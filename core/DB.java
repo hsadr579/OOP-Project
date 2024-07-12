@@ -223,20 +223,17 @@ public class DB {
 
     public static String[] getUserCardsIDs(int id) {
         String sql = "SELECT card_id FROM users_cards WHERE user_id = ?";
+        List<String> cardList = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
-            String[] cards = new String[rs.getFetchSize()];
-            int i = 0;
             while (rs.next()) {
-                cards[i] = rs.getString("card_id");
-                i++;
+                cardList.add(rs.getString("card_id"));
             }
-            return cards;
+            return cardList.toArray(new String[0]);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-
             return null;
         }
     }
