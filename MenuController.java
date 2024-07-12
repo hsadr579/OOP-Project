@@ -101,10 +101,7 @@ public class MenuController {
             forgetPassword();
             return;
         }
-        if (RegexManager.matches(Regex.LOGOUT)) {
-            logout();
-            return;
-        }
+
         if (RegexManager.matches(Regex.LOGIN_ADMIN)) {
             loginAdmin();
             return;
@@ -180,6 +177,10 @@ public class MenuController {
         }
         if (RegexManager.matches(Regex.CREATE_CLAN_MENU)) {
             createClanModeMenu();
+            return;
+        }
+        if (RegexManager.matches(Regex.LOGOUT)) {
+            logout();
             return;
         }
         invalidCommand();
@@ -271,7 +272,7 @@ public class MenuController {
             loginPlayerTwo();
             return;
         }
-
+        invalidCommand();
     }
 
     private void multiplayerModeMenuCharacterLevel() {
