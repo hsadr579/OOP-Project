@@ -149,7 +149,7 @@ public class Game {
     public static void placeCard(int i, int place) {
         board.placeCard(i, place);
         board.showBoard();
-        if (board.getPlayer1_turn() == 0 && board.getPlayer2_turn() == 0) {
+        if (board.getPlayer1_turn() <= 0 && board.getPlayer2_turn() <= 0) {
             if (board.timeLine() == 1) {
                 Session.getInstance().setCurrentMenu(Menus.WIN);
                 DB.setUsersXP(DB.getUserId(player1.username),
