@@ -20,12 +20,12 @@ public class Board {
     private int player1_gap;
     private int player2_gap;
     private int level_player1, level_player2;
-    private ArrayList<Card> player1_cards;
-    private ArrayList<Card> player2_cards;
-    private ArrayList<Card> player1_hand;
-    private ArrayList<Card> player2_hand;
-    private Cell[] player1_board;
-    private Cell[] player2_board;
+    private ArrayList<Card> player1_cards = new ArrayList<>();
+    private ArrayList<Card> player2_cards= new ArrayList<>();
+    private ArrayList<Card> player1_hand= new ArrayList<>();
+    private ArrayList<Card> player2_hand= new ArrayList<>();
+    private Cell[] player1_board = new Cell[21];
+    private Cell[] player2_board= new Cell[21];
     private int current_player;
     private boolean isSingleMode;
 
@@ -320,16 +320,27 @@ public class Board {
 
     public void checkActivation() {
         for (int i = 0; i < 21; i++) {
+            if (player1_board[i]==null && player2_board[i]!=null){
 
-            if (player1_board[i].getDefence() > player2_board[i].getDefence()) {
-                player2_board[i].setActive(false);
             }
-            if (player1_board[i].getDefence() < player2_board[i].getDefence()) {
-                player1_board[i].setActive(false);
-            } else if (player1_board[i].getDefence() == player2_board[i].getDefence()) {
-                player1_board[i].setActive(false);
-                player2_board[i].setActive(false);
+            else if (player1_board[i]!=null && player2_board[i]==null){
+
             }
+            else if (player1_board[i]==null && player2_board[i]==null){
+
+            }
+            else {
+                if (player1_board[i].getDefence() > player2_board[i].getDefence()) {
+                    player2_board[i].setActive(false);
+                }
+                if (player1_board[i].getDefence() < player2_board[i].getDefence()) {
+                    player1_board[i].setActive(false);
+                } else if (player1_board[i].getDefence() == player2_board[i].getDefence()) {
+                    player1_board[i].setActive(false);
+                    player2_board[i].setActive(false);
+                }
+            }
+
         }
     }
 
@@ -375,24 +386,23 @@ public class Board {
         shuffleCards(player1_cards);
         shuffleCards(player2_cards);
         for (int i = 0; i < 5; i++) {
-            player1_hand.add(player1_cards.get(i));
-            player2_hand.add(player2_cards.get(i));
+            player1_hand.add(player1_cards.getFirst());
+            player1_cards.removeFirst();
+            player2_hand.add(player2_cards.getFirst());
+            player2_cards.removeFirst();
         }
-        for (int i = 0; i < 5; i++) {
-            player1_cards.remove(0);
-            player1_cards.remove(0);
-        }
+
     }
 
     public void addToHand(int player) {
         shuffleCards(player1_cards);
         shuffleCards(player2_cards);
         if (player == 1) {
-            player1_hand.add(player1_cards.get(0));
-            player1_cards.remove(0);
+            player1_hand.add(player1_cards.getFirst());
+            player1_cards.removeFirst();
         } else {
-            player2_hand.add(player2_cards.get(0));
-            player2_cards.remove(0);
+            player2_hand.add(player2_cards.getFirst());
+            player2_cards.removeFirst();
         }
     }
 
@@ -488,25 +498,36 @@ public class Board {
         System.out.println();
 
         for (int i = 0; i < 21 ; i++) {
-            if (player1_board[i].isActive())
-                System.out.print("|" + player1_board[i].getDamage() + "|" + player1_board[i].getDefence());
-            else if (i==player1_gap-1)
-                System.out.print("| GAP ");
-            else if (player1_board[i]!=null)
-                System.out.print("|##|##");
-            else
+            if (player1_board[i]==null){
                 System.out.print("|  |  ");
+            }
+            else {
+                if (player1_board[i].isActive())
+                    System.out.print("|" + player1_board[i].getDamage() + "|" + player1_board[i].getDefence());
+                else if (i==player1_gap-1)
+                    System.out.print("| GAP ");
+                else
+                    System.out.print("|##|##");
+
+
+            }
+
         }
         System.out.println("|");
         for (int i = 0; i < 21 ; i++) {
-            if (player1_board[i].isActive())
-                System.out.print("| " + player1_board[i].getId() + "  ");
-            else if (i==player1_gap-1)
-                System.out.print("| GAP ");
-            else if (player1_board[i]!=null)
-                System.out.print("| ##  ");
-            else
+            if (player1_board[i]==null){
                 System.out.print("|     ");
+            }
+            else {
+                if (player1_board[i].isActive())
+                    System.out.print("| " + player1_board[i].getId() + "  ");
+                else if (i==player1_gap-1)
+                    System.out.print("| GAP ");
+                else
+                    System.out.print("| ##  ");
+
+            }
+
         }
         System.out.println("|");
 
@@ -516,25 +537,34 @@ public class Board {
         System.out.println();
 
         for (int i = 0; i < 21 ; i++) {
-            if (player2_board[i].isActive())
-                System.out.print("|" + player2_board[i].getDamage() + "|" + player2_board[i].getDefence());
-            else if (i==player2_gap-1)
-                System.out.print("| GAP ");
-            else if (player2_board[i]!=null)
-                System.out.print("|##|##");
-            else
+            if (player2_board[i]==null){
                 System.out.print("|  |  ");
+            }
+            else {
+                if (player2_board[i].isActive())
+                    System.out.print("|" + player2_board[i].getDamage() + "|" + player2_board[i].getDefence());
+                else if (i==player2_gap-1)
+                    System.out.print("| GAP ");
+                else
+                    System.out.print("|##|##");
+            }
+
         }
         System.out.println("|");
         for (int i = 0; i < 21 ; i++) {
-            if (player2_board[i].isActive())
-                System.out.print("| " + player2_board[i].getId() + "  ");
-            else if (i==player2_gap-1)
-                System.out.print("| GAP ");
-            else if (player2_board[i]!=null)
-                System.out.print("| ##  ");
-            else
+            if (player2_board[i]==null){
                 System.out.print("|     ");
+            }
+            else {
+                if (player2_board[i].isActive())
+                    System.out.print("| " + player2_board[i].getId() + "  ");
+                else if (i==player2_gap-1)
+                    System.out.print("| GAP ");
+                else
+                    System.out.print("| ##  ");
+
+            }
+
         }
         System.out.println("|");
 
