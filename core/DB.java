@@ -2,6 +2,8 @@ package core;
 
 import java.security.PublicKey;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DB {
     private static Connection connection;
