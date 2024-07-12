@@ -536,6 +536,12 @@ public class DB {
         command(sql);
     }
 
+    public static void addGame(int userId, int opponentId, int opponentLevel, boolean isWinner, String prize, String punish) {
+        String sql = "INSERT INTO `games` (`id`, `user_id`, `opponent_id`, `opponent_level`, `is_winner`, `prize`, `punish`) VALUES";
+        sql += "(NULL, '" + userId + "', '" + opponentId + "', '" + opponentLevel + "', '" + (isWinner ? 1 : 0) + "', '" + prize + "', '" + punish + "')";
+        command(sql);
+    }
+    
     public static String[] getGamesHistorySortedByWin(int userId, boolean isWinner) {
         String sql = "SELECT * FROM games WHERE user_id = ? AND is_winner = ?";
         try {
