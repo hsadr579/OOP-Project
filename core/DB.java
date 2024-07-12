@@ -529,14 +529,7 @@ public class DB {
         sql += "(NULL, '" + name + "', '" + cost + "', '" + levelup_cost + "', '" + duration + "', '" + defence + "', '" + damage + "', '" + explanation + "', '" + type + "', '" + level + "', '" + group + "', '" + image + "')";
         command(sql);
     }
-    // ===========================================================
-    // CLANS
-    // ===========================================================
-    public static void createClan(String name, String tag, int owner_id) {
-        String sql = "INSERT INTO `clans` (`id`, `name`, `tag`, `owner_id`, `xp`, `members`, `description`) VALUES";
-        sql += "(NULL, '" + name + "', '" + tag + "', '" + owner_id + "', '0', '1', '')";
-        command(sql);
-    }
+
 
     public static void addGame(int userId, int opponentId, int opponentLevel, boolean isWinner, String prize, String punish) {
         String sql = "INSERT INTO `games` (`id`, `user_id`, `opponent_id`, `opponent_level`, `is_winner`, `prize`, `punish`) VALUES";
@@ -601,6 +594,138 @@ public class DB {
             return null;
         }
     }
+
+    // ===========================================================
+    // CLANS
+    // ===========================================================
+    
+    public static String[] getClanMembers(int clan_id) {
+        String sql = "SELECT * FROM users WHERE clan_id = '" + clan_id + "'";
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            String[] users = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                users[i] = rs.getString("username");
+                i++;
+            }
+            return users;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static void createClan(String name, String tag, int owner_id) {
+        String sql = "INSERT INTO `clans` (`id`, `name`, `tag`, `owner_id`, `xp`, `members`, `description`) VALUES";
+        sql += "(NULL, '" + name + "', '" + tag + "', '" + owner_id + "', '0', '1', '')";
+        command(sql);
+    }
+
+    public static void addUserToClan(int userId, int clanId) {
+        String sql = "UPDATE users SET clan_id = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, clanId);
+            stmt.setInt(2, userId);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void createClanWar(int clanId1, int clanId2, int winnerId) {
+        String sql = "INSERT INTO `clan_wars` (`id`, `clan_id1`, `clan_id2`, `winner_clan`) VALUES";
+        sql += "(NULL, '" + clanId1 + "', '" + clanId2 + "', '" + winnerId + "')";
+        command(sql);
+    }
+
+    public static void addClanWarGame(int clanWarId, int userId, int opponentId, int opponentLevel, boolean isWinner, String prize, String punish) {
+        String sql = "INSERT INTO `clan_war_games` (`id`, `clan_war_id`, `user_id`, `opponent_id`, `opponent_level`, `is_winner`, `prize`, `punish`) VALUES";
+        sql += "(NULL, '" + clanWarId + "', '" + userId + "', '" + opponentId + "', '" + opponentLevel + "', '" + (isWinner ? 1 : 0) + "', '" + prize + "', '" + punish + "')";
+        command(sql);
+    }
+
+    // ===========================================================
+    // ADMIN
+    // ===========================================================
+
+    public static String[] getAllUsersAdmin() {
+        String sql = "SELECT * FROM users";
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            String[] users = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                users[i] = rs.getString("username");
+                i++;
+            }
+            return users;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static String[] getAllCardsAdmin() {
+        String sql = "SELECT * FROM cards";
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            String[] cards = new String[rs.getFetchSize()];
+            int i = 0;
+            while (rs.next()) {
+                cards[i] = rs.getString("name");
+                i++;
+            }
+            return cards;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public static void createCard(String name, int cost, int levelup_cost, int duration, int defence, int damage, String explanation, String type, int level, String group, String image) {
+        String sql = "INSERT INTO `cards` (`id`, `name`, `cost`, `levelup_cost`, `duration`, `defence`, `damage`, `explanation`, `type`, `level`, `group`, `image`) VALUES";
+        sql += "(NULL, '" + name + "', '" + cost + "', '" + levelup_cost + "', '" + duration + "', '" + defence + "', '" + damage + "', '" + explanation + "', '" + type + "', '" + level + "', '" + group + "', '" + image + "')";
+        command(sql);
+    }
+
+    public static void editCard(String name, int cost, int levelup_cost, int duration, int defence, int damage, String explanation, String type, int level, String group, String image) {
+        String sql = "UPDATE cards SET cost = ?, levelup_cost = ?, duration = ?, defence = ?, damage = ?, explanation = ?, type = ?, level = ?, group = ?, image = ? WHERE name = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, cost);
+            stmt.setInt(2, levelup_cost);
+            stmt.setInt(3, duration);
+            stmt.setInt(4, defence);
+            stmt.setInt(5, damage);
+            stmt.setString(6, explanation);
+            stmt.setString(7, type);
+            stmt.setInt(8, level);
+            stmt.setString(9, group);
+            stmt.setString(10, image);
+            stmt.setString(11, name);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void deleteCard(String name) {
+        String sql = "DELETE FROM cards WHERE name = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, name);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    
 
     // ===========================================================
     // DB METHODS
