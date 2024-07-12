@@ -22,7 +22,6 @@
                 <TextField fx:id="username" layoutX="265.0" layoutY="215.0" prefHeight="26.0" prefWidth="318.0" />
                 <Label layoutX="265.0" layoutY="184.0" prefHeight="18.0" prefWidth="83.0" text="Username" />
                 <Label layoutX="266.0" layoutY="255.0" prefHeight="18.0" prefWidth="83.0" text="Password" />
-            <Button layoutX="641.0" layoutY="441.0" mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="62.0" text="Back" />
             </children>
         </AnchorPane>
    </center>

@@ -50,11 +50,7 @@ public class LoginControl implements Initializable {
             error.setText(Session.getInstance().getOutput().get());
         }
     }
-@FXML
-public void back() throws IOException {
-    Statics.clickEffect.play();
-    Statics.changeScene("firstMenu.fxml");
-}
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

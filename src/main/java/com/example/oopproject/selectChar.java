@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,24 +12,22 @@ import java.util.ResourceBundle;
 
 public class selectChar implements Initializable {
     @FXML
-    Label usernname;
+    Label username;
     @FXML
     Label error;
     @FXML
     TextField bet;
-    @FXML
-    ImageView c1,c2,c3,c4;
     int user=1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         user=1;
-        usernname.setText(Game.player1.username);
+        username.setText(Game.player1.username);
         if(!(Game.getMode()== Mode.BET))
         bet.setDisable(true);
     }
     public boolean setBet()
     {
-        if((Game.getMode()!= Mode.BET))return true;
+        if((Game.getMode()== Mode.BET))return true;
         int c=Integer.valueOf(bet.getText());
         if(user==1)
         Game.seBetCost(Game.player1.username,c);
@@ -50,7 +47,7 @@ public class selectChar implements Initializable {
         if(user==1)
         {
             Game.selectCharacterMultiplayer(Game.player1.username,1);
-            usernname.setText(Game.player2.username);
+            username.setText(Game.player2.username);
             user=2;
         }else if(user==2)
         {
@@ -67,7 +64,7 @@ public class selectChar implements Initializable {
             if(user==1)
             {
                 Game.selectCharacterMultiplayer(Game.player1.username,2);
-                usernname.setText(Game.player2.username);
+                username.setText(Game.player2.username);
                 user=2;
             }else if(user==2)
             {
@@ -83,7 +80,7 @@ public class selectChar implements Initializable {
             if(user==1)
             {
                 Game.selectCharacterMultiplayer(Game.player1.username,3);
-                usernname.setText(Game.player2.username);
+                username.setText(Game.player2.username);
                 user=2;
             }else if(user==2)
             {
@@ -99,7 +96,7 @@ public class selectChar implements Initializable {
             if(user==1)
             {
                 Game.selectCharacterMultiplayer(Game.player1.username,4);
-                usernname.setText(Game.player2.username);
+                username.setText(Game.player2.username);
                 user=2;
             }else if(user==2)
             {
