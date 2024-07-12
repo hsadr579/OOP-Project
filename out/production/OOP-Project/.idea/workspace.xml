@@ -1,25 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd330bef-946b-4ea0-931e-ceafbeac7e09" name="Changes" comment="Regex fixed">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/slf4j_api_2_0_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/OOP-Project/.idea/libraries/slf4j_api_2_0_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/OOP-Project/sqlite java/slf4j-api-2.0.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/OOP-Project/sqlite java/slf4j-simple-2.0.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/OOP-Project/sqlite java/sqlite-jdbc-3.45.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqlite java/slf4j-api-2.0.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqlite java/slf4j-simple-2.0.13.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sqlite java/sqlite-jdbc-3.45.3.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/BossBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/BossBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/Console.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/Console.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/MenuController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/MenuController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/OOP-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/Regex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/Regex.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/RegexManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/RegexManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/BossBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/BossBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Chracters.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Chracters.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Defeat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Defeat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/History.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/History.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/MainMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Menus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Menus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Mode.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Mode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Outputs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Outputs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Profile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Profile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Shop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Spells.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Spells.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Tower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Tower.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Utils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/OOP-Project/core/Win.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/OOP-Project/core/Win.class" afterDir="false" />
+=======
   <component name="ChangeListManager">
     <list default="true" id="39e77b3b-a9a9-4053-9ac7-b0c07adf3e07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/OOP-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/OOP-Project.iml" afterDir="false" />
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+=======
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+<<<<<<< HEAD
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2j3KBGLCHqZnNO2wHsPxsmFOMpa" />
+=======
   <component name="ProjectId" id="2j6EsKl6HKVy8EkFpev8Odd6Xam" />
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ASUS ROG/Downloads/sqlite java/sqlite-jdbc-3.45.3.0.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="core" />
+    </key>
+=======
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -43,10 +134,71 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
+      <changelist id="bd330bef-946b-4ea0-931e-ceafbeac7e09" name="Changes" comment="" />
+      <created>1720610183256</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720610183256</updated>
+      <workItem from="1720610184595" duration="16954000" />
+      <workItem from="1720684092193" duration="4601000" />
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۱" summary="complete bard">
+      <option name="closed" value="true" />
+      <created>1720610887549</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۱" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۱" />
+      <updated>1720610887549</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۲" summary="add bot placing but has bug,fix showBoard">
+      <option name="closed" value="true" />
+      <created>1720621898517</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۲" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۲" />
+      <updated>1720621898517</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۳" summary="place bot is now functional">
+      <option name="closed" value="true" />
+      <created>1720623737033</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۳" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۳" />
+      <updated>1720623737033</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۴" summary="Single Added">
+      <option name="closed" value="true" />
+      <created>1720648812298</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۴" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۴" />
+      <updated>1720648812298</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۵" summary="Regex fixed">
+      <option name="closed" value="true" />
+      <created>1720698626501</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۵" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۵" />
+      <updated>1720698626501</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۶" summary="Regex fixed">
+      <option name="closed" value="true" />
+      <created>1720698675092</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۶" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۶" />
+      <updated>1720698675092</updated>
+    </task>
+    <task id="LOCAL‎−۰۰۰۰۷" summary="Regex fixed">
+      <option name="closed" value="true" />
+      <created>1720701234674</created>
+      <option name="number" value="LOCAL‎−۰۰۰۰۷" />
+      <option name="presentableId" value="LOCAL‎−۰۰۰۰۷" />
+      <updated>1720701234674</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+=======
       <changelist id="39e77b3b-a9a9-4053-9ac7-b0c07adf3e07" name="Changes" comment="" />
       <created>1720699332352</created>
       <option name="number" value="Default" />
@@ -54,9 +206,21 @@
       <updated>1720699332352</updated>
       <workItem from="1720699333810" duration="732000" />
     </task>
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+<<<<<<< HEAD
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="complete bard" />
+    <MESSAGE value="add bot placing but has bug,fix showBoard" />
+    <MESSAGE value="place bot is now functional" />
+    <MESSAGE value="Single Added" />
+    <MESSAGE value="Regex fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Regex fixed" />
+  </component>
+=======
+>>>>>>> 771dc433a23161f2a08863fb3eb470a85941c6c7
 </project>
