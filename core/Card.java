@@ -44,8 +44,7 @@ public class Card implements Cloneable {
                     + damage + " | type:" + type + " | Upgrade for" + cost_upg + " (Just for level+" + enough_level
                     + " players!)";
         } else
-            return "ID:" + id + " | " + name + "+" + level + " | dur:" + duration + " | def:" + defence + " | dmg:"
-                    + damage + " | type:" + type + " | " + explanation + " | Upgrade for" + cost_upg
+            return "ID:" + id + " | " + name + "+" + level + " | dur:" + duration+" | " + explanation + " | Upgrade for" + cost_upg
                     + " (Just for level+" + enough_level + " players!)";
     }
 
