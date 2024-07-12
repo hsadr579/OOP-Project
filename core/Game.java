@@ -50,10 +50,11 @@ public class Game {
             if (mode == Mode.MULTIPLAYER)
             {
                 Session.getInstance().setCurrentMenu(Menus.MULTI_PLAYER_MODE_CHARACTER);
-                Session.getInstance().setOutput(Outputs.SELECT_CHAR);}
+                }
             else
                 Session.getInstance().setCurrentMenu(Menus.BET_COST);
             Session.getInstance().setOutput(Outputs.SUCCESS_LOGIN);
+            Session.getInstance().setOutput(Outputs.SELECT_CHAR);
         } else {
             Session.getInstance().setOutput(Outputs.ERROR_WRONG_PASSWORD);
         }
