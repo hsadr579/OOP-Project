@@ -181,7 +181,7 @@ public class DB {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            return new User(rs.getString("username"), 
+            User b= new User(rs.getString("username"),
             rs.getString("password"), rs.getString("nickname"),
             rs.getString("email"), 
             rs.getString("security_question_id"), 
@@ -189,6 +189,8 @@ public class DB {
             getUserCardsIDs(id),
             rs.getInt("level"),
             rs.getInt("hp"), rs.getInt("xp"), rs.getInt("coins"));
+            b.id=id;
+            return b;
         } catch (SQLException e) {
             System.out.println("SAAAAAAALLAAAAMMMMMMMM");
             System.out.println(e.getMessage());
@@ -387,8 +389,8 @@ public class DB {
     }
 
     public static void createUser(String username, String password, int security_question_id, String security_question_answer, String email) {
-        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`, `level`) VALUES";
-        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '0', '100', '0', '0', '0', '0')";
+        String sql = "INSERT INTO `users` (`id`, `username`, `password`, `security_question_id`, `security_question_answer`, `email`, `nickname`,`hp`, `xp`, `coins`, `clan_id`, `last_failed_login`, `login_fail_number`, `level`) VALUES";
+        sql += "(NULL, '" + username + "', '" + password + "', '" + security_question_id + "', '" + security_question_answer + "', '" + email + "', '" + username + "', '100', '0', '100', '0', '0', '0', '0')";
         command(sql);
     }
 
